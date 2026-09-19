@@ -1,0 +1,188 @@
+{
+ "ran": "2026-09-19T22:04:26.234Z",
+ "checks": [
+  {
+   "name": "16 half adder: all four rows of the truth table, read from the cells",
+   "pass": true,
+   "detail": "[{\"a\":0,\"b\":0,\"sum\":0,\"carry\":0,\"settled_at_tick\":2},{\"a\":0,\"b\":1,\"sum\":1,\"carry\":0,\"settled_at_tick\":3},{\"a\":1,\"b\":0,\"sum\":1,\"carry\":0,\"settled_at_tick\":3},{\"a\":1,\"b\":1,\"sum\":0,\"carry\":1,\"settled_at_tick\":2}]"
+  },
+  {
+   "name": "16 the same answers with no cache (nothing kept between questions)",
+   "pass": true
+  },
+  {
+   "name": "16 it is made of one kind of gate cell only",
+   "pass": true,
+   "detail": "6 gate cells, 2 input cells"
+  },
+  {
+   "name": "16 planted fault (carry rewired) is CAUGHT by the same check",
+   "pass": true
+  },
+  {
+   "name": "17 four bit adder: 256 of 256 sums right, read from the cells",
+   "pass": true,
+   "detail": "wrong=0, slowest settles at tick 16"
+  },
+  {
+   "name": "18 carry lights exactly two ticks after the inputs, never sooner",
+   "pass": true,
+   "detail": "first lit at tick 12"
+  },
+  {
+   "name": "19 after reset the latch is dark",
+   "pass": true
+  },
+  {
+   "name": "19 it is lit by a three tick SET pulse",
+   "pass": true
+  },
+  {
+   "name": "19 it is STILL lit 26 ticks after the pulse ended: it remembers",
+   "pass": true
+  },
+  {
+   "name": "19 a later reset pulse (ticks 40 to 43) makes it dark again",
+   "pass": true
+  },
+  {
+   "name": "19 OBSERVED: never reset, it flickers lit, dark, lit, dark for ever (recorded, not hidden)",
+   "pass": true,
+   "detail": "10101010"
+  },
+  {
+   "name": "19 remembering costs TIME not storage: with no cache the work grows with the tick asked for",
+   "pass": true,
+   "detail": "25 then 49 questions"
+  },
+  {
+   "name": "place is a pure function of the key, the Kuiper law",
+   "pass": true
+  }
+ ],
+ "halfAdder": {
+  "cells": 8,
+  "gate_cells": 6,
+  "rows": [
+   {
+    "a": 0,
+    "b": 0,
+    "sum": 0,
+    "carry": 0,
+    "settled_at_tick": 2
+   },
+   {
+    "a": 0,
+    "b": 1,
+    "sum": 1,
+    "carry": 0,
+    "settled_at_tick": 3
+   },
+   {
+    "a": 1,
+    "b": 0,
+    "sum": 1,
+    "carry": 0,
+    "settled_at_tick": 3
+   },
+   {
+    "a": 1,
+    "b": 1,
+    "sum": 0,
+    "carry": 1,
+    "settled_at_tick": 2
+   }
+  ],
+  "slowest_settle_tick": 3
+ },
+ "adder4": {
+  "cells": 69,
+  "gate_cells": 60,
+  "sums_checked": 256,
+  "wrong": 0,
+  "slowest_settle_tick": 16,
+  "examples": [
+   {
+    "x": 6,
+    "y": 3,
+    "cells_say": 9,
+    "settled_at_tick": 9
+   },
+   {
+    "x": 7,
+    "y": 9,
+    "cells_say": 16,
+    "settled_at_tick": 15
+   },
+   {
+    "x": 15,
+    "y": 15,
+    "cells_say": 30,
+    "settled_at_tick": 5
+   }
+  ]
+ },
+ "pulse": {
+  "inputs_switch_at": 10,
+  "carry_first_lit_at": 12,
+  "trace": [
+   {
+    "t": 8,
+    "carry": 0
+   },
+   {
+    "t": 9,
+    "carry": 0
+   },
+   {
+    "t": 10,
+    "carry": 0
+   },
+   {
+    "t": 11,
+    "carry": 0
+   },
+   {
+    "t": 12,
+    "carry": 1
+   },
+   {
+    "t": 13,
+    "carry": 1
+   },
+   {
+    "t": 14,
+    "carry": 1
+   },
+   {
+    "t": 15,
+    "carry": 1
+   },
+   {
+    "t": 16,
+    "carry": 1
+   }
+  ]
+ },
+ "latch": {
+  "afterReset": 0,
+  "duringSet": 1,
+  "longAfterSet": 1,
+  "afterSecondReset": 0,
+  "never_reset": [
+   1,
+   0,
+   1,
+   0,
+   1,
+   0,
+   1,
+   0
+  ],
+  "cost": {
+   "questions_at_tick_12": 25,
+   "questions_at_tick_24": 49
+  }
+ },
+ "failed": 0
+}

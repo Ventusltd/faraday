@@ -311,6 +311,82 @@
      "screenshots supplied by the account holder, 13:40 to 13:58 London time"
     ]
    ]
+  },
+  {
+   "n": 16,
+   "date": "2026-09-19",
+   "title": "Eight dots add one and one",
+   "question": "Can the dots compute anything at all, or can they only be lit? The claim under test was made the same evening: every dot can be programmed like a transistor.",
+   "apparatus": "A cell is one dot with a permanent key and no other property. It is dark or lit. A program gives each cell one rule, and there are only two kinds: an input cell is lit when the visitor says so; a gate cell is lit UNLESS both of the two cells it answers to were lit one tick earlier. That second rule is the gate from which every other logic gate can be made. Nothing is stored per cell: the state of a cell at a tick is worked out backwards from that tick to tick nought, when every gate cell is dark.",
+   "did": "Wrote a half adder as a program of 8 cells (2 inputs, 6 gate cells, one kind of gate only). Ran all four input rows. The check reads the lit or dark state of the sum cell and the carry cell after they settle; it never looks at the wiring. Ran it again with the cache switched off, so nothing at all is kept between one question and the next. Then planted a fault (the carry cell rewired) and ran the same check.",
+   "observed": "Rows as read from the cells: 0 and 0 give sum 0 carry 0; 0 and 1 give sum 1 carry 0; 1 and 0 give sum 1 carry 0; 1 and 1 give sum 0 carry 1. Identical with the cache off. The slowest row settled at tick 3. The planted fault was caught.",
+   "shows": "A cell whose rule answers to the OUTPUT of other cells is a logic gate, and cells so wired compute. One and one make two, read off the dots. The word that was honest before this entry was 'programmable'. After it, for this apparatus, 'computes' is also honest. It is a statement about cells run by this rule. It is not a statement that any published page computes anything.",
+   "law": "L26",
+   "result": "CONFIRMED",
+   "keys": [
+    [
+     "the apparatus and the command",
+     "Ventusltd/faraday, apparatus/cells.mjs and apparatus/cells.test.mjs; run: node apparatus/cells.test.mjs; the numbers are in apparatus/cells.result.json"
+    ]
+   ]
+  },
+  {
+   "n": 17,
+   "date": "2026-09-19",
+   "title": "Sixty nine dots add any two numbers up to fifteen",
+   "question": "Does it scale by composition alone, with no new kind of cell?",
+   "apparatus": "The same two rules as entry 16. A four bit adder written as a program of 69 cells, 60 of them gate cells.",
+   "did": "Set the eight input cells to every pair of numbers from 0 to 15, which is 256 pairs. For each, waited for the five output cells to settle, read them as a binary number, and compared it with ordinary addition.",
+   "observed": "0 of 256 wrong. Examples as read from the cells: 6 + 3 = 9 (settled at tick 9); 7 + 9 = 16 (settled at tick 15); 15 + 15 = 30 (settled at tick 5). The slowest sum settled at tick 16: the carry has to travel from the lowest bit to the highest, one cell per tick.",
+   "shows": "Composition is enough. Nothing was added between entry 16 and this one except more cells obeying the same rule. Since every Boolean function can be built from this one gate, any finite calculation can in principle be laid out as a program of cells; what it costs is cells and ticks, and 38 billion cells is a large budget of the first.",
+   "law": "L26",
+   "result": "CONFIRMED",
+   "keys": [
+    [
+     "the apparatus and the command",
+     "Ventusltd/faraday, apparatus/cells.mjs and apparatus/cells.test.mjs; run: node apparatus/cells.test.mjs; the numbers are in apparatus/cells.result.json"
+    ]
+   ]
+  },
+  {
+   "n": 18,
+   "date": "2026-09-19",
+   "title": "The answer is never there before the pulse could have reached it",
+   "question": "Does a change travel through the cells at a finite speed, as the pulse on the screen does?",
+   "apparatus": "The half adder of entry 16. The carry cell is two gate cells away from the inputs.",
+   "did": "Switched both inputs on at tick 10 and read the carry cell at every tick from 8 to 16.",
+   "observed": "Carry first lit at tick 12: two ticks after the inputs, one tick per cell, never sooner.",
+   "shows": "Propagation delay is a property of the rule, not an effect added for show. What a cell shows at a tick is the past of the cells it answers to. This is L11 for the cells, and it is what gives the pulse a front.",
+   "law": "L11",
+   "result": "CONFIRMED",
+   "keys": [
+    [
+     "the apparatus and the command",
+     "Ventusltd/faraday, apparatus/cells.mjs and apparatus/cells.test.mjs; run: node apparatus/cells.test.mjs; the numbers are in apparatus/cells.result.json"
+    ]
+   ]
+  },
+  {
+   "n": 19,
+   "date": "2026-09-19",
+   "title": "Two dots remember, with nothing stored in either",
+   "question": "A working view earlier the same evening was: the day a latch is wanted, one bit must be kept per dot, and 'nothing stored per dot' must be dropped. Is that so?",
+   "apparatus": "Two gate cells, each answering to the other, and two input cells (set and reset, where OFF means 'do it'). Same two rules as entry 16. Still nothing stored per cell.",
+   "did": "Held reset for ticks 0 to 5. Gave a three tick set pulse at ticks 10 to 13. Left both inputs idle and read the output cell 26 ticks later. Gave a reset pulse at ticks 40 to 43 and read again. Separately: never reset it, and read it for eight ticks. Separately: counted how many questions the backwards working asks for tick 12 and for tick 24 with the cache off.",
+   "observed": "After reset: 0. During set: 1. Twenty six ticks after the set pulse ended: 1. After the second reset: 0. Never reset: 10101010, lit and dark in turn for ever. Questions asked: 25 for tick 12, 49 for tick 24.",
+   "shows": "The earlier view was wrong and is corrected here. The latch remembers, and neither cell stores anything: the memory is in the HISTORY OF THE INPUTS, which is part of the program, and the state at any tick is recomputed from it. What remembering costs is time, not storage: the work grows with the tick asked for. A real page would keep a frame to save that time; that is a cache and can be thrown away and rebuilt, which a stored bit cannot. Also recorded because it is true: a latch that is never reset does not settle, it flickers. A memory must be started in a known state, in cells as in silicon.",
+   "law": "L26",
+   "result": "CONFIRMED",
+   "keys": [
+    [
+     "the apparatus and the command",
+     "Ventusltd/faraday, apparatus/cells.mjs and apparatus/cells.test.mjs; run: node apparatus/cells.test.mjs; the numbers are in apparatus/cells.result.json"
+    ],
+    [
+     "the earlier view, now corrected",
+     "working notes of 19 Sept 2026, about 22:50 London: 'remembers only when a latch passes, and that day nothing stored per dot must be dropped'"
+    ]
+   ]
   }
  ]
 }

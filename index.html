@@ -51,7 +51,7 @@
   <li>Record NO EFFECT and REFUTED as readily as CONFIRMED. Faraday's null results are half the value of his notebooks.</li>
   <li>Name the law it tests, or say that it tests none yet.</li>
 </ol></div>
-<p class="audit">9 experiments &middot; 3 CONFIRMED, 1 NO EFFECT, 5 REFUTED. Numbers run continuously and are never reused. The build refuses an entry missing its question, apparatus, observation or result.</p>
+<p class="audit">15 experiments &middot; 6 CONFIRMED, 1 NO EFFECT, 8 REFUTED. Numbers run continuously and are never reused. The build refuses an entry missing its question, apparatus, observation or result.</p>
 <main>
 <details class="x"><summary><span class="num">1</span> &middot; <span class="ttl">The instrument printed COMPLETE over an empty frame</span></summary>
   <div class="body">
@@ -225,6 +225,122 @@
     <table class="keys">
       <tr><td class="k">the redaction</td><td>commit d672e69, Ventusltd/cosmic</td></tr>
       <tr><td class="k">still exposed</td><td>commits cc7a807, 188fb5b, e493bfe</td></tr>
+    </table>
+  </div>
+</details>
+<details class="x"><summary><span class="num">10</span> &middot; <span class="ttl">Every drop is the ocean, timed: a Merkle walk against brute force</span></summary>
+  <div class="body">
+    <p class="meta">2026-09-19 &middot; tests <b>L14</b> &middot; <span class="res res-CONFIRMED">CONFIRMED</span></p>
+    <span class="lab">The question</span>
+    <p class="q">Git stores each distinct directory once. If the lines under every distinct tree are counted once and reused, does every commit still come out to exactly the number the slow walk gave?</p>
+    <span class="lab">Apparatus</span>
+    <p class="t">tools/trees.py in Ventusltd/cosmic on a 24 core machine, against the per commit counts written that morning by tools/clusters.py, which ran git ls-tree -r on every commit and took 565.2 seconds. A commit sha is immutable, so the same commit must hold the same lines under both methods.</p>
+    <span class="lab">What was done</span>
+    <p class="t">Measured each of the estate's roughly 31,000 distinct trees once, summed children into parents, and compared lines and entries for every commit sha present in both results.</p>
+    <span class="lab">What was observed</span>
+    <div class="obs">"matched_exactly": 9869, "differed": 0, "brute_force_seconds": 565.2, "merkle_walk_seconds": 4.9, "merkle_arithmetic_seconds": 0.21, "only_in_brute_force": 0, "only_in_merkle": 0</div>
+    <span class="lab">What it shows</span>
+    <p class="t">A third, independent count of the estate agrees with the first two on every commit, and the method that uses the structure git already has is 115 times faster. The count is no longer one number trusted once: it is 9,869 separate agreements.</p>
+    <span class="lab">Keys</span>
+    <table class="keys">
+      <tr><td class="k">the run</td><td>E:/particles-runs/trees.err on the measuring machine; tools/trees.py in Ventusltd/cosmic</td></tr>
+    </table>
+  </div>
+</details>
+<details class="x"><summary><span class="num">11</span> &middot; <span class="ttl">Any key, chosen at random, followed to the actual line of text</span></summary>
+  <div class="body">
+    <p class="meta">2026-09-19 &middot; tests <b>L23</b> &middot; <span class="res res-CONFIRMED">CONFIRMED</span></p>
+    <span class="lab">The question</span>
+    <p class="q">The wafer claims one key for every line in every file in every commit. Can any key, chosen by anybody, be followed to the line it names?</p>
+    <span class="lab">Apparatus</span>
+    <p class="t">tools/key.py in Ventusltd/kuiper-belt, run unattended with --prove-until. It uses git alone: binary search to the commit, git ls-tree -r in git's own order to the file, git cat-file to the text. It stops dead at the first failure, and it checks the cached line count of the blob it lands in against git every time.</p>
+    <span class="lab">What was done</span>
+    <p class="t">Drew keys uniformly from all issued lines, about two a second, and logged every one.</p>
+    <span class="lab">What was observed</span>
+    <div class="obs">{"state": "RUNNING", "keys_proved": 558, "wafer_keys": 37929255811} at 12:58Z, and still running. For example key 45,108,233,899 resolved to globalgrid2050 / b1c4ec082c6d / data/generation/archive/2022/elexon_generation_sources_2022-09.csv line 37939, and printed the line.</div>
+    <span class="lab">What it shows</span>
+    <p class="t">The count and the map are the same object. If the counts were wrong anywhere, the walk inside a commit would not end where the index says the commit ends, and the tool would refuse. In 558 draws from 37.9 billion it did not.</p>
+    <span class="lab">Keys</span>
+    <table class="keys">
+      <tr><td class="k">the log</td><td>E:/particles-runs/prove-keys.log and PROVE-KEYS.json</td></tr>
+      <tr><td class="k">published</td><td>proof 1 on globalgrid2050.com, commit 99bb7965</td></tr>
+    </table>
+  </div>
+</details>
+<details class="x"><summary><span class="num">12</span> &middot; <span class="ttl">The first one-wafer drawing was true and dead</span></summary>
+  <div class="body">
+    <p class="meta">2026-09-19 &middot; tests <b>L22</b> &middot; <span class="res res-REFUTED">REFUTED</span></p>
+    <span class="lab">The question</span>
+    <p class="q">With every line placed by one law and repositories as rings, does the whole estate look like the CPU wafer it was modelled on?</p>
+    <span class="lab">Apparatus</span>
+    <p class="t">Ventusltd/kuiper-belt index.html, first version: keys issued repository by repository, a ring drawn wherever one repository or commit ended.</p>
+    <span class="lab">What was done</span>
+    <p class="t">Looked at it.</p>
+    <span class="lab">What was observed</span>
+    <div class="obs">A flat, featureless disc. 42.5 thousand keys per pixel, the account correct, and not one ring visible: one repository holds 94% of the keys and no commit is wide enough to show at full field, so the ring rule correctly drew nothing.</div>
+    <span class="lab">What it shows</span>
+    <p class="t">The real wafer's rings are numbers that were never issued. The estate has a measured source of exactly that, which is silence. Reissuing keys in the order time issued them, with unissued keys in proportion to the silence before each commit, produced the dark pupil and the rings at once, and every ring is a gap between commit timestamps rather than a decoration. The constant was first set so that silence was 57% of the wafer against a stated intention of a quarter; the constant was wrong, not the data, and was changed to 600 keys a second and frozen.</p>
+    <span class="lab">Keys</span>
+    <table class="keys">
+      <tr><td class="k">the second version</td><td>Ventusltd/kuiper-belt commit 0755869; tools/wafer_keys.py</td></tr>
+    </table>
+  </div>
+</details>
+<details class="x"><summary><span class="num">13</span> &middot; <span class="ttl">Two local models hunted the law book for unexplained symbols</span></summary>
+  <div class="body">
+    <p class="meta">2026-09-19 &middot; tests <b>L19</b> &middot; <span class="res res-REFUTED">REFUTED</span></p>
+    <span class="lab">The question</span>
+    <p class="q">The law book promises that every symbol is named. Is that true?</p>
+    <span class="lab">Apparatus</span>
+    <p class="t">deepseek-coder:6.7b and qwen2.5-coder:14b under Ollama on one RTX 5070 Ti, both loaded at once, each shown every law's equation and symbol list. A model's answer was treated as a candidate and then checked mechanically: a symbol counts only if it is in the equation and nowhere in the explanations.</p>
+    <span class="lab">What was done</span>
+    <p class="t">40 readings, 20 laws by 2 models.</p>
+    <span class="lab">What was observed</span>
+    <div class="obs">5 claims survived the mechanical check. 4 were noise: a multiplication sign, the word whole, the word child. 1 was real: pi, used in two laws and explained in neither.</div>
+    <span class="lab">What it shows</span>
+    <p class="t">The promise was false in one place, and the place is instructive: pi is exactly the kind of symbol a textbook treats as too obvious to mention. A small local model found it for nothing; the mechanical check is what made its answer usable, since four fifths of what survived was still wrong.</p>
+    <span class="lab">Keys</span>
+    <table class="keys">
+      <tr><td class="k">the audit</td><td>E:/particles-runs/LAW-AUDIT-LATEST.md</td></tr>
+      <tr><td class="k">the fix</td><td>Ventusltd/law commit 675717e</td></tr>
+    </table>
+  </div>
+</details>
+<details class="x"><summary><span class="num">14</span> &middot; <span class="ttl">A command that killed itself</span></summary>
+  <div class="body">
+    <p class="meta">2026-09-19 &middot; tests <b>none yet</b> &middot; <span class="res res-REFUTED">REFUTED</span></p>
+    <span class="lab">The question</span>
+    <p class="q">Will stopping every process whose command line contains key.py stop the old proof loop?</p>
+    <span class="lab">Apparatus</span>
+    <p class="t">A PowerShell filter on Win32_Process CommandLine, run from a shell whose own command line contained the text key.py.</p>
+    <span class="lab">What was done</span>
+    <p class="t">Ran it.</p>
+    <span class="lab">What was observed</span>
+    <div class="obs">Exit code 255 and no output. The filter matched the shell that was running it, and everything queued after it died with it.</div>
+    <span class="lab">What it shows</span>
+    <p class="t">A pattern that selects by description selects the describer. The same mistake is available to any rule written in the language of the thing it governs. The old loop did stop, which is the least interesting fact about it.</p>
+    <span class="lab">Keys</span>
+    <table class="keys">
+      <tr><td class="k">the transcript</td><td>session of 2026-09-19</td></tr>
+    </table>
+  </div>
+</details>
+<details class="x"><summary><span class="num">15</span> &middot; <span class="ttl">The binding constraint was money, and it was measurable</span></summary>
+  <div class="body">
+    <p class="meta">2026-09-19 &middot; tests <b>L18</b> &middot; <span class="res res-CONFIRMED">CONFIRMED</span></p>
+    <span class="lab">The question</span>
+    <p class="q">What actually limits this work this afternoon?</p>
+    <span class="lab">Apparatus</span>
+    <p class="t">Five readings of a prepaid balance between 13:40 and 13:57 London time, with two subordinate agents running for the first three minutes and stopped thereafter.</p>
+    <span class="lab">What was done</span>
+    <p class="t">Divided money spent by minutes elapsed, then by steps taken.</p>
+    <span class="lab">What was observed</span>
+    <div class="obs">1.04 pounds a minute with two agents running; 0.40 pounds a minute after they were stopped; about 0.45 pounds a step, because each step rereads the whole conversation, and nothing at all while idle. The machine under the desk, its GPU and its two local models cost nothing.</div>
+    <span class="lab">What it shows</span>
+    <p class="t">L18 held on the day it was written: the physics was not what limited the work. The constraint was the cost of rereading context, so the cure was fewer and larger steps, work moved to the local machine, and stones to carry context instead of the transcript.</p>
+    <span class="lab">Keys</span>
+    <table class="keys">
+      <tr><td class="k">the readings</td><td>screenshots supplied by the account holder, 13:40 to 13:58 London time</td></tr>
     </table>
   </div>
 </details>

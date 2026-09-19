@@ -20,3 +20,11 @@ The laws these experiments test are at [Ventusltd/law](https://github.com/Ventus
 engine most of them were run on is [Ventusltd/cosmic](https://github.com/Ventusltd/cosmic).
 
 Code under Apache-2.0. Documentation under CC BY 4.0. No warranty is given.
+
+<!-- DRIFT:START -->
+### Host entanglement, 2026-09-19T12:50:01.970Z
+
+**NOT EVALUATED.** no observation from gitlab
+
+Run `20260919T125001Z`, digest `3977af18c9db560eda0a3208a51f3e3fd2d725613ff8798455e0db66f5540d72`. LAWS.md L10.
+<!-- DRIFT:END -->

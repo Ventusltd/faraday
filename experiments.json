@@ -1,0 +1,165 @@
+{
+  "_": "THE EXPERIMENT LOG. Faraday numbered every paragraph of Experimental Researches in Electricity continuously, 1 to 3430, across thirty years and thirty series, so that any later paragraph could cite any earlier one by its number alone. He dated them, wrote them in plain first person without mathematics, and recorded the failures. This is that instrument. Numbers are never reused and never renumbered.",
+
+  "title": "Faraday",
+  "lede": "A numbered, dated log of what was actually done and what was actually observed. Failures are recorded, because an experiment that showed nothing is a result. Numbers run continuously and are never reused.",
+
+  "method": [
+    "Number continuously. An experiment keeps its number forever, so anything can cite anything by number alone.",
+    "Date it. A measurement without a time is not a measurement.",
+    "Say what was asked before saying what was found.",
+    "Record the apparatus: the command, the machine, the version. Someone must be able to repeat it.",
+    "Quote what was observed, verbatim where possible, before interpreting it.",
+    "Record NO EFFECT and REFUTED as readily as CONFIRMED. Faraday's null results are half the value of his notebooks.",
+    "Name the law it tests, or say that it tests none yet."
+  ],
+
+  "results": {
+    "CONFIRMED": "the thing held up under the test",
+    "REFUTED": "the thing was shown to be false, and something changed as a result",
+    "NO EFFECT": "the test ran and found nothing. Recorded anyway, because it rules something out",
+    "INCONCLUSIVE": "the test ran and did not settle the question"
+  },
+
+  "experiments": [
+    {
+      "n": 1,
+      "date": "2026-09-19",
+      "title": "The instrument printed COMPLETE over an empty frame",
+      "question": "The page said it had drawn 37,796,045,093 particles. Had it?",
+      "apparatus": "Ventusltd/cosmic index.html at commit 28cfd61, Chrome, WebGL2, local server on 127.0.0.1:8802. Checked by reading gl.isContextLost() from the page.",
+      "did": "Opened the page with my own eyes rather than trusting the readout, saw a black canvas under a confident heading, then queried the context directly and read back four pixels from the centre of the canvas.",
+      "observed": "{\"lost\":true, hud:\"showing 37,796,045,093 of 37,796,045,093 lines &middot; COMPLETE in 34.0 s\"} and the centre pixels all zero. The canvas was black and the instrument said it had finished.",
+      "shows": "A lost WebGL context makes every subsequent draw call a silent no-op. An exposure with no guard therefore races to 100% at enormous apparent speed and reports a complete count of a picture that was never drawn. This is the worst class of error available to an instrument, because the output is plausible and the failure is silent.",
+      "law": "L19",
+      "result": "REFUTED",
+      "keys": [
+        ["the page's own claim", "commit 28cfd61, Ventusltd/cosmic"],
+        ["the fix", "webglcontextlost is caught, stated on screen, and stops the exposure; commit cc7a807"]
+      ]
+    },
+    {
+      "n": 2,
+      "date": "2026-09-19",
+      "title": "The timer measured how fast commands were queued, not how much was drawn",
+      "question": "After the context loss was fixed, the page reported a full exposure of 37.8 billion points in 0.8 seconds. Is that possible?",
+      "apparatus": "Same page and machine. Arithmetic, then a GPU fence.",
+      "did": "Divided the claimed population by the claimed time.",
+      "observed": "37,796,045,093 in 0.8 s is 47 billion points per second. Repeating the run gave 9.7 s, then 34.0 s, for the same work, which is not how a fixed amount of drawing behaves.",
+      "shows": "gl.drawArrays returns the moment the command is queued. The GPU may be minutes behind. Timing the submission and calling it COMPLETE reports a picture that has not been drawn. A fence is the receipt: the exposure may only advance when the GPU says the previous batch is retired. After the fence was added the same run reported 2.6% in 8 seconds, which is a real rate.",
+      "law": "L19",
+      "result": "REFUTED",
+      "keys": [
+        ["the fix", "gl.fenceSync and clientWaitSync pace the exposure; commit cc7a807"]
+      ]
+    },
+    {
+      "n": 3,
+      "date": "2026-09-19",
+      "title": "More silicon was printed than the wafer contains",
+      "question": "tools/wafer.py computed the printed area of a 300 mm wafer. Does the answer make physical sense?",
+      "apparatus": "tools/wafer.py, first run. Inputs: 300 mm diameter, 3 mm edge exclusion, 26 by 33 mm reticle field, 0.08 mm scribe.",
+      "did": "Read the output before publishing it, and compared two numbers in the same JSON object.",
+      "observed": "printed_um2 83,226,000,000 against wafer_area_um2 70,685,834,706. The printed silicon exceeded the wafer by 18%.",
+      "shows": "Each partial field at the rim had been counted as a whole die, although most of that rectangle hangs off the substrate. The reticle is exposed in full; the silicon is not there. Replacing it with the actual rectangle and circle intersection, on a deterministic sub grid, gave 67,518,045,832, which is inside the usable area of 67,886,675,651. The cartridge now carries that inequality as a check, so the same error cannot be published again.",
+      "law": "L13",
+      "result": "REFUTED",
+      "keys": [
+        ["the impossible figure", "tools/wafer.py first run, Ventusltd/cosmic"],
+        ["the check", "derived.checks.printed_le_usable in wafer.json; commit e493bfe"]
+      ]
+    },
+    {
+      "n": 4,
+      "date": "2026-09-19",
+      "title": "A law written in the morning was broken the same day",
+      "question": "L12 was written to say that 37.9 billion things cannot all be shown, because at full field they are 38,000 to a pixel. Is that true?",
+      "apparatus": "Ventusltd/cosmic scan mode, 1120 by 1064 window, Chrome, WebGL2.",
+      "did": "Refused to accept the refusal, and asked what a display's capacity actually is. Then built a mode that draws the population in order, a screenful at a time, at confusion spacing, and let it run.",
+      "observed": "SCAN, shown 27,720,288 of 37,929,011,953, 40,248 per frame at 5.5 px spacing, nothing shares a pixel, 5.11 million per second, 2.1 hours remaining.",
+      "shows": "The confusion limit binds one FRAME. A display's capacity is its resolution elements multiplied by its frames, so showing everything was never impossible, only slow. On a 3840 by 2160 panel the same run is 18 to 38 minutes depending on refresh. The law was amended rather than defended.",
+      "law": "L12",
+      "result": "REFUTED",
+      "keys": [
+        ["the law as first written", "Ventusltd/law, commit fbf1285"],
+        ["the amendment", "Ventusltd/law, commit f8e7b6e"]
+      ]
+    },
+    {
+      "n": 5,
+      "date": "2026-09-19",
+      "title": "How fast this machine can actually draw",
+      "question": "A good game runs on a cheap phone. Was the hardware ever the limit here?",
+      "apparatus": "Ventusltd/cosmic, x-ray mode, collapsed into one repository so most of the population falls outside the viewport.",
+      "did": "Read the exposure counter and the elapsed time off the instrument at depth, and separately at full field where every point is rasterised.",
+      "observed": "17.43 billion of 35.56 billion drawn in 2.8 seconds with most points culled in the vertex stage, about 6.2 billion per second. Fully rasterised on screen, about 125 million per second.",
+      "shows": "The hardware was never the constraint and is three orders of magnitude clear of it. The 5.11 million per second of experiment 4 is a rule I imposed, 30 pixel spacing for legibility, not a property of the machine. Quoting one's own throttle back as a physical limit is an error worth naming.",
+      "law": "L18",
+      "result": "CONFIRMED",
+      "keys": [
+        ["the measurement", "read from the instrument's own HUD, which is fence paced and therefore reports retired work"]
+      ]
+    },
+    {
+      "n": 6,
+      "date": "2026-09-19",
+      "title": "Two independent walks of the estate agreed to the digit",
+      "question": "Does the estate's line count reproduce when measured twice by different code?",
+      "apparatus": "tools/belt_split.py finishing 11:13:06+01:00 and tools/clusters.py finishing 11:24:27+01:00, both walking every path in every commit's tree across every repository.",
+      "did": "Ran both and compared the totals without adjusting either.",
+      "observed": "37,929,011,953 lines and 15,065,506 entries from both, independently.",
+      "shows": "The walk is deterministic and the number is reproducible. This is the only reason the figure is quoted as measured rather than as a candidate.",
+      "law": "L14",
+      "result": "CONFIRMED",
+      "keys": [
+        ["both runs", "belt-meta.json in Ventusltd/cosmic"]
+      ]
+    },
+    {
+      "n": 7,
+      "date": "2026-09-19",
+      "title": "The estate grew while it was being measured",
+      "question": "Is the count stable between measurements taken 36 minutes apart?",
+      "apparatus": "tools/clusters.py at 11:24:27+01:00 and tools/web.py at 12:00:07+01:00.",
+      "did": "Compared the repository counts from the two runs.",
+      "observed": "67 repositories at 11:24 and 68 at 12:00. The difference was caused by cloning a new repository into the working directory, which is to say by the act of doing this work.",
+      "shows": "A measured system includes the act of measuring it. The honest response is to timestamp every total rather than to round it or to pick one. A total without a time is not a total.",
+      "law": "L13",
+      "result": "CONFIRMED",
+      "keys": [
+        ["both runs", "belt-meta.json and web-meta.json"]
+      ]
+    },
+    {
+      "n": 8,
+      "date": "2026-09-19",
+      "title": "The routing table was incomplete, so it was not used",
+      "question": "estate-index.tsv lists blob identity, line count, repository, commit and path. Can the belt be built from it?",
+      "apparatus": "estate-index.tsv in Ventusltd/cosmic, compared against the distinct blob count at HEAD from the earlier runner pass.",
+      "did": "Counted its distinct rows before building anything on it.",
+      "observed": "17,599 distinct blobs in the file against 19,304 distinct blobs at HEAD. It covers 91% of them, and the per repository totals it gives are 25,323,372 lines against a measured 25,335,587.",
+      "shows": "It is a partial index and would have under-split the belt by a visible margin. It was not used, and the belt was built from a fresh complete walk instead. Recorded because deciding not to use something is a result, and because the file is still published and someone else may reach for it.",
+      "law": "L14",
+      "result": "NO EFFECT",
+      "keys": [
+        ["the file", "estate-index.tsv, Ventusltd/cosmic"]
+      ]
+    },
+    {
+      "n": 9,
+      "date": "2026-09-19",
+      "title": "A public file named private repositories",
+      "question": "belt.tsv was published to a public repository. Were all 67 of the names in it mine to publish?",
+      "apparatus": "gh repo list Ventusltd --limit 200 --json name,visibility, compared against the names in belt.tsv.",
+      "did": "Asked the question after publishing rather than before, which is the error.",
+      "observed": "Four repositories named in the public file are PRIVATE, and two are not under the organisation at all. The commit shard headers carried the same names.",
+      "shows": "A name is disclosure even when a count is not. The six were replaced with our own word and a number, the totals were untouched and still sum to 37,929,011,953, and the tool now asks GitHub which repositories are public before writing, refusing to assume. The names remain in the published history of three commits, which cannot be removed without a force rewrite of a public repository.",
+      "law": "grid L6",
+      "result": "REFUTED",
+      "keys": [
+        ["the redaction", "commit d672e69, Ventusltd/cosmic"],
+        ["still exposed", "commits cc7a807, 188fb5b, e493bfe"]
+      ]
+    }
+  ]
+}

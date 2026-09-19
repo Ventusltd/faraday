@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="data:,">
+<title>Faraday</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { color-scheme: dark; }
+  html { background:#000; }
+  body { background:#000; color:#fff; font-family:Courier,monospace; padding:40px; max-width:980px; margin:0 auto; font-size:20px; line-height:1.6; }
+  h1 { margin:0 0 6px; }
+  a { color:#66ccff; text-decoration:none; } a:hover { text-decoration:underline; }
+  header p { color:#aaa; font-size:16px; margin:0 0 10px; }
+  .rule { color:#aaa; font-size:15px; border-top:1px solid #333; border-bottom:1px solid #333; padding:14px 0; margin:22px 0 10px; }
+  .rule b { color:#00ffff; } .rule ol { margin:8px 0 0; padding-left:26px; } .rule li { margin:3px 0; }
+  .audit { color:#7a7a7a; font-size:14px; margin:0 0 26px; }
+  details.x { border-bottom:1px solid #222; }
+  details.x > summary { list-style:none; cursor:pointer; padding:13px 0; font-size:19px; font-weight:bold; }
+  details.x > summary::-webkit-details-marker { display:none; }
+  details.x > summary::before { content:"[+] "; color:#00ffff; }
+  details.x[open] > summary::before { content:"[-] "; color:#00ffff; }
+  .num { color:#00ffff; } .ttl { color:#66ccff; } details.x > summary:hover .ttl { color:#9fdcff; }
+  .body { margin:0 0 22px 10px; border-left:1px solid #1c1c1c; padding-left:18px; }
+  .lab { display:block; color:#00ffff; font-size:12px; letter-spacing:.09em; text-transform:uppercase; margin:15px 0 5px; }
+  p.t { color:#cfcfcf; font-size:15px; margin:4px 0; }
+  p.q { color:#fff; font-size:17px; margin:6px 0; }
+  .obs { background:#0b0b0b; border-left:2px solid #00ffff; padding:11px 13px; margin:6px 0; color:#e8e6e1; font-size:15px; overflow-x:auto; }
+  .meta { color:#7a7a7a; font-size:13px; margin:6px 0 0; }
+  table.keys { width:100%; border-collapse:collapse; font-size:13px; margin:6px 0 0; }
+  table.keys td { padding:5px 8px 5px 0; border-bottom:1px solid #161616; vertical-align:top; color:#9aa3af; }
+  table.keys td.k { color:#e8e6e1; width:34%; }
+  .res { font-weight:bold; font-size:11px; letter-spacing:.07em; padding:2px 6px; border:1px solid; white-space:nowrap; }
+  .res-CONFIRMED { color:#53ff4c; border-color:#2a5f27; }
+  .res-REFUTED { color:#ffbe45; border-color:#6b5220; }
+  .res-NOEFFECT { color:#8b919c; border-color:#33383f; }
+  .res-INCONCLUSIVE { color:#8b919c; border-color:#33383f; }
+  .footer { margin-top:50px; font-size:14px; color:#aaa; line-height:1.5; border-top:1px solid #333; padding-top:18px; }
+  .footer a { color:#5a5a5a; }
+  @media(max-width:600px){ body{padding:22px;font-size:18px} details.x>summary{font-size:17px} }
+</style>
+</head>
+<body>
+<header><h1>Faraday</h1><p>A numbered, dated log of what was actually done and what was actually observed. Failures are recorded, because an experiment that showed nothing is a result. Numbers run continuously and are never reused.</p></header>
+<div class="rule"><b>The method.</b><ol>
+  <li>Number continuously. An experiment keeps its number forever, so anything can cite anything by number alone.</li>
+  <li>Date it. A measurement without a time is not a measurement.</li>
+  <li>Say what was asked before saying what was found.</li>
+  <li>Record the apparatus: the command, the machine, the version. Someone must be able to repeat it.</li>
+  <li>Quote what was observed, verbatim where possible, before interpreting it.</li>
+  <li>Record NO EFFECT and REFUTED as readily as CONFIRMED. Faraday's null results are half the value of his notebooks.</li>
+  <li>Name the law it tests, or say that it tests none yet.</li>
+</ol></div>
+<p class="audit">9 experiments &middot; 3 CONFIRMED, 1 NO EFFECT, 5 REFUTED. Numbers run continuously and are never reused. The build refuses an entry missing its question, apparatus, observation or result.</p>
+<main>
+<details class="x"><summary><span class="num">1</span> &middot; <span class="ttl">The instrument printed COMPLETE over an empty frame</span></summary>
+  <div class="body">
+    <p class="meta">2026-09-19 &middot; tests <b>L19</b> &middot; <span class="res res-REFUTED">REFUTED</span></p>
+    <span class="lab">The question</span>
+    <p class="q">The page said it had drawn 37,796,045,093 particles. Had it?</p>
+    <span class="lab">Apparatus</span>
+    <p class="t">Ventusltd/cosmic index.html at commit 28cfd61, Chrome, WebGL2, local server on 127.0.0.1:8802. Checked by reading gl.isContextLost() from the page.</p>
+    <span class="lab">What was done</span>
+    <p class="t">Opened the page with my own eyes rather than trusting the readout, saw a black canvas under a confident heading, then queried the context directly and read back four pixels from the centre of the canvas.</p>
+    <span class="lab">What was observed</span>
+    <div class="obs">{"lost":true, hud:"showing 37,796,045,093 of 37,796,045,093 lines &middot; COMPLETE in 34.0 s"} and the centre pixels all zero. The canvas was black and the instrument said it had finished.</div>
+    <span class="lab">What it shows</span>
+    <p class="t">A lost WebGL context makes every subsequent draw call a silent no-op. An exposure with no guard therefore races to 100% at enormous apparent speed and reports a complete count of a picture that was never drawn. This is the worst class of error available to an instrument, because the output is plausible and the failure is silent.</p>
+    <span class="lab">Keys</span>
+    <table class="keys">
+      <tr><td class="k">the page's own claim</td><td>commit 28cfd61, Ventusltd/cosmic</td></tr>
+      <tr><td class="k">the fix</td><td>webglcontextlost is caught, stated on screen, and stops the exposure; commit cc7a807</td></tr>
+    </table>
+  </div>
+</details>
+<details class="x"><summary><span class="num">2</span> &middot; <span class="ttl">The timer measured how fast commands were queued, not how much was drawn</span></summary>
+  <div class="body">
+    <p class="meta">2026-09-19 &middot; tests <b>L19</b> &middot; <span class="res res-REFUTED">REFUTED</span></p>
+    <span class="lab">The question</span>
+    <p class="q">After the context loss was fixed, the page reported a full exposure of 37.8 billion points in 0.8 seconds. Is that possible?</p>
+    <span class="lab">Apparatus</span>
+    <p class="t">Same page and machine. Arithmetic, then a GPU fence.</p>
+    <span class="lab">What was done</span>
+    <p class="t">Divided the claimed population by the claimed time.</p>
+    <span class="lab">What was observed</span>
+    <div class="obs">37,796,045,093 in 0.8 s is 47 billion points per second. Repeating the run gave 9.7 s, then 34.0 s, for the same work, which is not how a fixed amount of drawing behaves.</div>
+    <span class="lab">What it shows</span>
+    <p class="t">gl.drawArrays returns the moment the command is queued. The GPU may be minutes behind. Timing the submission and calling it COMPLETE reports a picture that has not been drawn. A fence is the receipt: the exposure may only advance when the GPU says the previous batch is retired. After the fence was added the same run reported 2.6% in 8 seconds, which is a real rate.</p>
+    <span class="lab">Keys</span>
+    <table class="keys">
+      <tr><td class="k">the fix</td><td>gl.fenceSync and clientWaitSync pace the exposure; commit cc7a807</td></tr>
+    </table>
+  </div>
+</details>
+<details class="x"><summary><span class="num">3</span> &middot; <span class="ttl">More silicon was printed than the wafer contains</span></summary>
+  <div class="body">
+    <p class="meta">2026-09-19 &middot; tests <b>L13</b> &middot; <span class="res res-REFUTED">REFUTED</span></p>
+    <span class="lab">The question</span>
+    <p class="q">tools/wafer.py computed the printed area of a 300 mm wafer. Does the answer make physical sense?</p>
+    <span class="lab">Apparatus</span>
+    <p class="t">tools/wafer.py, first run. Inputs: 300 mm diameter, 3 mm edge exclusion, 26 by 33 mm reticle field, 0.08 mm scribe.</p>
+    <span class="lab">What was done</span>
+    <p class="t">Read the output before publishing it, and compared two numbers in the same JSON object.</p>
+    <span class="lab">What was observed</span>
+    <div class="obs">printed_um2 83,226,000,000 against wafer_area_um2 70,685,834,706. The printed silicon exceeded the wafer by 18%.</div>
+    <span class="lab">What it shows</span>
+    <p class="t">Each partial field at the rim had been counted as a whole die, although most of that rectangle hangs off the substrate. The reticle is exposed in full; the silicon is not there. Replacing it with the actual rectangle and circle intersection, on a deterministic sub grid, gave 67,518,045,832, which is inside the usable area of 67,886,675,651. The cartridge now carries that inequality as a check, so the same error cannot be published again.</p>
+    <span class="lab">Keys</span>
+    <table class="keys">
+      <tr><td class="k">the impossible figure</td><td>tools/wafer.py first run, Ventusltd/cosmic</td></tr>
+      <tr><td class="k">the check</td><td>derived.checks.printed_le_usable in wafer.json; commit e493bfe</td></tr>
+    </table>
+  </div>
+</details>
+<details class="x"><summary><span class="num">4</span> &middot; <span class="ttl">A law written in the morning was broken the same day</span></summary>
+  <div class="body">
+    <p class="meta">2026-09-19 &middot; tests <b>L12</b> &middot; <span class="res res-REFUTED">REFUTED</span></p>
+    <span class="lab">The question</span>
+    <p class="q">L12 was written to say that 37.9 billion things cannot all be shown, because at full field they are 38,000 to a pixel. Is that true?</p>
+    <span class="lab">Apparatus</span>
+    <p class="t">Ventusltd/cosmic scan mode, 1120 by 1064 window, Chrome, WebGL2.</p>
+    <span class="lab">What was done</span>
+    <p class="t">Refused to accept the refusal, and asked what a display's capacity actually is. Then built a mode that draws the population in order, a screenful at a time, at confusion spacing, and let it run.</p>
+    <span class="lab">What was observed</span>
+    <div class="obs">SCAN, shown 27,720,288 of 37,929,011,953, 40,248 per frame at 5.5 px spacing, nothing shares a pixel, 5.11 million per second, 2.1 hours remaining.</div>
+    <span class="lab">What it shows</span>
+    <p class="t">The confusion limit binds one FRAME. A display's capacity is its resolution elements multiplied by its frames, so showing everything was never impossible, only slow. On a 3840 by 2160 panel the same run is 18 to 38 minutes depending on refresh. The law was amended rather than defended.</p>
+    <span class="lab">Keys</span>
+    <table class="keys">
+      <tr><td class="k">the law as first written</td><td>Ventusltd/law, commit fbf1285</td></tr>
+      <tr><td class="k">the amendment</td><td>Ventusltd/law, commit f8e7b6e</td></tr>
+    </table>
+  </div>
+</details>
+<details class="x"><summary><span class="num">5</span> &middot; <span class="ttl">How fast this machine can actually draw</span></summary>
+  <div class="body">
+    <p class="meta">2026-09-19 &middot; tests <b>L18</b> &middot; <span class="res res-CONFIRMED">CONFIRMED</span></p>
+    <span class="lab">The question</span>
+    <p class="q">A good game runs on a cheap phone. Was the hardware ever the limit here?</p>
+    <span class="lab">Apparatus</span>
+    <p class="t">Ventusltd/cosmic, x-ray mode, collapsed into one repository so most of the population falls outside the viewport.</p>
+    <span class="lab">What was done</span>
+    <p class="t">Read the exposure counter and the elapsed time off the instrument at depth, and separately at full field where every point is rasterised.</p>
+    <span class="lab">What was observed</span>
+    <div class="obs">17.43 billion of 35.56 billion drawn in 2.8 seconds with most points culled in the vertex stage, about 6.2 billion per second. Fully rasterised on screen, about 125 million per second.</div>
+    <span class="lab">What it shows</span>
+    <p class="t">The hardware was never the constraint and is three orders of magnitude clear of it. The 5.11 million per second of experiment 4 is a rule I imposed, 30 pixel spacing for legibility, not a property of the machine. Quoting one's own throttle back as a physical limit is an error worth naming.</p>
+    <span class="lab">Keys</span>
+    <table class="keys">
+      <tr><td class="k">the measurement</td><td>read from the instrument's own HUD, which is fence paced and therefore reports retired work</td></tr>
+    </table>
+  </div>
+</details>
+<details class="x"><summary><span class="num">6</span> &middot; <span class="ttl">Two independent walks of the estate agreed to the digit</span></summary>
+  <div class="body">
+    <p class="meta">2026-09-19 &middot; tests <b>L14</b> &middot; <span class="res res-CONFIRMED">CONFIRMED</span></p>
+    <span class="lab">The question</span>
+    <p class="q">Does the estate's line count reproduce when measured twice by different code?</p>
+    <span class="lab">Apparatus</span>
+    <p class="t">tools/belt_split.py finishing 11:13:06+01:00 and tools/clusters.py finishing 11:24:27+01:00, both walking every path in every commit's tree across every repository.</p>
+    <span class="lab">What was done</span>
+    <p class="t">Ran both and compared the totals without adjusting either.</p>
+    <span class="lab">What was observed</span>
+    <div class="obs">37,929,011,953 lines and 15,065,506 entries from both, independently.</div>
+    <span class="lab">What it shows</span>
+    <p class="t">The walk is deterministic and the number is reproducible. This is the only reason the figure is quoted as measured rather than as a candidate.</p>
+    <span class="lab">Keys</span>
+    <table class="keys">
+      <tr><td class="k">both runs</td><td>belt-meta.json in Ventusltd/cosmic</td></tr>
+    </table>
+  </div>
+</details>
+<details class="x"><summary><span class="num">7</span> &middot; <span class="ttl">The estate grew while it was being measured</span></summary>
+  <div class="body">
+    <p class="meta">2026-09-19 &middot; tests <b>L13</b> &middot; <span class="res res-CONFIRMED">CONFIRMED</span></p>
+    <span class="lab">The question</span>
+    <p class="q">Is the count stable between measurements taken 36 minutes apart?</p>
+    <span class="lab">Apparatus</span>
+    <p class="t">tools/clusters.py at 11:24:27+01:00 and tools/web.py at 12:00:07+01:00.</p>
+    <span class="lab">What was done</span>
+    <p class="t">Compared the repository counts from the two runs.</p>
+    <span class="lab">What was observed</span>
+    <div class="obs">67 repositories at 11:24 and 68 at 12:00. The difference was caused by cloning a new repository into the working directory, which is to say by the act of doing this work.</div>
+    <span class="lab">What it shows</span>
+    <p class="t">A measured system includes the act of measuring it. The honest response is to timestamp every total rather than to round it or to pick one. A total without a time is not a total.</p>
+    <span class="lab">Keys</span>
+    <table class="keys">
+      <tr><td class="k">both runs</td><td>belt-meta.json and web-meta.json</td></tr>
+    </table>
+  </div>
+</details>
+<details class="x"><summary><span class="num">8</span> &middot; <span class="ttl">The routing table was incomplete, so it was not used</span></summary>
+  <div class="body">
+    <p class="meta">2026-09-19 &middot; tests <b>L14</b> &middot; <span class="res res-NOEFFECT">NO EFFECT</span></p>
+    <span class="lab">The question</span>
+    <p class="q">estate-index.tsv lists blob identity, line count, repository, commit and path. Can the belt be built from it?</p>
+    <span class="lab">Apparatus</span>
+    <p class="t">estate-index.tsv in Ventusltd/cosmic, compared against the distinct blob count at HEAD from the earlier runner pass.</p>
+    <span class="lab">What was done</span>
+    <p class="t">Counted its distinct rows before building anything on it.</p>
+    <span class="lab">What was observed</span>
+    <div class="obs">17,599 distinct blobs in the file against 19,304 distinct blobs at HEAD. It covers 91% of them, and the per repository totals it gives are 25,323,372 lines against a measured 25,335,587.</div>
+    <span class="lab">What it shows</span>
+    <p class="t">It is a partial index and would have under-split the belt by a visible margin. It was not used, and the belt was built from a fresh complete walk instead. Recorded because deciding not to use something is a result, and because the file is still published and someone else may reach for it.</p>
+    <span class="lab">Keys</span>
+    <table class="keys">
+      <tr><td class="k">the file</td><td>estate-index.tsv, Ventusltd/cosmic</td></tr>
+    </table>
+  </div>
+</details>
+<details class="x"><summary><span class="num">9</span> &middot; <span class="ttl">A public file named private repositories</span></summary>
+  <div class="body">
+    <p class="meta">2026-09-19 &middot; tests <b>grid L6</b> &middot; <span class="res res-REFUTED">REFUTED</span></p>
+    <span class="lab">The question</span>
+    <p class="q">belt.tsv was published to a public repository. Were all 67 of the names in it mine to publish?</p>
+    <span class="lab">Apparatus</span>
+    <p class="t">gh repo list Ventusltd --limit 200 --json name,visibility, compared against the names in belt.tsv.</p>
+    <span class="lab">What was done</span>
+    <p class="t">Asked the question after publishing rather than before, which is the error.</p>
+    <span class="lab">What was observed</span>
+    <div class="obs">Four repositories named in the public file are PRIVATE, and two are not under the organisation at all. The commit shard headers carried the same names.</div>
+    <span class="lab">What it shows</span>
+    <p class="t">A name is disclosure even when a count is not. The six were replaced with our own word and a number, the totals were untouched and still sum to 37,929,011,953, and the tool now asks GitHub which repositories are public before writing, refusing to assume. The names remain in the published history of three commits, which cannot be removed without a force rewrite of a public repository.</p>
+    <span class="lab">Keys</span>
+    <table class="keys">
+      <tr><td class="k">the redaction</td><td>commit d672e69, Ventusltd/cosmic</td></tr>
+      <tr><td class="k">still exposed</td><td>commits cc7a807, 188fb5b, e493bfe</td></tr>
+    </table>
+  </div>
+</details>
+</main>
+<div class="footer"><b>Disclaimer:</b> Content provided for general technical documentation and research purposes only. These are records of what was done and observed, not advice. An experiment recorded as REFUTED is a record of an error that was made here and then corrected, kept deliberately.<br><br>Built from <a href="experiments.json">experiments.json</a> by <a href="tools/build.py">tools/build.py</a>. The laws these test are at <a href="https://github.com/Ventusltd/law">Ventusltd/law</a>.<br>Code under Apache-2.0. Documentation under CC BY 4.0. No warranty is given.</div>
+</body>
+</html>

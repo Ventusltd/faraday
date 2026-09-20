@@ -1,6 +1,6 @@
 # The hundred: results so far
 
-2344 of 2344 run. Every line below is one test; rerun any of them with `python bench/one.py N`.
+2375 of 2375 run. Every line below is one test; rerun any of them with `python bench/one.py N`.
 
 | family | CONFIRMED | NO EFFECT | REFUTED |
 |---|---|---|---|
@@ -13,6 +13,7 @@
 | SITE THRESHOLDS | 2 | 1 | 0 |
 | SITE SURVEY | 1971 | 0 | 29 |
 | CABLE CHECK | 217 | 0 | 0 |
+| SITE ENERGY | 31 | 0 | 0 |
 
 | n | family | test | result | what was seen |
 |---|---|---|---|---|
@@ -2360,3 +2361,34 @@
 | 2342 | CABLE CHECK | run cu 630 450A 800m 33kV | CONFIRMED | drop 0.11%, loaded to 82% of its derated rating; inside both limits |
 | 2343 | CABLE CHECK | run cu 630 450A 2500m 11kV | CONFIRMED | drop 1.05%, loaded to 71% of its derated rating; inside both limits |
 | 2344 | CABLE CHECK | run cu 630 450A 2500m 33kV | CONFIRMED | drop 0.35%, loaded to 82% of its derated rating; inside both limits |
+| 2345 | SITE ENERGY | the known answers | CONFIRMED | both durations hold. 62 MW is the average if the 271 GWh falls in a 12 hour day; spread over all 8,760 hours the average is 30.9 MW. A model must say which it u |
+| 2346 | SITE ENERGY | 0 MWp, 0 MWh | CONFIRMED | makes 0% of its own electricity; still pulls up to 44 MW from the grid; throws away 0.0 GWh of solar |
+| 2347 | SITE ENERGY | 0 MWp, 150 MWh | CONFIRMED | makes 0% of its own electricity; still pulls up to 44 MW from the grid; throws away 0.0 GWh of solar |
+| 2348 | SITE ENERGY | 0 MWp, 300 MWh | CONFIRMED | makes 0% of its own electricity; still pulls up to 44 MW from the grid; throws away 0.0 GWh of solar |
+| 2349 | SITE ENERGY | 0 MWp, 600 MWh | CONFIRMED | makes 0% of its own electricity; still pulls up to 44 MW from the grid; throws away 0.0 GWh of solar |
+| 2350 | SITE ENERGY | 0 MWp, 1200 MWh | CONFIRMED | makes 0% of its own electricity; still pulls up to 44 MW from the grid; throws away 0.0 GWh of solar |
+| 2351 | SITE ENERGY | 50 MWp, 0 MWh | CONFIRMED | makes 17% of its own electricity; still pulls up to 42 MW from the grid; throws away 0.3 GWh of solar |
+| 2352 | SITE ENERGY | 50 MWp, 150 MWh | CONFIRMED | makes 17% of its own electricity; still pulls up to 42 MW from the grid; throws away 0.0 GWh of solar |
+| 2353 | SITE ENERGY | 50 MWp, 300 MWh | CONFIRMED | makes 17% of its own electricity; still pulls up to 42 MW from the grid; throws away 0.0 GWh of solar |
+| 2354 | SITE ENERGY | 50 MWp, 600 MWh | CONFIRMED | makes 17% of its own electricity; still pulls up to 42 MW from the grid; throws away 0.0 GWh of solar |
+| 2355 | SITE ENERGY | 50 MWp, 1200 MWh | CONFIRMED | makes 17% of its own electricity; still pulls up to 42 MW from the grid; throws away 0.0 GWh of solar |
+| 2356 | SITE ENERGY | 100 MWp, 0 MWh | CONFIRMED | makes 28% of its own electricity; still pulls up to 41 MW from the grid; throws away 13.7 GWh of solar |
+| 2357 | SITE ENERGY | 100 MWp, 150 MWh | CONFIRMED | makes 32% of its own electricity; still pulls up to 41 MW from the grid; throws away 2.1 GWh of solar |
+| 2358 | SITE ENERGY | 100 MWp, 300 MWh | CONFIRMED | makes 33% of its own electricity; still pulls up to 41 MW from the grid; throws away 0.0 GWh of solar |
+| 2359 | SITE ENERGY | 100 MWp, 600 MWh | CONFIRMED | makes 33% of its own electricity; still pulls up to 41 MW from the grid; throws away 0.0 GWh of solar |
+| 2360 | SITE ENERGY | 100 MWp, 1200 MWh | CONFIRMED | makes 33% of its own electricity; still pulls up to 41 MW from the grid; throws away 0.0 GWh of solar |
+| 2361 | SITE ENERGY | 150 MWp, 0 MWh | CONFIRMED | makes 35% of its own electricity; still pulls up to 40 MW from the grid; throws away 40.8 GWh of solar |
+| 2362 | SITE ENERGY | 150 MWp, 150 MWh | CONFIRMED | makes 43% of its own electricity; still pulls up to 40 MW from the grid; throws away 16.6 GWh of solar |
+| 2363 | SITE ENERGY | 150 MWp, 300 MWh | CONFIRMED | makes 47% of its own electricity; still pulls up to 40 MW from the grid; throws away 4.7 GWh of solar |
+| 2364 | SITE ENERGY | 150 MWp, 600 MWh | CONFIRMED | makes 48% of its own electricity; still pulls up to 40 MW from the grid; throws away 0.0 GWh of solar |
+| 2365 | SITE ENERGY | 150 MWp, 1200 MWh | CONFIRMED | makes 48% of its own electricity; still pulls up to 40 MW from the grid; throws away 0.0 GWh of solar |
+| 2366 | SITE ENERGY | 200 MWp, 0 MWh | CONFIRMED | makes 39% of its own electricity; still pulls up to 39 MW from the grid; throws away 74.3 GWh of solar |
+| 2367 | SITE ENERGY | 200 MWp, 150 MWh | CONFIRMED | makes 49% of its own electricity; still pulls up to 39 MW from the grid; throws away 43.2 GWh of solar |
+| 2368 | SITE ENERGY | 200 MWp, 300 MWh | CONFIRMED | makes 57% of its own electricity; still pulls up to 39 MW from the grid; throws away 20.9 GWh of solar |
+| 2369 | SITE ENERGY | 200 MWp, 600 MWh | CONFIRMED | makes 60% of its own electricity; still pulls up to 39 MW from the grid; throws away 11.7 GWh of solar |
+| 2370 | SITE ENERGY | 200 MWp, 1200 MWh | CONFIRMED | makes 60% of its own electricity; still pulls up to 39 MW from the grid; throws away 11.1 GWh of solar |
+| 2371 | SITE ENERGY | 300 MWp, 0 MWh | CONFIRMED | makes 44% of its own electricity; still pulls up to 37 MW from the grid; throws away 150.2 GWh of solar |
+| 2372 | SITE ENERGY | 300 MWp, 150 MWh | CONFIRMED | makes 57% of its own electricity; still pulls up to 37 MW from the grid; throws away 112.2 GWh of solar |
+| 2373 | SITE ENERGY | 300 MWp, 300 MWh | CONFIRMED | makes 68% of its own electricity; still pulls up to 37 MW from the grid; throws away 79.9 GWh of solar |
+| 2374 | SITE ENERGY | 300 MWp, 600 MWh | CONFIRMED | makes 71% of its own electricity; still pulls up to 37 MW from the grid; throws away 70.0 GWh of solar |
+| 2375 | SITE ENERGY | 300 MWp, 1200 MWh | CONFIRMED | makes 71% of its own electricity; still pulls up to 37 MW from the grid; throws away 69.3 GWh of solar |

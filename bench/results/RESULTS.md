@@ -1,6 +1,6 @@
 # The hundred: results so far
 
-50 of 100 run. Every line below is one test; rerun any of them with `python bench/one.py N`.
+75 of 100 run. Every line below is one test; rerun any of them with `python bench/one.py N`.
 
 | family | CONFIRMED | REFUTED |
 |---|---|---|
@@ -8,7 +8,7 @@
 | GATES | 10 | 0 |
 | PULSES | 10 | 0 |
 | LOGIC | 10 | 0 |
-| FEEDER PULSE | 10 | 0 |
+| FEEDER PULSE | 35 | 0 |
 
 | n | family | test | result | what was seen |
 |---|---|---|---|---|
@@ -62,3 +62,28 @@
 | 48 | FEEDER PULSE | feeder 3, 30% chargers | CONFIRMED | settled in 17 rounds; lowest voltage 0.820 of nominal; heaviest section 1018 A; lowest voltage 0.820 of nominal is under the 0.94 band; heaviest section 1018 A  |
 | 49 | FEEDER PULSE | feeder 3, 60% chargers | CONFIRMED | settled in 23 rounds; lowest voltage 0.733 of nominal; heaviest section 1471 A; lowest voltage 0.733 of nominal is under the 0.94 band; heaviest section 1471 A  |
 | 50 | FEEDER PULSE | feeder 4, 0% chargers | CONFIRMED | settled in 11 rounds; lowest voltage 0.939 of nominal; heaviest section 547 A; lowest voltage 0.939 of nominal is under the 0.94 band; heaviest section 547 A is |
+| 51 | FEEDER PULSE | feeder 4, 30% chargers | CONFIRMED | settled in 13 rounds; lowest voltage 0.902 of nominal; heaviest section 880 A; lowest voltage 0.902 of nominal is under the 0.94 band; heaviest section 880 A is |
+| 52 | FEEDER PULSE | feeder 4, 60% chargers | CONFIRMED | settled in 15 rounds; lowest voltage 0.862 of nominal; heaviest section 1238 A; lowest voltage 0.862 of nominal is under the 0.94 band; heaviest section 1238 A  |
+| 53 | FEEDER PULSE | feeder 5, 0% chargers | CONFIRMED | settled in 10 rounds; lowest voltage 0.949 of nominal; heaviest section 318 A; inside band and rating |
+| 54 | FEEDER PULSE | feeder 5, 30% chargers | CONFIRMED | settled in 12 rounds; lowest voltage 0.918 of nominal; heaviest section 506 A; lowest voltage 0.918 of nominal is under the 0.94 band; heaviest section 506 A is |
+| 55 | FEEDER PULSE | feeder 5, 60% chargers | CONFIRMED | settled in 14 rounds; lowest voltage 0.885 of nominal; heaviest section 703 A; lowest voltage 0.885 of nominal is under the 0.94 band; heaviest section 703 A is |
+| 56 | FEEDER PULSE | feeder 6, 0% chargers | CONFIRMED | settled in 12 rounds; lowest voltage 0.923 of nominal; heaviest section 535 A; lowest voltage 0.923 of nominal is under the 0.94 band; heaviest section 535 A is |
+| 57 | FEEDER PULSE | feeder 6, 30% chargers | CONFIRMED | settled in 14 rounds; lowest voltage 0.874 of nominal; heaviest section 865 A; lowest voltage 0.874 of nominal is under the 0.94 band; heaviest section 865 A is |
+| 58 | FEEDER PULSE | feeder 6, 60% chargers | CONFIRMED | settled in 17 rounds; lowest voltage 0.820 of nominal; heaviest section 1227 A; lowest voltage 0.820 of nominal is under the 0.94 band; heaviest section 1227 A  |
+| 59 | FEEDER PULSE | feeder 7, 0% chargers | CONFIRMED | settled in 6 rounds; lowest voltage 0.995 of nominal; heaviest section 270 A; inside band and rating |
+| 60 | FEEDER PULSE | feeder 7, 30% chargers | CONFIRMED | settled in 6 rounds; lowest voltage 0.992 of nominal; heaviest section 422 A; heaviest section 422 A is over the 355 A cable rating |
+| 61 | FEEDER PULSE | feeder 7, 60% chargers | CONFIRMED | settled in 7 rounds; lowest voltage 0.989 of nominal; heaviest section 575 A; heaviest section 575 A is over the 355 A cable rating |
+| 62 | FEEDER PULSE | feeder 8, 0% chargers | CONFIRMED | settled in 11 rounds; lowest voltage 0.935 of nominal; heaviest section 470 A; lowest voltage 0.935 of nominal is under the 0.94 band; heaviest section 470 A is |
+| 63 | FEEDER PULSE | feeder 8, 30% chargers | CONFIRMED | settled in 13 rounds; lowest voltage 0.895 of nominal; heaviest section 753 A; lowest voltage 0.895 of nominal is under the 0.94 band; heaviest section 753 A is |
+| 64 | FEEDER PULSE | feeder 8, 60% chargers | CONFIRMED | settled in 16 rounds; lowest voltage 0.851 of nominal; heaviest section 1056 A; lowest voltage 0.851 of nominal is under the 0.94 band; heaviest section 1056 A  |
+| 65 | FEEDER PULSE | feeder 9, 0% chargers | CONFIRMED | settled in 8 rounds; lowest voltage 0.977 of nominal; heaviest section 523 A; heaviest section 523 A is over the 355 A cable rating |
+| 66 | FEEDER PULSE | feeder 9, 30% chargers | CONFIRMED | settled in 9 rounds; lowest voltage 0.964 of nominal; heaviest section 824 A; heaviest section 824 A is over the 355 A cable rating |
+| 67 | FEEDER PULSE | feeder 9, 60% chargers | CONFIRMED | settled in 10 rounds; lowest voltage 0.951 of nominal; heaviest section 1130 A; heaviest section 1130 A is over the 355 A cable rating |
+| 68 | FEEDER PULSE | feeder 10, 0% chargers | CONFIRMED | settled in 9 rounds; lowest voltage 0.966 of nominal; heaviest section 556 A; heaviest section 556 A is over the 355 A cable rating |
+| 69 | FEEDER PULSE | feeder 10, 30% chargers | CONFIRMED | settled in 10 rounds; lowest voltage 0.946 of nominal; heaviest section 880 A; heaviest section 880 A is over the 355 A cable rating |
+| 70 | FEEDER PULSE | feeder 10, 60% chargers | CONFIRMED | settled in 11 rounds; lowest voltage 0.925 of nominal; heaviest section 1215 A; lowest voltage 0.925 of nominal is under the 0.94 band; heaviest section 1215 A  |
+| 71 | FEEDER PULSE | feeder 11, 0% chargers | CONFIRMED | settled in 9 rounds; lowest voltage 0.957 of nominal; heaviest section 638 A; heaviest section 638 A is over the 355 A cable rating |
+| 72 | FEEDER PULSE | feeder 11, 30% chargers | CONFIRMED | settled in 11 rounds; lowest voltage 0.931 of nominal; heaviest section 1012 A; lowest voltage 0.931 of nominal is under the 0.94 band; heaviest section 1012 A  |
+| 73 | FEEDER PULSE | feeder 11, 60% chargers | CONFIRMED | settled in 12 rounds; lowest voltage 0.904 of nominal; heaviest section 1401 A; lowest voltage 0.904 of nominal is under the 0.94 band; heaviest section 1401 A  |
+| 74 | FEEDER PULSE | feeder 12, 0% chargers | CONFIRMED | settled in 9 rounds; lowest voltage 0.960 of nominal; heaviest section 360 A; heaviest section 360 A is over the 355 A cable rating |
+| 75 | FEEDER PULSE | feeder 12, 30% chargers | CONFIRMED | settled in 11 rounds; lowest voltage 0.937 of nominal; heaviest section 571 A; lowest voltage 0.937 of nominal is under the 0.94 band; heaviest section 571 A is |

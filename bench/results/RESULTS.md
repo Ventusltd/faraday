@@ -1,6 +1,6 @@
 # The hundred: results so far
 
-2393 of 2393 run. Every line below is one test; rerun any of them with `python bench/one.py N`.
+2414 of 2414 run. Every line below is one test; rerun any of them with `python bench/one.py N`.
 
 | family | CONFIRMED | NO EFFECT | REFUTED |
 |---|---|---|---|
@@ -15,6 +15,7 @@
 | CABLE CHECK | 217 | 0 | 0 |
 | SITE ENERGY | 31 | 0 | 0 |
 | DC TRACTION | 18 | 0 | 0 |
+| NATIONAL DAY | 21 | 0 | 0 |
 
 | n | family | test | result | what was seen |
 |---|---|---|---|---|
@@ -2411,3 +2412,24 @@
 | 2391 | DC TRACTION | 400 GWh at 5% | CONFIRMED | saves 20.0 GWh a year; the solar is 39.9% of traction energy; an average traction substation carries about 382 kW |
 | 2392 | DC TRACTION | 400 GWh at 7.5% | CONFIRMED | saves 30.0 GWh a year; the solar is 39.9% of traction energy; an average traction substation carries about 382 kW |
 | 2393 | DC TRACTION | 400 GWh at 10% | CONFIRMED | saves 40.0 GWh a year; the solar is 39.9% of traction energy; an average traction substation carries about 382 kW |
+| 2394 | NATIONAL DAY | the known answers | CONFIRMED | the day averages 25.2 GW, inside 18 to 30.5; 604 / 0.90 = 671 GWh: the published 670 holds at a 90% round trip |
+| 2395 | NATIONAL DAY | 0 GW steady, 0.85 round trip | CONFIRMED | storage delivers 604 GWh and needs 711 GWh put in; the steady generation has 0 GWh to spare that day: NOT enough to refill it |
+| 2396 | NATIONAL DAY | 0 GW steady, 0.9 round trip | CONFIRMED | storage delivers 604 GWh and needs 671 GWh put in; the steady generation has 0 GWh to spare that day: NOT enough to refill it |
+| 2397 | NATIONAL DAY | 5 GW steady, 0.85 round trip | CONFIRMED | storage delivers 484 GWh and needs 569 GWh put in; the steady generation has 0 GWh to spare that day: NOT enough to refill it |
+| 2398 | NATIONAL DAY | 5 GW steady, 0.9 round trip | CONFIRMED | storage delivers 484 GWh and needs 538 GWh put in; the steady generation has 0 GWh to spare that day: NOT enough to refill it |
+| 2399 | NATIONAL DAY | 10 GW steady, 0.85 round trip | CONFIRMED | storage delivers 364 GWh and needs 428 GWh put in; the steady generation has 0 GWh to spare that day: NOT enough to refill it |
+| 2400 | NATIONAL DAY | 10 GW steady, 0.9 round trip | CONFIRMED | storage delivers 364 GWh and needs 404 GWh put in; the steady generation has 0 GWh to spare that day: NOT enough to refill it |
+| 2401 | NATIONAL DAY | 15 GW steady, 0.85 round trip | CONFIRMED | storage delivers 244 GWh and needs 287 GWh put in; the steady generation has 0 GWh to spare that day: NOT enough to refill it |
+| 2402 | NATIONAL DAY | 15 GW steady, 0.9 round trip | CONFIRMED | storage delivers 244 GWh and needs 271 GWh put in; the steady generation has 0 GWh to spare that day: NOT enough to refill it |
+| 2403 | NATIONAL DAY | 18 GW steady, 0.85 round trip | CONFIRMED | storage delivers 172 GWh and needs 202 GWh put in; the steady generation has 0 GWh to spare that day: NOT enough to refill it |
+| 2404 | NATIONAL DAY | 18 GW steady, 0.9 round trip | CONFIRMED | storage delivers 172 GWh and needs 191 GWh put in; the steady generation has 0 GWh to spare that day: NOT enough to refill it |
+| 2405 | NATIONAL DAY | 20 GW steady, 0.85 round trip | CONFIRMED | storage delivers 128 GWh and needs 151 GWh put in; the steady generation has 4 GWh to spare that day: NOT enough to refill it |
+| 2406 | NATIONAL DAY | 20 GW steady, 0.9 round trip | CONFIRMED | storage delivers 128 GWh and needs 143 GWh put in; the steady generation has 4 GWh to spare that day: NOT enough to refill it |
+| 2407 | NATIONAL DAY | 22 GW steady, 0.85 round trip | CONFIRMED | storage delivers 94 GWh and needs 110 GWh put in; the steady generation has 18 GWh to spare that day: NOT enough to refill it |
+| 2408 | NATIONAL DAY | 22 GW steady, 0.9 round trip | CONFIRMED | storage delivers 94 GWh and needs 104 GWh put in; the steady generation has 18 GWh to spare that day: NOT enough to refill it |
+| 2409 | NATIONAL DAY | 25 GW steady, 0.85 round trip | CONFIRMED | storage delivers 52 GWh and needs 61 GWh put in; the steady generation has 48 GWh to spare that day: NOT enough to refill it |
+| 2410 | NATIONAL DAY | 25 GW steady, 0.9 round trip | CONFIRMED | storage delivers 52 GWh and needs 57 GWh put in; the steady generation has 48 GWh to spare that day: NOT enough to refill it |
+| 2411 | NATIONAL DAY | 28 GW steady, 0.85 round trip | CONFIRMED | storage delivers 20 GWh and needs 24 GWh put in; the steady generation has 88 GWh to spare that day: enough to refill it |
+| 2412 | NATIONAL DAY | 28 GW steady, 0.9 round trip | CONFIRMED | storage delivers 20 GWh and needs 23 GWh put in; the steady generation has 88 GWh to spare that day: enough to refill it |
+| 2413 | NATIONAL DAY | 30.5 GW steady, 0.85 round trip | CONFIRMED | storage delivers 4 GWh and needs 4 GWh put in; the steady generation has 132 GWh to spare that day: enough to refill it |
+| 2414 | NATIONAL DAY | 30.5 GW steady, 0.9 round trip | CONFIRMED | storage delivers 4 GWh and needs 4 GWh put in; the steady generation has 132 GWh to spare that day: enough to refill it |

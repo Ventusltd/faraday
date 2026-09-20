@@ -1,12 +1,14 @@
 # The hundred: results so far
 
-25 of 100 run. Every line below is one test; rerun any of them with `python bench/one.py N`.
+50 of 100 run. Every line below is one test; rerun any of them with `python bench/one.py N`.
 
 | family | CONFIRMED | REFUTED |
 |---|---|---|
 | ARRANGEMENTS | 3 | 7 |
 | GATES | 10 | 0 |
-| PULSES | 5 | 0 |
+| PULSES | 10 | 0 |
+| LOGIC | 10 | 0 |
+| FEEDER PULSE | 10 | 0 |
 
 | n | family | test | result | what was seen |
 |---|---|---|---|---|
@@ -35,3 +37,28 @@
 | 23 | PULSES | charing at 25 km a tick | CONFIRMED | 0 lit early; the last cell switches at tick 8 |
 | 24 | PULSES | norwich at 1 km a tick | CONFIRMED | 0 lit early; the last cell switches at tick 289 |
 | 25 | PULSES | norwich at 5 km a tick | CONFIRMED | 0 lit early; the last cell switches at tick 58 |
+| 26 | PULSES | brighton at 5 km a tick | CONFIRMED | 0 lit early; the last cell switches at tick 49 |
+| 27 | PULSES | charing at 5 km a tick meeting norwich | CONFIRMED | 0 lit early; the last cell switches at tick 36 |
+| 28 | PULSES | charing at 5 km a tick meeting brighton | CONFIRMED | 0 lit early; the last cell switches at tick 36 |
+| 29 | PULSES | norwich at 5 km a tick meeting brighton | CONFIRMED | 0 lit early; the last cell switches at tick 58 |
+| 30 | PULSES | brighton at 1 km a tick meeting norwich | CONFIRMED | 0 lit early; the last cell switches at tick 244 |
+| 31 | LOGIC | half adder | CONFIRMED | 0 of 4 rows wrong |
+| 32 | LOGIC | adder 2 bit | CONFIRMED | 0 of 16 rows wrong |
+| 33 | LOGIC | adder 4 bit | CONFIRMED | 0 of 256 rows wrong |
+| 34 | LOGIC | adder 8 bit | CONFIRMED | 0 of 200 rows wrong |
+| 35 | LOGIC | parity of 8 | CONFIRMED | 0 of 256 rows wrong |
+| 36 | LOGIC | majority of 3 | CONFIRMED | 0 of 8 rows wrong |
+| 37 | LOGIC | mux 2 to 1 | CONFIRMED | 0 of 8 rows wrong |
+| 38 | LOGIC | decoder 2 to 4 | CONFIRMED | 0 of 4 rows wrong |
+| 39 | LOGIC | comparator 2 bit equal | CONFIRMED | 0 of 16 rows wrong |
+| 40 | LOGIC | planted fault must be caught | CONFIRMED | 3 of 4 rows wrong (a fault was planted: the check must see it) |
+| 41 | FEEDER PULSE | feeder 1, 0% chargers | CONFIRMED | settled in 7 rounds; lowest voltage 0.988 of nominal; heaviest section 514 A; heaviest section 514 A is over the 355 A cable rating |
+| 42 | FEEDER PULSE | feeder 1, 30% chargers | CONFIRMED | settled in 8 rounds; lowest voltage 0.981 of nominal; heaviest section 806 A; heaviest section 806 A is over the 355 A cable rating |
+| 43 | FEEDER PULSE | feeder 1, 60% chargers | CONFIRMED | settled in 8 rounds; lowest voltage 0.974 of nominal; heaviest section 1101 A; heaviest section 1101 A is over the 355 A cable rating |
+| 44 | FEEDER PULSE | feeder 2, 0% chargers | CONFIRMED | settled in 10 rounds; lowest voltage 0.955 of nominal; heaviest section 571 A; heaviest section 571 A is over the 355 A cable rating |
+| 45 | FEEDER PULSE | feeder 2, 30% chargers | CONFIRMED | settled in 11 rounds; lowest voltage 0.928 of nominal; heaviest section 911 A; lowest voltage 0.928 of nominal is under the 0.94 band; heaviest section 911 A is |
+| 46 | FEEDER PULSE | feeder 2, 60% chargers | CONFIRMED | settled in 13 rounds; lowest voltage 0.899 of nominal; heaviest section 1268 A; lowest voltage 0.899 of nominal is under the 0.94 band; heaviest section 1268 A  |
+| 47 | FEEDER PULSE | feeder 3, 0% chargers | CONFIRMED | settled in 13 rounds; lowest voltage 0.892 of nominal; heaviest section 622 A; lowest voltage 0.892 of nominal is under the 0.94 band; heaviest section 622 A is |
+| 48 | FEEDER PULSE | feeder 3, 30% chargers | CONFIRMED | settled in 17 rounds; lowest voltage 0.820 of nominal; heaviest section 1018 A; lowest voltage 0.820 of nominal is under the 0.94 band; heaviest section 1018 A  |
+| 49 | FEEDER PULSE | feeder 3, 60% chargers | CONFIRMED | settled in 23 rounds; lowest voltage 0.733 of nominal; heaviest section 1471 A; lowest voltage 0.733 of nominal is under the 0.94 band; heaviest section 1471 A  |
+| 50 | FEEDER PULSE | feeder 4, 0% chargers | CONFIRMED | settled in 11 rounds; lowest voltage 0.939 of nominal; heaviest section 547 A; lowest voltage 0.939 of nominal is under the 0.94 band; heaviest section 547 A is |

@@ -142,7 +142,8 @@ def write_results(done):
     for r in rows:
         md.append('| %s | %s | %s | %s | %s |' % (r['n'], r.get('family', ''), r.get('name', ''), r['result'], str(r.get('observed', '')).replace('|', '/')[:160]))
     import page                                              # the hundred as cells: one static page made from the same rows
-    texts = {'bench/results/ledger.jsonl': led, 'bench/results/RESULTS.md': '\n'.join(md) + '\n', 'bench/results/index.html': page.build(rows)}
+    texts = {'bench/results/ledger.jsonl': led, 'bench/results/RESULTS.md': '\n'.join(md) + '\n'}
+    texts.update({'bench/results/' + name: text for name, text in page.build_files(rows).items()})   # the page, its command list (config), its records
     bad = guard(texts)
     if bad:
         return bad

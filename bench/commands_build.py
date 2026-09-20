@@ -101,6 +101,45 @@ def build_network_commands():
     return out
 
 
+PINNED = 100
+SIZE = lambda n: 'small' if n <= 4 else 'middling' if n <= 8 else 'large'
+SHORT = {'export on the line': 'right on its export limit', 'volts high on the line': 'voltage at the top of its band',
+         'volts low on the line': 'voltage at the bottom of its band', 'transformer on the line': 'a transformer at its rating',
+         'most solar inside every limit': 'the most solar that still fits'}
+
+
+def curate(cmds):
+    """THE PINNED HUNDRED. The thousand read alike (200 of a kind, the same sentence with other numbers), so a reader is shown
+    a hundred that DIFFER and searches the rest. Two commands are the same picture to a reader when they share the shape, the
+    size band (2 to 4, 5 to 8, 9 to 12 substations), the kind, the solar level and whether the generator runs: one of each at
+    most, the best scored first, taken in turn across kinds and shapes so no kind or shape crowds the top. Pinned commands
+    carry pin (1 is first) and a short name; the list is reordered pinned first; nothing is removed and no number changes."""
+    groups = {}
+    for c in cmds:
+        if c['family'] != 'NETWORKS':
+            continue
+        net = topo.network(c['seed']); ps, g, _ls = topo.CASES[c['case']]
+        sig = (c['kind'], net['shape'], SIZE(len(net['subs'])), ps, g)
+        if sig not in groups:                                   # cmds arrive best scored first within a kind
+            groups[sig] = (c, net)
+    lanes = {}
+    for sig in sorted(groups):
+        lanes.setdefault((sig[0], sig[1]), []).append(groups[sig])
+    picked = []
+    while len(picked) < PINNED and any(lanes.values()):
+        for lane in sorted(lanes):
+            if lanes[lane] and len(picked) < PINNED:
+                picked.append(lanes[lane].pop(0))
+    for i, (c, net) in enumerate(picked, 1):
+        ps, g, _ls = topo.CASES[c['case']]
+        extras = [SOLAR[ps]] + (['generator running'] if g else [])
+        c['pin'] = i
+        c['name'] = '%s of %d, %s (%s)' % (SHAPE.get(net['shape'], 'A ' + net['shape']), len(net['subs']), SHORT.get(c['kind'], c['kind']), ', '.join(extras))
+    pinned = [c for c, _ in picked]
+    ids = set(id(c) for c in pinned)
+    return pinned + [c for c in cmds if id(c) not in ids]
+
+
 def site_pulse_commands():
     """The sentences that already draw a reader in, carried forward unchanged from the list the page fetches today."""
     if not os.path.exists(OLD_LIST):
@@ -154,8 +193,8 @@ def main():
     if '--check' in sys.argv:
         return check()
     os.makedirs(OUT, exist_ok=True)
-    cmds = build_network_commands() + site_pulse_commands()
-    gen = time.strftime('%Y%m%d%H%M', time.gmtime())
+    cmds = curate(build_network_commands() + site_pulse_commands())
+    gen =time.strftime('%Y%m%d%H%M', time.gmtime())
     name = 'commands-%s.json' % gen
     doc = dict(schema=LIST_SCHEMA, generation=gen, generated_utc=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
                count=len(cmds), commands=cmds)

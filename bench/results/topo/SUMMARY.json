@@ -1,33 +1,33 @@
 {
  "by_shape": {
   "chain": [
-   2096352,
-   1374465
+   58079448,
+   38086224
   ],
   "star": [
-   2095794,
-   1455773
+   58077180,
+   40351373
   ],
   "sub-boards": [
-   2093472,
-   1437484
+   58006728,
+   39813849
   ],
   "tree": [
-   2102382,
-   1418665
+   58036644,
+   39158617
   ]
  },
- "cases": 8388000,
+ "cases": 232200000,
  "check_both_refuse": 0,
  "check_differed": 0,
- "check_matched": 8388000,
- "check_rounds_differ": 167,
- "check_rows": 8388000,
- "confirmed": 8388000,
- "export_over": 1466960,
- "shards": 233,
- "tx_over": 1143899,
- "volts_high": 616,
- "volts_low": 828965,
- "written_utc": "2026-09-20T02:18:02Z"
+ "check_matched": 231948000,
+ "check_rounds_differ": 4515,
+ "check_rows": 231948000,
+ "confirmed": 232200000,
+ "export_over": 40602798,
+ "shards": 6450,
+ "tx_over": 31650739,
+ "volts_high": 16830,
+ "volts_low": 22977620,
+ "written_utc": "2026-09-20T03:06:17Z"
 }

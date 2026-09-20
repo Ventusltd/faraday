@@ -1,0 +1,337 @@
+{
+ "schema": "bench.commands.v1",
+ "what_it_is": "The list in \"choose an example sentence\". One entry = the sentence a person reads and the command it stands for. The page fetches this file; nothing about the list is written into the page.",
+ "generated_utc": "2026-09-20T01:40:50Z",
+ "commands": [
+  {
+   "family": "CABLE CHECK",
+   "sentence": "Cable check: the known answer",
+   "command": "fire cable-withstand {\"fault_ka\":17.39,\"metal\":\"al\",\"seconds\":1.0,\"size_mm2\":185}",
+   "record": 2128
+  },
+  {
+   "family": "CABLE CHECK",
+   "sentence": "Cable check: fault withstand, 95 mm2 al, 8.0 kA for 0.2 s",
+   "command": "fire cable-withstand {\"fault_ka\": 8.0, \"metal\": \"al\", \"seconds\": 0.2, \"size_mm2\": 95}",
+   "record": 2129
+  },
+  {
+   "family": "CABLE CHECK",
+   "sentence": "Cable check: fault withstand, 95 mm2 al, 16.0 kA for 0.2 s",
+   "command": "fire cable-withstand {\"fault_ka\": 16.0, \"metal\": \"al\", \"seconds\": 0.2, \"size_mm2\": 95}",
+   "record": 2130
+  },
+  {
+   "family": "CABLE CHECK",
+   "sentence": "Cable check: fault withstand, 95 mm2 al, 25.0 kA for 0.2 s",
+   "command": "fire cable-withstand {\"fault_ka\": 25.0, \"metal\": \"al\", \"seconds\": 0.2, \"size_mm2\": 95}",
+   "record": 2131
+  },
+  {
+   "family": "CABLE CHECK",
+   "sentence": "Cable check: fault withstand, 95 mm2 al, 8.0 kA for 1.0 s",
+   "command": "fire cable-withstand {\"fault_ka\": 8.0, \"metal\": \"al\", \"seconds\": 1.0, \"size_mm2\": 95}",
+   "record": 2132
+  },
+  {
+   "family": "CABLE CHECK",
+   "sentence": "Cable check: fault withstand, 95 mm2 al, 16.0 kA for 1.0 s",
+   "command": "fire cable-withstand {\"fault_ka\": 16.0, \"metal\": \"al\", \"seconds\": 1.0, \"size_mm2\": 95}",
+   "record": 2133
+  },
+  {
+   "family": "CABLE CHECK",
+   "sentence": "Cable check: fault withstand, 95 mm2 al, 25.0 kA for 1.0 s",
+   "command": "fire cable-withstand {\"fault_ka\": 25.0, \"metal\": \"al\", \"seconds\": 1.0, \"size_mm2\": 95}",
+   "record": 2134
+  },
+  {
+   "family": "CABLE CHECK",
+   "sentence": "Cable check: fault withstand, 95 mm2 al, 8.0 kA for 3.0 s",
+   "command": "fire cable-withstand {\"fault_ka\": 8.0, \"metal\": \"al\", \"seconds\": 3.0, \"size_mm2\": 95}",
+   "record": 2135
+  },
+  {
+   "family": "CABLE CHECK",
+   "sentence": "Cable check: fault withstand, 95 mm2 al, 16.0 kA for 3.0 s",
+   "command": "fire cable-withstand {\"fault_ka\": 16.0, \"metal\": \"al\", \"seconds\": 3.0, \"size_mm2\": 95}",
+   "record": 2136
+  },
+  {
+   "family": "DC TRACTION",
+   "sentence": "DC traction: the known answers",
+   "command": "fire dc-traction-known {}",
+   "record": 2376
+  },
+  {
+   "family": "DC TRACTION",
+   "sentence": "DC traction: the two routes compared",
+   "command": "fire dc-traction-chain {\"dc_converter\": 0.97, \"inverter\": 0.97, \"rectifier\": 0.95, \"transformer\": 0.99}",
+   "record": 2377
+  },
+  {
+   "family": "DC TRACTION",
+   "sentence": "DC traction: the two routes compared",
+   "command": "fire dc-traction-chain {\"dc_converter\": 0.985, \"inverter\": 0.97, \"rectifier\": 0.95, \"transformer\": 0.99}",
+   "record": 2378
+  },
+  {
+   "family": "DC TRACTION",
+   "sentence": "DC traction: the two routes compared",
+   "command": "fire dc-traction-chain {\"dc_converter\": 0.97, \"inverter\": 0.97, \"rectifier\": 0.97, \"transformer\": 0.99}",
+   "record": 2379
+  },
+  {
+   "family": "DC TRACTION",
+   "sentence": "DC traction: the two routes compared",
+   "command": "fire dc-traction-chain {\"dc_converter\": 0.985, \"inverter\": 0.97, \"rectifier\": 0.97, \"transformer\": 0.99}",
+   "record": 2380
+  },
+  {
+   "family": "DC TRACTION",
+   "sentence": "DC traction: the two routes compared",
+   "command": "fire dc-traction-chain {\"dc_converter\": 0.97, \"inverter\": 0.98, \"rectifier\": 0.95, \"transformer\": 0.99}",
+   "record": 2381
+  },
+  {
+   "family": "DC TRACTION",
+   "sentence": "DC traction: the two routes compared",
+   "command": "fire dc-traction-chain {\"dc_converter\": 0.985, \"inverter\": 0.98, \"rectifier\": 0.95, \"transformer\": 0.99}",
+   "record": 2382
+  },
+  {
+   "family": "DC TRACTION",
+   "sentence": "DC traction: the two routes compared",
+   "command": "fire dc-traction-chain {\"dc_converter\": 0.97, \"inverter\": 0.98, \"rectifier\": 0.97, \"transformer\": 0.99}",
+   "record": 2383
+  },
+  {
+   "family": "DC TRACTION",
+   "sentence": "DC traction: the two routes compared",
+   "command": "fire dc-traction-chain {\"dc_converter\": 0.985, \"inverter\": 0.98, \"rectifier\": 0.97, \"transformer\": 0.99}",
+   "record": 2384
+  },
+  {
+   "family": "NATIONAL DAY",
+   "sentence": "National day: the known answers",
+   "command": "fire national-day-known {}",
+   "record": 2394
+  },
+  {
+   "family": "NATIONAL DAY",
+   "sentence": "National day: 0 GW steady generation",
+   "command": "fire national-day {\"firm_gw\": 0, \"round_trip\": 0.85}",
+   "record": 2395
+  },
+  {
+   "family": "NATIONAL DAY",
+   "sentence": "National day: 0 GW steady generation",
+   "command": "fire national-day {\"firm_gw\": 0, \"round_trip\": 0.9}",
+   "record": 2396
+  },
+  {
+   "family": "NATIONAL DAY",
+   "sentence": "National day: 5 GW steady generation",
+   "command": "fire national-day {\"firm_gw\": 5, \"round_trip\": 0.85}",
+   "record": 2397
+  },
+  {
+   "family": "NATIONAL DAY",
+   "sentence": "National day: 5 GW steady generation",
+   "command": "fire national-day {\"firm_gw\": 5, \"round_trip\": 0.9}",
+   "record": 2398
+  },
+  {
+   "family": "NATIONAL DAY",
+   "sentence": "National day: 10 GW steady generation",
+   "command": "fire national-day {\"firm_gw\": 10, \"round_trip\": 0.85}",
+   "record": 2399
+  },
+  {
+   "family": "NATIONAL DAY",
+   "sentence": "National day: 10 GW steady generation",
+   "command": "fire national-day {\"firm_gw\": 10, \"round_trip\": 0.9}",
+   "record": 2400
+  },
+  {
+   "family": "NATIONAL DAY",
+   "sentence": "National day: 15 GW steady generation",
+   "command": "fire national-day {\"firm_gw\": 15, \"round_trip\": 0.85}",
+   "record": 2401
+  },
+  {
+   "family": "NATIONAL DAY",
+   "sentence": "National day: 15 GW steady generation",
+   "command": "fire national-day {\"firm_gw\": 15, \"round_trip\": 0.9}",
+   "record": 2402
+  },
+  {
+   "family": "SITE ENERGY",
+   "sentence": "Site energy: the known answers",
+   "command": "fire site-energy-known {}",
+   "record": 2345
+  },
+  {
+   "family": "SITE ENERGY",
+   "sentence": "Site energy: 0 MWp solar, 0 MWh battery",
+   "command": "fire site-energy {\"annual_gwh\": 271, \"battery_mwh\": 0, \"peak_mw\": 100, \"pv_mwp\": 0}",
+   "record": 2346
+  },
+  {
+   "family": "SITE ENERGY",
+   "sentence": "Site energy: 0 MWp solar, 150 MWh battery",
+   "command": "fire site-energy {\"annual_gwh\": 271, \"battery_mwh\": 150, \"peak_mw\": 100, \"pv_mwp\": 0}",
+   "record": 2347
+  },
+  {
+   "family": "SITE ENERGY",
+   "sentence": "Site energy: 0 MWp solar, 300 MWh battery",
+   "command": "fire site-energy {\"annual_gwh\": 271, \"battery_mwh\": 300, \"peak_mw\": 100, \"pv_mwp\": 0}",
+   "record": 2348
+  },
+  {
+   "family": "SITE ENERGY",
+   "sentence": "Site energy: 0 MWp solar, 600 MWh battery",
+   "command": "fire site-energy {\"annual_gwh\": 271, \"battery_mwh\": 600, \"peak_mw\": 100, \"pv_mwp\": 0}",
+   "record": 2349
+  },
+  {
+   "family": "SITE ENERGY",
+   "sentence": "Site energy: 0 MWp solar, 1200 MWh battery",
+   "command": "fire site-energy {\"annual_gwh\": 271, \"battery_mwh\": 1200, \"peak_mw\": 100, \"pv_mwp\": 0}",
+   "record": 2350
+  },
+  {
+   "family": "SITE ENERGY",
+   "sentence": "Site energy: 50 MWp solar, 0 MWh battery",
+   "command": "fire site-energy {\"annual_gwh\": 271, \"battery_mwh\": 0, \"peak_mw\": 100, \"pv_mwp\": 50}",
+   "record": 2351
+  },
+  {
+   "family": "SITE ENERGY",
+   "sentence": "Site energy: 50 MWp solar, 150 MWh battery",
+   "command": "fire site-energy {\"annual_gwh\": 271, \"battery_mwh\": 150, \"peak_mw\": 100, \"pv_mwp\": 50}",
+   "record": 2352
+  },
+  {
+   "family": "SITE ENERGY",
+   "sentence": "Site energy: 50 MWp solar, 300 MWh battery",
+   "command": "fire site-energy {\"annual_gwh\": 271, \"battery_mwh\": 300, \"peak_mw\": 100, \"pv_mwp\": 50}",
+   "record": 2353
+  },
+  {
+   "family": "SITE PULSE",
+   "sentence": "Site pulse: no solar, no generator, load 100%",
+   "command": "fire site-pulse {\"load_share\":1.0,\"scenario\":1,\"site\":{\"export_limit_kw\":500.0,\"generator_kw\":500.0,\"intake_cable_km\":0.6,\"pv_kw\":1000.0,\"pv_on\":4,\"subs\":[{\"km\":0.15,\"kva\":1600,\"load_kw\":900,\"n\":1},{\"km\":0.25,\"kva\":1000,\"load_kw\":550,\"n\":2},{\"km\":0.35,\"kva\":1000,\"load_kw\":500,\"n\":3},{\"km\":0.45,\"kva\":1000,\"load_kw\":350,\"n\":4},{\"km\":0.3,\"kva\":800,\"load_kw\":300,\"n\":5,\"tenant\":true}]}}",
+   "record": 101
+  },
+  {
+   "family": "SITE PULSE",
+   "sentence": "Site pulse: no solar, no generator, load 60%",
+   "command": "fire site-pulse {\"load_share\":0.6,\"scenario\":1,\"site\":{\"export_limit_kw\":500.0,\"generator_kw\":500.0,\"intake_cable_km\":0.6,\"pv_kw\":1000.0,\"pv_on\":4,\"subs\":[{\"km\":0.15,\"kva\":1600,\"load_kw\":900,\"n\":1},{\"km\":0.25,\"kva\":1000,\"load_kw\":550,\"n\":2},{\"km\":0.35,\"kva\":1000,\"load_kw\":500,\"n\":3},{\"km\":0.45,\"kva\":1000,\"load_kw\":350,\"n\":4},{\"km\":0.3,\"kva\":800,\"load_kw\":300,\"n\":5,\"tenant\":true}]}}",
+   "record": 102
+  },
+  {
+   "family": "SITE PULSE",
+   "sentence": "Site pulse: no solar, no generator, load 30%",
+   "command": "fire site-pulse {\"load_share\":0.3,\"scenario\":1,\"site\":{\"export_limit_kw\":500.0,\"generator_kw\":500.0,\"intake_cable_km\":0.6,\"pv_kw\":1000.0,\"pv_on\":4,\"subs\":[{\"km\":0.15,\"kva\":1600,\"load_kw\":900,\"n\":1},{\"km\":0.25,\"kva\":1000,\"load_kw\":550,\"n\":2},{\"km\":0.35,\"kva\":1000,\"load_kw\":500,\"n\":3},{\"km\":0.45,\"kva\":1000,\"load_kw\":350,\"n\":4},{\"km\":0.3,\"kva\":800,\"load_kw\":300,\"n\":5,\"tenant\":true}]}}",
+   "record": 103
+  },
+  {
+   "family": "SITE PULSE",
+   "sentence": "Site pulse: no solar, generator running, load 100%",
+   "command": "fire site-pulse {\"load_share\":1.0,\"scenario\":2,\"site\":{\"export_limit_kw\":500.0,\"generator_kw\":500.0,\"intake_cable_km\":0.6,\"pv_kw\":1000.0,\"pv_on\":4,\"subs\":[{\"km\":0.15,\"kva\":1600,\"load_kw\":900,\"n\":1},{\"km\":0.25,\"kva\":1000,\"load_kw\":550,\"n\":2},{\"km\":0.35,\"kva\":1000,\"load_kw\":500,\"n\":3},{\"km\":0.45,\"kva\":1000,\"load_kw\":350,\"n\":4},{\"km\":0.3,\"kva\":800,\"load_kw\":300,\"n\":5,\"tenant\":true}]}}",
+   "record": 104
+  },
+  {
+   "family": "SITE PULSE",
+   "sentence": "Site pulse: no solar, generator running, load 60%",
+   "command": "fire site-pulse {\"load_share\":0.6,\"scenario\":2,\"site\":{\"export_limit_kw\":500.0,\"generator_kw\":500.0,\"intake_cable_km\":0.6,\"pv_kw\":1000.0,\"pv_on\":4,\"subs\":[{\"km\":0.15,\"kva\":1600,\"load_kw\":900,\"n\":1},{\"km\":0.25,\"kva\":1000,\"load_kw\":550,\"n\":2},{\"km\":0.35,\"kva\":1000,\"load_kw\":500,\"n\":3},{\"km\":0.45,\"kva\":1000,\"load_kw\":350,\"n\":4},{\"km\":0.3,\"kva\":800,\"load_kw\":300,\"n\":5,\"tenant\":true}]}}",
+   "record": 105
+  },
+  {
+   "family": "SITE PULSE",
+   "sentence": "Site pulse: no solar, generator running, load 30%",
+   "command": "fire site-pulse {\"load_share\":0.3,\"scenario\":2,\"site\":{\"export_limit_kw\":500.0,\"generator_kw\":500.0,\"intake_cable_km\":0.6,\"pv_kw\":1000.0,\"pv_on\":4,\"subs\":[{\"km\":0.15,\"kva\":1600,\"load_kw\":900,\"n\":1},{\"km\":0.25,\"kva\":1000,\"load_kw\":550,\"n\":2},{\"km\":0.35,\"kva\":1000,\"load_kw\":500,\"n\":3},{\"km\":0.45,\"kva\":1000,\"load_kw\":350,\"n\":4},{\"km\":0.3,\"kva\":800,\"load_kw\":300,\"n\":5,\"tenant\":true}]}}",
+   "record": 106
+  },
+  {
+   "family": "SITE PULSE",
+   "sentence": "Site pulse: solar at full output, no generator, load 100%",
+   "command": "fire site-pulse {\"load_share\":1.0,\"scenario\":3,\"site\":{\"export_limit_kw\":500.0,\"generator_kw\":500.0,\"intake_cable_km\":0.6,\"pv_kw\":1000.0,\"pv_on\":4,\"subs\":[{\"km\":0.15,\"kva\":1600,\"load_kw\":900,\"n\":1},{\"km\":0.25,\"kva\":1000,\"load_kw\":550,\"n\":2},{\"km\":0.35,\"kva\":1000,\"load_kw\":500,\"n\":3},{\"km\":0.45,\"kva\":1000,\"load_kw\":350,\"n\":4},{\"km\":0.3,\"kva\":800,\"load_kw\":300,\"n\":5,\"tenant\":true}]}}",
+   "record": 107
+  },
+  {
+   "family": "SITE PULSE",
+   "sentence": "Site pulse: solar at full output, no generator, load 60%",
+   "command": "fire site-pulse {\"load_share\":0.6,\"scenario\":3,\"site\":{\"export_limit_kw\":500.0,\"generator_kw\":500.0,\"intake_cable_km\":0.6,\"pv_kw\":1000.0,\"pv_on\":4,\"subs\":[{\"km\":0.15,\"kva\":1600,\"load_kw\":900,\"n\":1},{\"km\":0.25,\"kva\":1000,\"load_kw\":550,\"n\":2},{\"km\":0.35,\"kva\":1000,\"load_kw\":500,\"n\":3},{\"km\":0.45,\"kva\":1000,\"load_kw\":350,\"n\":4},{\"km\":0.3,\"kva\":800,\"load_kw\":300,\"n\":5,\"tenant\":true}]}}",
+   "record": 108
+  },
+  {
+   "family": "SITE SURVEY",
+   "sentence": "Site pulse: solar at full output, no generator, load 30%",
+   "command": "fire site-pulse {\"load_share\":0.3,\"scenario\":3,\"site\":{\"export_limit_kw\":500.0,\"generator_kw\":1000.0,\"intake_cable_km\":0.15,\"pv_kw\":2690.0,\"pv_on\":1,\"subs\":[{\"km\":0.62,\"kva\":2000,\"load_kw\":1432,\"n\":1,\"tenant\":false},{\"km\":0.62,\"kva\":1000,\"load_kw\":315,\"n\":2,\"tenant\":false},{\"km\":0.64,\"kva\":1600,\"load_kw\":973,\"n\":3,\"tenant\":true}]}}",
+   "record": 128
+  },
+  {
+   "family": "SITE SURVEY",
+   "sentence": "Site pulse: solar at full output, no generator, load 30%",
+   "command": "fire site-pulse {\"load_share\":0.3,\"scenario\":3,\"site\":{\"export_limit_kw\":1000.0,\"generator_kw\":250.0,\"intake_cable_km\":0.9,\"pv_kw\":4570.0,\"pv_on\":4,\"subs\":[{\"km\":0.32,\"kva\":500,\"load_kw\":150,\"n\":1,\"tenant\":false},{\"km\":0.55,\"kva\":800,\"load_kw\":524,\"n\":2,\"tenant\":false},{\"km\":0.21,\"kva\":1000,\"load_kw\":388,\"n\":3,\"tenant\":false},{\"km\":0.17,\"kva\":500,\"load_kw\":285,\"n\":4,\"tenant\":false},{\"km\":0.65,\"kva\":1600,\"load_kw\":962,\"n\":5,\"tenant\":false},{\"km\":0.46,\"kva\":2000,\"load_kw\":1544,\"n\":6,\"tenant\":false},{\"km\":0.73,\"kva\":1600,\"load_kw\":842,\"n\":7,\"tenant\":false},{\"km\":0.75,\"kva\":500,\"load_kw\":225,\"n\":8,\"tenant\":false}]}}",
+   "record": 129
+  },
+  {
+   "family": "SITE SURVEY",
+   "sentence": "Site pulse: solar at full output, no generator, load 30%",
+   "command": "fire site-pulse {\"load_share\":0.3,\"scenario\":3,\"site\":{\"export_limit_kw\":500.0,\"generator_kw\":1000.0,\"intake_cable_km\":0.55,\"pv_kw\":1890.0,\"pv_on\":1,\"subs\":[{\"km\":0.33,\"kva\":2000,\"load_kw\":1099,\"n\":1,\"tenant\":false},{\"km\":0.49,\"kva\":2000,\"load_kw\":1021,\"n\":2,\"tenant\":false},{\"km\":0.68,\"kva\":2000,\"load_kw\":514,\"n\":3,\"tenant\":true}]}}",
+   "record": 130
+  },
+  {
+   "family": "SITE SURVEY",
+   "sentence": "Site pulse: solar at full output, no generator, load 30%",
+   "command": "fire site-pulse {\"load_share\":0.3,\"scenario\":3,\"site\":{\"export_limit_kw\":1000.0,\"generator_kw\":500.0,\"intake_cable_km\":0.52,\"pv_kw\":1150.0,\"pv_on\":1,\"subs\":[{\"km\":0.35,\"kva\":1000,\"load_kw\":307,\"n\":1,\"tenant\":false},{\"km\":0.06,\"kva\":800,\"load_kw\":240,\"n\":2,\"tenant\":false},{\"km\":0.65,\"kva\":2000,\"load_kw\":1510,\"n\":3,\"tenant\":false}]}}",
+   "record": 131
+  },
+  {
+   "family": "SITE SURVEY",
+   "sentence": "Site pulse: solar at full output, no generator, load 30%",
+   "command": "fire site-pulse {\"load_share\":0.3,\"scenario\":3,\"site\":{\"export_limit_kw\":500.0,\"generator_kw\":250.0,\"intake_cable_km\":1.75,\"pv_kw\":3700.0,\"pv_on\":1,\"subs\":[{\"km\":0.65,\"kva\":1000,\"load_kw\":658,\"n\":1,\"tenant\":false},{\"km\":0.4,\"kva\":2000,\"load_kw\":532,\"n\":2,\"tenant\":false},{\"km\":0.73,\"kva\":800,\"load_kw\":486,\"n\":3,\"tenant\":false},{\"km\":0.7,\"kva\":500,\"load_kw\":227,\"n\":4,\"tenant\":false},{\"km\":0.48,\"kva\":1600,\"load_kw\":879,\"n\":5,\"tenant\":false},{\"km\":0.36,\"kva\":500,\"load_kw\":326,\"n\":6,\"tenant\":true}]}}",
+   "record": 132
+  },
+  {
+   "family": "SITE SURVEY",
+   "sentence": "Site pulse: solar at full output, no generator, load 30%",
+   "command": "fire site-pulse {\"load_share\":0.3,\"scenario\":3,\"site\":{\"export_limit_kw\":0.0,\"generator_kw\":500.0,\"intake_cable_km\":0.91,\"pv_kw\":7710.0,\"pv_on\":5,\"subs\":[{\"km\":0.41,\"kva\":2000,\"load_kw\":1404,\"n\":1,\"tenant\":false},{\"km\":0.16,\"kva\":1000,\"load_kw\":270,\"n\":2,\"tenant\":false},{\"km\":0.62,\"kva\":2000,\"load_kw\":1017,\"n\":3,\"tenant\":false},{\"km\":0.07,\"kva\":1000,\"load_kw\":426,\"n\":4,\"tenant\":false},{\"km\":0.6,\"kva\":1600,\"load_kw\":1106,\"n\":5,\"tenant\":false},{\"km\":0.45,\"kva\":1600,\"load_kw\":1201,\"n\":6,\"tenant\":false},{\"km\":0.47,\"kva\":500,\"load_kw\":178,\"n\":7,\"tenant\":false},{\"km\":0.51,\"kva\":1000,\"load_kw\":615,\"n\":8,\"tenant\":true}]}}",
+   "record": 133
+  },
+  {
+   "family": "SITE SURVEY",
+   "sentence": "Site pulse: solar at full output, no generator, load 30%",
+   "command": "fire site-pulse {\"load_share\":0.3,\"scenario\":3,\"site\":{\"export_limit_kw\":0.0,\"generator_kw\":250.0,\"intake_cable_km\":1.67,\"pv_kw\":2220.0,\"pv_on\":1,\"subs\":[{\"km\":0.09,\"kva\":800,\"load_kw\":374,\"n\":1,\"tenant\":false},{\"km\":0.49,\"kva\":2000,\"load_kw\":604,\"n\":2,\"tenant\":false},{\"km\":0.11,\"kva\":2000,\"load_kw\":736,\"n\":3,\"tenant\":false},{\"km\":0.12,\"kva\":1600,\"load_kw\":461,\"n\":4,\"tenant\":false}]}}",
+   "record": 134
+  },
+  {
+   "family": "SITE SURVEY",
+   "sentence": "Site pulse: solar at full output, no generator, load 30%",
+   "command": "fire site-pulse {\"load_share\":0.3,\"scenario\":3,\"site\":{\"export_limit_kw\":500.0,\"generator_kw\":250.0,\"intake_cable_km\":0.96,\"pv_kw\":2260.0,\"pv_on\":2,\"subs\":[{\"km\":0.14,\"kva\":1000,\"load_kw\":779,\"n\":1,\"tenant\":false},{\"km\":0.24,\"kva\":500,\"load_kw\":148,\"n\":2,\"tenant\":false},{\"km\":0.53,\"kva\":2000,\"load_kw\":730,\"n\":3,\"tenant\":false}]}}",
+   "record": 135
+  },
+  {
+   "family": "SITE THRESHOLDS",
+   "sentence": "Site threshold: export limit",
+   "command": "fire site-threshold {\"limit\":\"export limit\",\"load_share\":0.3}",
+   "record": 125
+  },
+  {
+   "family": "SITE THRESHOLDS",
+   "sentence": "Site threshold: voltage rise",
+   "command": "fire site-threshold {\"limit\":\"voltage rise\"}",
+   "record": 126
+  },
+  {
+   "family": "SITE THRESHOLDS",
+   "sentence": "Site threshold: transformer rating",
+   "command": "fire site-threshold {\"limit\":\"transformer rating\",\"load_share\":0.3}",
+   "record": 127
+  }
+ ]
+}

@@ -36,8 +36,8 @@ REPO = os.path.dirname(HERE)
 LEDGER_DIR = os.environ.get('BENCH_DIR', r'E:\faraday-bench')
 LEDGER = os.path.join(LEDGER_DIR, 'ledger.jsonl')
 RESULTS = os.path.join(HERE, 'results')
-TOTAL = 100
-BATCH = 25
+TOTAL = 100          # set from the registry when the run starts
+BATCH = 25           # the first hundred results of a ledger commit every 25; after that every 250, so the repository is not flooded
 TIMEOUT = 300
 GUARD = [(re.compile(r'[A-Za-z]:\\Users\\|/c/Users/|AppData', re.I), 'a path of this machine'),
          (re.compile(r'[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}'), 'an e-mail address'),
@@ -183,6 +183,9 @@ def main(argv):
         return selftest()
     workers = int(argv[argv.index('--workers') + 1]) if '--workers' in argv else 8
     push = '--no-push' not in argv
+    global TOTAL
+    import tests
+    TOTAL = len(tests.registry())
     done = read_ledger(); todo = [n for n in range(1, TOTAL + 1) if n not in done]
     log('START: %d already in the ledger, %d to run, %d at once, ledger %s' % (len(done), len(todo), workers, LEDGER))
     since = len(done) % BATCH
@@ -191,7 +194,7 @@ def main(argv):
         for fut in as_completed(futs):
             rec = fut.result(); append_ledger(rec); done[int(rec['n'])] = rec; since += 1
             log('%3d %-13s %-9s %s' % (rec['n'], rec.get('family', ''), rec['result'], str(rec.get('observed', ''))[:110]))
-            if since >= BATCH:
+            if since >= (BATCH if len(done) <= 100 else 250):
                 since = 0; pushed = commit_and_push(dict(done), push); write_status(dict(done), 'RUNNING. last batch %s.' % ('pushed' if pushed else 'NOT pushed'))
     pushed = commit_and_push(dict(done), push); write_status(dict(done), 'FINISHED. last batch %s.' % ('pushed' if pushed else 'NOT pushed'))
     rows = list(done.values())

@@ -318,8 +318,9 @@ def registry():
     for seed in range(1, 21):
         for ev in (0.0, 0.3, 0.6):
             R.append(('FEEDER PULSE', 'feeder %d, %d%% chargers' % (seed, round(ev * 100)), (t_feeder, (seed, ev))))
-    assert len(R) == 100, len(R)
-    return R
+    assert len(R) == 100, len(R)                       # the first hundred keep their numbers for ever
+    import site_cases                                   # families added later are appended, never inserted: a number, once given, is permanent
+    return R + site_cases.registry()
 
 def run(n):
     family, name, (fn, args) = registry()[n - 1]

@@ -34,7 +34,7 @@ function draw(now){x.clearRect(0,0,W,H);const front=(now-t0)/1000*S*4.5;const do
   x.beginPath();x.arc(p[0],p[1],j===sel?dot*1.5:dot,0,7);x.fill()}x.globalAlpha=1;requestAnimationFrame(draw)}
 function show(j){sel=j;const r=R[j];document.getElementById('h').textContent=r.n+' - '+(r.family||'')+': '+(r.name||'');
  const n=r.numbers?Object.entries(r.numbers).map(e=>e[0].replace(/_/g,' ')+': '+e[1]).join(' - '):'';
- document.getElementById('b').innerHTML='<span class="r" style="color:'+col(r)+'">'+r.result+'</span><p>'+esc(r.question||'')+'</p><p><b>Seen:</b> '+esc(String(r.observed||''))+'</p><p><small>'+esc(n)+'</small></p>'+(r.assumed?'<p><small>'+esc(r.assumed)+'</small></p>':'')+'<p><small>run it again: python bench/one.py '+r.n+'</small></p>';
+ document.getElementById('b').innerHTML='<span class="r" style="color:'+col(r)+'">'+r.result+'</span><p>'+esc(r.question||'')+'</p><p><b>Seen:</b> '+esc(String(r.observed||''))+'</p><p><small>'+esc(n)+'</small></p>'+(r.assumed?'<p><small>'+esc(r.assumed)+'</small></p>':'')+(r.command?'<p><small><b>pop command:</b> '+esc(r.command.slice(0,400))+'</small></p>':'')+'<p><small>run it again: python bench/one.py '+r.n+'</small></p>';
  document.getElementById('card').style.display='block'}
 function esc(s){return s.replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]))}
 c.addEventListener('click',e=>{const b=c.getBoundingClientRect(),mx=e.clientX-b.left,my=e.clientY-b.top;let best=-1,bd=1e9;for(let j=0;j<R.length;j++){const p=pos(j),d=Math.hypot(p[0]-mx,p[1]-my);if(d<bd){bd=d;best=j}}if(bd<S*0.9)show(best)});
@@ -44,8 +44,9 @@ document.getElementById('fire').onclick=()=>{t0=performance.now()};addEventListe
 """
 
 def build(rows):
-    keep = ('n', 'family', 'name', 'result', 'question', 'observed', 'numbers', 'assumed')
-    data = [{k: r[k] for k in keep if k in r} for r in sorted(rows, key=lambda r: r['n'])]
+    keep = ('n', 'family', 'name', 'result', 'question', 'observed', 'numbers', 'assumed', 'sentence', 'command')
+    lean = ('n', 'family', 'name', 'result', 'observed', 'numbers', 'sentence', 'command')      # past the first 200 the page carries the short form
+    data = [{k: r[k] for k in (keep if r['n'] <= 200 else lean) if k in r} for r in sorted(rows, key=lambda r: r['n'])]
     tally = {}
     for r in data:
         tally[r['result']] = tally.get(r['result'], 0) + 1

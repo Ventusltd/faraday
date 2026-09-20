@@ -1,0 +1,13 @@
+{
+ "n": 37,
+ "family": "F4 logic on the surface",
+ "question": "A two to one selector: does the output follow the chosen input for all 8 input rows?",
+ "apparatus": "mux from NAND cells",
+ "refuted_if": "any row wrong",
+ "when": "2026-09-20T01:27:30.783Z",
+ "seconds": 0,
+ "did": "Built the selector from four gate cells. Set each of the 8 input rows, waited for the output cell to settle, read it.",
+ "observed": "8 of 8 rows right; 7 cells; settles by tick 3",
+ "shows": "One cell can choose which of two others is passed on: a selection made by the dots themselves.",
+ "result": "CONFIRMED"
+}

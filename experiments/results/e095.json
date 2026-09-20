@@ -1,0 +1,13 @@
+{
+ "n": 95,
+ "family": "F10 scale",
+ "question": "Is the sunflower law exact at key 38 billion in the number type the page uses?",
+ "apparatus": "float64 against big number arithmetic, neighbour separation",
+ "refuted_if": "two neighbouring keys land on one pixel position at unit scale",
+ "when": "2026-09-20T01:28:03.308Z",
+ "seconds": 0.02,
+ "did": "For 2,000 seeded keys near each of five sizes, placed the dot twice: as the page does (64 bit floating point) and exactly (whole numbers, 59 places). Measured how far apart the two places are, in units where neighbouring dots are about 1.8 apart. Measured the true nearest neighbour for 200 of them.",
+ "observed": "near key 1.0e+6: worst misplacement 4.92e-7, true nearest neighbour 1.69 apart, on the page 1.69, holds; near key 1.0e+8: worst misplacement 0.000412, true nearest neighbour 1.74 apart, on the page 1.74, holds; near key 1.0e+9: worst misplacement 0.0157, true nearest neighbour 1.68 apart, on the page 1.67, holds; near key 1.0e+10: worst misplacement 0.451, true nearest neighbour 1.71 apart, on the page 1.67, holds; near key 3.8e+10: worst misplacement 3.41, true nearest neighbour 1.70 apart, on the page 1.29, holds",
+ "shows": "The dots do not collide at 38 billion, but the page arithmetic is visibly strained there: single dots sit up to 3.4 units from their true place and the closest pair is 1.29 apart where the law says 1.70. Below ten billion the error is under half a unit. A first judging of this experiment (misplacement alone) said REFUTED; that was the wrong measure, because a slow twist shared by neighbours harms nothing, and the ledger keeps both lines. Owed: the same test with the angle taken modulo one turn in whole numbers, which should restore 1.70.",
+ "result": "CONFIRMED"
+}

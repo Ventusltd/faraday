@@ -1,0 +1,101 @@
+n	family	question	apparatus	refuted_if
+1	F1 arrangements	Does the sunflower (the law the Kuiper draws with) keep black sky between every dot at a true 390 wide?	assemble.mjs sunflower, headless Chrome 390x844, pixel read	any two lit dots touch, or under 30 frames a second
+2	F1 arrangements	Does a ring of one app's dots settle and stay readable at 390?	assemble.mjs ring, pixel read, settle timer	does not settle in 3 s, or dots overlap
+3	F1 arrangements	Does an orbit hold its frame rate while every selected dot moves?	assemble.mjs orbit, frame counter over 10 s	median under 30 frames a second
+4	F1 arrangements	Does the clock shape show the true London time to the minute, read from the pixels?	assemble.mjs clock, pixel read against the system clock	hands read more than one minute off
+5	F1 arrangements	Is a word written in dots readable by a machine reader at 390?	assemble.mjs text, the word GRID, template match on the photograph	the word is not recovered
+6	F1 arrangements	Does a hexagonal lattice pack more dots per screen than the sunflower with black sky kept?	new shape hex in a test cartridge, dot count per 390x844	fewer dots, or sky rule broken
+7	F1 arrangements	Do spiral arms (every nth key) separate cleanly into n arms?	shape arms, n = 5, 8, 13, count connected groups in pixels	group count differs from n
+8	F1 arrangements	Can a repository's folder tree be drawn as a tree of dots with no crossing branches?	shape tree from the public file list of one repository	any two branches cross
+9	F1 arrangements	Can a busbar with feeders (a single line diagram shape) be drawn from dots and read as one bar and k feeders?	shape busbar, k = 6, pixel read of bar and feeder count	feeder count read differs from k
+10	F1 arrangements	Can the outline of Great Britain be drawn in dots from public boundary data and recognised?	shape outline from a public coastline, overlap score against the source	overlap under 90 percent
+11	F2 gates	Select by app: do lit plus dark equal the whole, exactly?	programs.json select app, count lit and dark from the table	lit + dark differs from total by one or more
+12	F2 gates	Select by repository: same exact sum, for every public repository in turn?	select repository, loop all, count	any repository fails the sum
+13	F2 gates	Select by month: do the twelve months of a year sum to that year?	select month, 2026 months against select year	sum differs
+14	F2 gates	Select by file type: do the types partition the whole with none counted twice?	select type, all types, set intersection	any dot in two types, or any in none
+15	F2 gates	Select by a word: does the count equal an independent count by a second tool?	select word 'cable', against ripgrep on the same public files	counts differ
+16	F2 gates	Select files changed together: is the relation symmetric?	select changed-with X, then for each Y check X in changed-with Y	any one-way pair
+17	F2 gates	Callers HOME and AWAY: does every AWAY caller name a callee that exists?	select callers, resolve each target key	any dangling key
+18	F2 gates	AND of two selections: equal to the intersection computed outside the page?	AND(app, month), against a python set intersection	sets differ
+19	F2 gates	OR of two selections: equal to the union, and |A|+|B|-|A and B|?	OR(app, month), counted three ways	any count differs
+20	F2 gates	NOT of a selection: is NOT NOT A equal to A, dot for dot?	NOT twice, compare key lists	any key differs
+21	F3 pulses	Pulse from the centre: is any cell lit ahead of the front?	pulse origin centre, per frame read lit cells against front radius	any lit cell beyond the front
+22	F3 pulses	Pulse from the pressed button: does the front start at the button's place?	pulse origin button, first lit cell distance to button	first lit cell not the nearest
+23	F3 pulses	Pulse from a tapped dot: same, from any dot, 100 seeded taps?	pulse origin dot, seeded taps	any tap where a farther cell lights first
+24	F3 pulses	Slow pulse: is the measured speed the speed asked for, within 5 percent?	pulse speed s, front radius against time	error over 5 percent
+25	F3 pulses	Fast pulse: at what speed does the front skip cells between frames?	raise speed until a cell is never seen dark-then-lit in order	no such limit found (then record the top speed tested)
+26	F3 pulses	Two fronts that meet: do they pass through, or cancel? Which does the rule give?	two origins, read the meeting line	outcome differs between two runs of the same seed
+27	F3 pulses	A second front that only switches cells the first one lit: does it touch no others?	pulse 2 gated on pulse 1 output, key lists	any cell switched that pulse 1 did not light
+28	F3 pulses	Does the pulse reach every selected cell, leaving none dark at the end?	pulse to END, count lit against selection	any selected cell left dark
+29	F3 pulses	Is the pulse the same on a second machine (a GitHub runner) frame for frame at fixed ticks?	fixed tick clock, hash of lit key list per tick, two machines	any tick hash differs
+30	F3 pulses	Does a pulse over the whole loaded sky finish inside 5 s on a phone frame?	full selection, 390x844, 4x processor slowdown	over 5 s
+31	F4 logic on the surface	Half adder in the page: truth table read from the pixels, 4 of 4?	cells.mjs rule in a test cartridge, headless Chrome, pixel read	any row wrong
+32	F4 logic on the surface	Four bit adder in the page: 256 of 256 from the pixels?	same, adder4, all input pairs	any sum wrong
+33	F4 logic on the surface	Latch in the page: set, wait, read; reset, read: from the pixels?	same, latch, schedule of entry 19	any read differs from entry 19
+34	F4 logic on the surface	A two bit counter from the same cells: does it count 0,1,2,3,0 on clock pulses?	counter built from latches, pixel read each clock	sequence differs
+35	F4 logic on the surface	A clock divider: does the output change once for every two input pulses?	divider from one toggle, 16 pulses	output edges not 8
+36	F4 logic on the surface	A ring oscillator of 3, 5, 7 cells: is the period 2 x cells ticks?	odd ring of NOT cells, read period	period differs
+37	F4 logic on the surface	A two to one selector: does the output follow the chosen input for all 8 input rows?	mux from NAND cells	any row wrong
+38	F4 logic on the surface	A four bit comparator: A greater than B right for all 256 pairs?	comparator from NAND cells	any pair wrong
+39	F4 logic on the surface	Do the page and node agree cell for cell, tick for tick, on the adder?	hash of states per tick, page against cells.mjs in node	any tick differs
+40	F4 logic on the surface	Does the logic survive being placed by the sunflower law (keys as real dot keys), not a neat grid?	adder4 with keys drawn from the live sky	any sum wrong
+41	F5 journeys	Follow the electron: sun, cell, cable, inverter, transformer, grid, GridAtlas: does it end in GridAtlas in two taps?	fire electron, tap counter, final URL	more than two taps, or wrong landing
+42	F5 journeys	From a pipeline project to its place on the map: does the landing URL equal the PipelineNews button's URL?	fire project, compare with the button's href for the same repd_ref	URLs differ in any of the seven parameters
+43	F5 journeys	From a cable to its drawing: does it land in the cables app on that conductor?	fire cable, landing page reads the conductor named	wrong conductor, or a blank page
+44	F5 journeys	From a fault point to the fault view?	fire fault, landing reads the point named	wrong point
+45	F5 journeys	From a law to the experiment that tests it (law L26 to faraday 16)?	fire law L26, landing anchor	anchor missing
+46	F5 journeys	From a dot to its code at the exact commit and back to the same dot?	card code window, back, same key selected	a different key on return
+47	F5 journeys	Does the back button undo a firing exactly (same sky as before)?	hash of lit keys before and after back	hashes differ
+48	F5 journeys	Does a firing link opened cold on a phone frame show something moving within 2 s?	cold cache, 390x844, first changed frame time	over 2 s
+49	F5 journeys	Does a broken firing (unknown program) say so plainly and leave the sky usable?	fire nonsense, read message, then tap a dot	blank page, or no message, or dead sky
+50	F5 journeys	Do ten firings in a row leave memory where it started (no leak)?	ten firings, heap read before and after, forced collection	growth over 10 percent
+51	F6 sales and procurement engineering	A cable family fires: are the lit dots exactly the code and data that size it?	fire cable-family, against the engine's import list for the sizing function	any file lit that is not used, or used and not lit
+52	F6 sales and procurement engineering	Does the landing open the cables app on the conductor named in the link?	fire cable size=, landing read	wrong size shown
+53	F6 sales and procurement engineering	A bill of quantities shape: do dot counts per row equal the quantities given?	shape boq from a public worked example, count dots per row	any row differs
+54	F6 sales and procurement engineering	Is the drawn cable section true to the public datasheet dimensions within 2 percent?	section shape, pixel measure against the cited dimensions	any layer over 2 percent off
+55	F6 sales and procurement engineering	Voltage drop by link: does fire vdrop with inputs give the same number as the engine called directly?	fire vdrop, against ventus-grid-engine in node	numbers differ
+56	F6 sales and procurement engineering	Current rating by link: same check?	fire rating, against the engine	numbers differ
+57	F6 sales and procurement engineering	Does a run light only the lines that computed it?	coverage of the engine call against lit lines	lit set differs from covered set
+58	F6 sales and procurement engineering	Does any firing in this family show a price, a supplier name, or tender detail?	word scan of every rendered state against a banned list	any hit
+59	F6 sales and procurement engineering	Can a schedule of ten cables fire as ten dots groups and land on a table of ten?	fire schedule, landing row count	not ten
+60	F6 sales and procurement engineering	Is the same link the same picture a week later (pinned to a release)?	link with release pin, photograph hash on two releases	hash differs with the pin set
+61	F7 project development	The working link: does repd_ref 12588 (solar, 51.8132088, -1.3489728, zoom 12) arrive VERIFIED?	the GridAtlas link as given, read arrival_reconciliation.status	status is not VERIFIED
+62	F7 project development	Does fire project with repd_ref 12588 build exactly that link?	firing grammar, string compare	any parameter differs
+63	F7 project development	Does the project's own record light in the Kuiper, and only it?	select repd_ref in the public register dots	zero or more than one record lit
+64	F7 project development	100 seeded register projects: what share arrive VERIFIED, and what are the other statuses?	loop 100 links, tally statuses	(a count; refuted if any arrival has no status at all)
+65	F7 project development	A link with no coordinates: does GridAtlas resolve them from the register, never 0,0?	repd_ref only	map centred within 1 km of 0,0
+66	F7 project development	A retired project: does it say NOT_IN_ACTIVE_REGISTER and not invent a place?	a withdrawn repd_ref	any other status
+67	F7 project development	An interconnector arrival: handed to the interconnector engine?	interconnector= link	status not HANDED_TO_INTERCONNECTORS or its answer
+68	F7 project development	Is the nearest substation distance the same from the link as from a plain search for the same project?	two routes, read distance	differ by over 10 m
+69	F7 project development	Are all counts shown on the landing from public data with a source named?	read each figure's source line	any figure with no source
+70	F7 project development	Every technology value PipelineNews sends: does each one arrive?	one link per technology	any technology fails to arrive
+71	F8 fault headroom	Does fire headroom at a named public point land in the fault view at that point?	fire headroom point=, landing read	wrong point, or no fault view
+72	F8 fault headroom	Does the number equal the engine's fault function called directly on the same public inputs?	page number against node call	differ
+73	F8 fault headroom	Does every state carry the line 'an estimate from public data, not a study'?	text scan of every rendered state	line missing anywhere
+74	F8 fault headroom	Above 100 kW: is the chartered engineer line shown?	inputs above and below 100 kW	missing above, or shown wrongly below
+75	F8 fault headroom	Is the mentor's site linked as the authority and nothing of it copied?	link present; text overlap scan against the public page	link absent, or any copied sentence
+76	F8 fault headroom	Does adding a generator at the point lower the headroom, never raise it?	sweep generator size, read headroom	headroom rises anywhere in the sweep
+77	F8 fault headroom	Do the lit lines equal the lines the fault function ran?	coverage against lit set	sets differ
+78	F8 fault headroom	Ten points: are results the same on a second machine?	runner against local, number compare	any differ
+79	F8 fault headroom	A point with no published fault data: does it say so, and give no number?	such a point	any number shown
+80	F8 fault headroom	Does the private override stay on the device (nothing sent)?	enter an override, record all network requests	any request carrying the value
+81	F9 layers in the Kuiper	Does the existing layers panel run as one cartridge in the Kuiper shell unchanged?	galaxies-wafers layers-panel.mjs composed as published	needs a change to the shell
+82	F9 layers in the Kuiper	Does layers=substations load only that layer's parquet?	network log	any other layer file fetched
+83	F9 layers in the Kuiper	Two layers by link: both drawn, in the order named?	layers=substations,132kv	one missing or order wrong
+84	F9 layers in the Kuiper	An unknown layer name: plain message, others still load?	layers=substations,nonsense	blank page, or substations missing
+85	F9 layers in the Kuiper	Memory held with all layers on a phone frame: under 300 MB?	heap and GPU memory read, 390x844	over 300 MB
+86	F9 layers in the Kuiper	Time to first layer drawn on a throttled phone link: under 5 s?	4G throttle	over 5 s
+87	F9 layers in the Kuiper	Is parquet read by range (only the row groups needed)?	network log byte ranges	whole file fetched for a small view
+88	F9 layers in the Kuiper	Does the row count drawn equal the row count in the file for that view?	count against a python read of the same parquet	differ
+89	F9 layers in the Kuiper	Does the same layers string work in GridAtlas as in the Kuiper?	same query on both	either ignores it
+90	F9 layers in the Kuiper	Does a layer survive a rollback of the pointer?	publish on a throwaway site, rollback, reload	layer broken after rollback
+91	F10 scale	How many cells per frame at 60 frames a second on this graphics card, by list?	instanced draw, raise count until under 60	(a number; refuted if the script cannot hold 1 million)
+92	F10 scale	The gate rule as a shader: same states as cells.mjs for the four bit adder?	WebGL2 fragment rule, read back, compare	any state differs
+93	F10 scale	Cells per second through the shader rule?	texture ping pong, timed, 4096 x 4096	(a number; refuted if slower than the processor version)
+94	F10 scale	By law not by list: can place and state for any key up to 38 billion be answered with no list held?	pure function of key, random keys to 3.8e10, memory read	memory grows with the key asked for
+95	F10 scale	Is the sunflower law exact at key 38 billion in the number type the page uses?	float64 against big number arithmetic, neighbour separation	two neighbouring keys land on one pixel position at unit scale
+96	F10 scale	How many cells can be held as a texture in 16 GB, measured not reckoned?	allocate until refusal, one bit and one byte per cell	(a number)
+97	F10 scale	What can a phone frame take at 30 frames a second?	4x slowdown, 390x844, raise count	(a number; refuted if under 100,000)
+98	F10 scale	Does a view of the 38 billion (zoomed) draw only the cells in view, found by law?	inverse of the place law for a window, count drawn against count in window	differ
+99	F10 scale	All 24 cores: cells per second for the backwards state() against a forward sweep?	node worker threads, both methods, same circuit	(two numbers; refuted if they disagree on any state)
+100	F10 scale	Do 100 saved firings load as pop commands in under 50 ms and each run from its string alone?	firings.json, parse and dispatch timing, run each	over 50 ms, or any firing that needs more than its string

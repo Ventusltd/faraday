@@ -1,0 +1,13 @@
+{
+ "n": 38,
+ "family": "F4 logic on the surface",
+ "question": "A four bit comparator: A greater than B right for all 256 pairs?",
+ "apparatus": "comparator from NAND cells",
+ "refuted_if": "any pair wrong",
+ "when": "2026-09-20T01:27:30.802Z",
+ "seconds": 0.01,
+ "did": "Built the comparator from gate cells only. Set every pair of numbers from 0 to 15, waited for the output cell to settle, read it.",
+ "observed": "256 of 256 pairs right; 61 cells; slowest settles at tick 17",
+ "shows": "The dots can decide which of two numbers is larger.",
+ "result": "CONFIRMED"
+}

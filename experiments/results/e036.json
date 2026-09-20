@@ -1,0 +1,13 @@
+{
+ "n": 36,
+ "family": "F4 logic on the surface",
+ "question": "A ring oscillator of 3, 5, 7 cells: is the period 2 x cells ticks?",
+ "apparatus": "odd ring of NOT cells, read period",
+ "refuted_if": "period differs",
+ "when": "2026-09-20T01:27:30.777Z",
+ "seconds": 0,
+ "did": "Built rings of 3, 5 and 7 cells, each lit unless the one before it was lit a tick earlier. No inputs. Read every cell for 8 x cells ticks and found the shortest repeat.",
+ "observed": "3 cells: period 2 (expected 6); first ticks 000 111 000 111 000; 5 cells: period 2 (expected 10); first ticks 00000 11111 00000 11111 00000; 7 cells: period 2 (expected 14); first ticks 0000000 1111111 0000000 1111111 0000000",
+ "shows": "It does not. Every cell starts HOME at tick 0, so they all see the same thing and all flip together: the ring beats as one, period 2, whatever its length. A travelling wave needs the symmetry broken by an input.",
+ "result": "REFUTED"
+}

@@ -1,0 +1,33 @@
+{
+ "by_shape": {
+  "chain": [
+   2096352,
+   1374465
+  ],
+  "star": [
+   2095794,
+   1455773
+  ],
+  "sub-boards": [
+   2093472,
+   1437484
+  ],
+  "tree": [
+   2102382,
+   1418665
+  ]
+ },
+ "cases": 8388000,
+ "check_both_refuse": 0,
+ "check_differed": 0,
+ "check_matched": 8388000,
+ "check_rounds_differ": 167,
+ "check_rows": 8388000,
+ "confirmed": 8388000,
+ "export_over": 1466960,
+ "shards": 233,
+ "tx_over": 1143899,
+ "volts_high": 616,
+ "volts_low": 828965,
+ "written_utc": "2026-09-20T02:18:02Z"
+}

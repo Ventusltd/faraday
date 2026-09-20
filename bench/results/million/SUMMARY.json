@@ -1,0 +1,16 @@
+{
+ "cases": 10080000,
+ "check_both_refuse": 2803,
+ "check_differed": 0,
+ "check_matched": 10080000,
+ "check_rounds_differ": 807,
+ "check_rows": 10080000,
+ "confirmed": 10000856,
+ "export_over": 3684541,
+ "refuted": 79144,
+ "shards": 420,
+ "tx_over": 4381612,
+ "volts_high": 26298,
+ "volts_low": 513515,
+ "written_utc": "2026-09-20T02:18:02Z"
+}

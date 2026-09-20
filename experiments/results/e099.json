@@ -1,0 +1,13 @@
+{
+ "n": 99,
+ "family": "F10 scale",
+ "question": "All 24 cores: cells per second for the backwards state() against a forward sweep?",
+ "apparatus": "node worker threads, both methods, same circuit",
+ "refuted_if": "(two numbers; refuted if they disagree on any state)",
+ "when": "2026-09-20T01:27:30.950Z",
+ "seconds": 0.12,
+ "did": "Ran the four bit adder (69 cells) for all 256 input pairs and 41 ticks, both ways, and compared every cell at every tick.",
+ "observed": "724,224 states compared, 0 differ; forwards 41,914,507 states a second, backwards with its cache 8,002,687 a second, one core",
+ "shows": "The two ways are the same machine. Forwards is the one a graphics card can do (every cell at once from the last frame); backwards is the one that needs nothing held. Either may be used and checked against the other.",
+ "result": "CONFIRMED"
+}

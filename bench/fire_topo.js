@@ -7,7 +7,7 @@
   const SHAPES = ['star', 'chain', 'tree', 'sub-boards'];
   const CASES = []; for (const ps of [0.0, 0.5, 1.0]) for (const g of [0, 1]) for (const ls of [1.0, 0.6, 0.3]) CASES.push([ps, g, ls]);
   function mulberry32(a) { a |= 0; return () => { a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return (t ^ t >>> 14) >>> 0; }; }
-  function network(seed) {
+  function network(seed, variant) {
     const g = mulberry32(Number((BigInt(seed) * 2654435761n + 777n) & 0xFFFFFFFFn)), pick = n => g() % n;
     const shape = pick(4), n = 2 + pick(11), fault = FAULT[pick(5)], intake = (10 + pick(191)) / 100, limit = LIMITS[pick(5)], subs = [];
     for (let k = 1; k <= n; k++) {
@@ -17,7 +17,13 @@
       subs.push({ n: k, kva, load_kw: load, km, parent, pv_kw: pv });
     }
     const gen = GENS[pick(4)], genAt = pick(n + 1);
-    return { seed, shape: SHAPES[shape], fault_mva: fault, intake_km: intake, export_limit_kw: limit, generator_kw: gen, generator_at: genAt, subs };
+    // the same networks asked a different way, exactly as bench/topo.py: 1 more solar, 2 a weak grid, 3 long cables, 4 smaller transformers
+    let fault2 = fault, intake2 = intake;
+    if (variant === 1) for (const s of subs) s.pv_kw = Math.floor(s.pv_kw * 3 / 2);
+    else if (variant === 2) fault2 = Math.floor(fault / 2);
+    else if (variant === 3) { intake2 = intake * 3; for (const s of subs) s.km = s.km * 3; }
+    else if (variant === 4) for (const s of subs) s.kva = KVA[Math.max(0, KVA.indexOf(s.kva) - 1)];
+    return { seed, variant: variant || 0, shape: SHAPES[shape], fault_mva: fault2, intake_km: intake2, export_limit_kw: limit, generator_kw: gen, generator_at: genAt, subs };
   }
   const add = (a, b) => [a[0] + b[0], a[1] + b[1]], sub = (a, b) => [a[0] - b[0], a[1] - b[1]];
   const mul = (a, b) => [a[0] * b[0] - a[1] * b[1], a[0] * b[1] + a[1] * b[0]];
@@ -63,7 +69,7 @@
   const rnd = (x, d) => Number(x.toFixed(d));
   function run(i) {
     if (i.seed === undefined) throw new Error('this command needs "seed" (any whole number: each one is a different network)');
-    const net = i.network || network(i.seed), ps = i.solar === undefined ? 1 : i.solar, g = i.generator === undefined ? 0 : i.generator, ls = i.load === undefined ? 1 : i.load;
+    const net = i.network || network(i.seed, i.variant || 0), ps = i.solar === undefined ? 1 : i.solar, g = i.generator === undefined ? 0 : i.generator, ls = i.load === undefined ? 1 : i.load;
     const r = solve(net, ps, !!g, ls), c = C, exp = Math.max(0, -r.p), over = Math.max(0, exp - net.export_limit_kw), flags = [];
     if (r.rounds > 300 || r.balance >= 1e-6) flags.push('THE SWEEP DID NOT CONVERGE: this network is beyond the method, and no number here should be used');
     if (over > 0) flags.push('export ' + exp.toFixed(0) + ' kW is ' + over.toFixed(0) + ' kW over the ' + net.export_limit_kw + ' kW limit');

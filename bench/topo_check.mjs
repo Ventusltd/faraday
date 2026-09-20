@@ -10,7 +10,7 @@ const lines = readFileSync(process.argv[2], 'utf8').split('\n').filter(Boolean).
 let matched = 0, differed = 0, roundsDiffer = 0, bothRefuse = 0, last = -1, net = null; const first = [];
 for (const l of lines) {
   const [seed, ci, p, q, loss, vmax, vmin, tx, amps, rounds] = l.split(',').map(Number);
-  if (seed !== last) { net = network(seed); last = seed; }
+  if (seed !== last) { net = network(seed, +(process.argv[3] || 0)); last = seed; }
   const c = CASES[ci], r = solve(net, c[0], !!c[1], c[2]);
   if (r.rounds > 300 && rounds > 300) { bothRefuse++; matched++; continue; }
   const tol = r.rounds === rounds ? 1e-9 : 1e-6, got = [r.p, r.q, r.loss, r.vmax, r.vmin, r.tx, r.amps], want = [p, q, loss, vmax, vmin, tx, amps];

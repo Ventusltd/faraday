@@ -34,7 +34,11 @@ def mulberry32(a):
         return (t ^ (t >> 14)) & 0xFFFFFFFF
     return nxt
 
-def network(seed):
+VARIANT = int(os.environ.get('TOPO_VARIANT', '0'))
+START = int(os.environ.get('TOPO_START_SHARD', '0'))
+
+def network(seed, variant=None):
+    if variant is None: variant = VARIANT
     """Whole numbers until the last division, in a fixed order of draws: fire_topo.js makes the identical network."""
     g = mulberry32(seed * 2654435761 + 777); pick = lambda n: g() % n
     shape = pick(4); n = 2 + pick(11); fault = FAULT[pick(5)]; intake = (10 + pick(191)) / 100; limit = LIMITS[pick(5)]
@@ -48,6 +52,16 @@ def network(seed):
         pv = kva * (30 + pick(121)) // 100 if pick(10) < 3 else 0
         subs.append(dict(n=k, kva=kva, load_kw=load, km=km, parent=parent, pv_kw=pv))
     gen = GENS[pick(4)]; gen_at = pick(n + 1)
+    # THE SAME NETWORKS, ASKED IN A DIFFERENT WAY. 1: half as much solar again on every roof that has any. 2: a connection of half
+    # the fault level (a weak grid). 3: every cable three times as long (a spread out site). 4: every transformer one size down the list.
+    if variant == 1:
+        for s in subs: s['pv_kw'] = s['pv_kw'] * 3 // 2
+    elif variant == 2: fault = fault // 2
+    elif variant == 3:
+        intake = intake * 3
+        for s in subs: s['km'] = s['km'] * 3
+    elif variant == 4:
+        for s in subs: s['kva'] = KVA[max(0, KVA.index(s['kva']) - 1)]
     return dict(seed=seed, shape=SHAPES[shape], fault_mva=fault, intake_km=intake, export_limit_kw=limit, generator_kw=gen, generator_at=gen_at, subs=subs)
 
 def solve(net, pv_share, gen_on, load_share, tol=1e-9):
@@ -126,7 +140,7 @@ def shard(i):
     csv = base + '.csv'
     with open(csv, 'w', newline='\n') as fh: fh.write('seed,case,p_kw,q_kvar,loss_kw,vmax_pu,vmin_pu,worst_tx_pct,busiest_amps,rounds\n' + '\n'.join(rows) + '\n')
     try:
-        cp = subprocess.run(['node', os.path.join(HERE, 'topo_check.mjs'), csv], capture_output=True, text=True, timeout=900)
+        cp = subprocess.run(['node', os.path.join(HERE, 'topo_check.mjs'), csv, str(VARIANT)], capture_output=True, text=True, timeout=900)
         check = json.loads(cp.stdout.strip().splitlines()[-1]) if cp.stdout.strip() else dict(error=(cp.stderr or 'no output')[:300])
     except Exception as e:
         check = dict(error=str(e)[:300])
@@ -171,7 +185,7 @@ def main():
     n = (a.seeds + PER_SHARD - 1) // PER_SHARD; t0 = time.time()
     tot = dict(cases=0, run_cases=0, confirmed=0, export_over=0, volts_high=0, volts_low=0, tx_over=0, matched=0, differed=0, rounds_differ=0, both_refuse=0, errors=0, bad=[], by_shape={})
     todo = []
-    for i in range(n):
+    for i in range(START, START + n):
         p = os.path.join(OUT, 'shards', 't%07d.json' % i)
         if os.path.exists(p): add(tot, json.load(open(p)), False)
         else: todo.append(i)

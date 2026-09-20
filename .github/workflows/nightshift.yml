@@ -1,0 +1,107 @@
+name: night shift - networks solved twice
+# The same seeded networks as bench/topo.py on the home machine, asked in four different ways (more solar, a weak grid, long cables,
+# smaller transformers), on GitHub's runners. Every case is solved in Python and again in the JavaScript the Kuiper runs; a job FAILS
+# if any case differs. Row by row shards are not kept (any shard can be rebuilt from its seeds); the merged summary and the most
+# telling cases are committed to bench/results/runners/.
+on:
+  workflow_dispatch:
+    inputs:
+      seeds_per_job: { description: 'seeds per job (x18 cases)', default: '3000000' }
+      first_shard: { description: 'first shard number of chunk 0 (2,000 seeds a shard)', default: '30000' }
+permissions:
+  contents: write
+jobs:
+  solve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        variant: [1, 2, 3, 4]
+        chunk: [0, 1, 2, 3, 4]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - name: self test
+        run: python bench/topo.py --selftest
+      - name: solve twice
+        env:
+          TOPO_VARIANT: ${{ matrix.variant }}
+          TOPO_OUT: ${{ github.workspace }}/out
+        run: |
+          SEEDS=${{ github.event.inputs.seeds_per_job }}
+          export TOPO_START_SHARD=$(( ${{ github.event.inputs.first_shard }} + ${{ matrix.chunk }} * (SEEDS / 2000) ))
+          python bench/topo.py --seeds $SEEDS --workers 4 | tee out.txt
+          grep -q "DIFFERED 0," out.txt
+          grep -q "could not run 0" out.txt
+      - name: merge this job
+        run: |
+          python - <<'EOF'
+          import glob, json, heapq, os
+          tot = {}; tops = {}
+          for f in glob.glob('out/shards/*.json'):
+              d = json.load(open(f))
+              for k, v in d.items():
+                  if isinstance(v, (int, float)) and k not in ('shard', 'seconds'): tot[k] = tot.get(k, 0) + v
+              for k, v in d['check'].items():
+                  if isinstance(v, (int, float)): tot['check_' + k] = tot.get('check_' + k, 0) + v
+              for k, v in d['by_shape'].items():
+                  s = tot.setdefault('by_shape', {}).setdefault(k, [0, 0]); s[0] += v[0]; s[1] += v[1]
+              for kind, items in d['tops'].items():
+                  h = tops.setdefault(kind, [])
+                  for it in map(tuple, items):
+                      if len(h) < 200: heapq.heappush(h, it)
+                      elif it > h[0]: heapq.heapreplace(h, it)
+          tot['variant'] = int(os.environ['V']); tot['chunk'] = int(os.environ['C'])
+          json.dump({'summary': tot, 'tops': {k: sorted(v, reverse=True) for k, v in tops.items()}}, open('job.json', 'w'))
+          print(json.dumps(tot)[:600])
+          EOF
+        env: { V: '${{ matrix.variant }}', C: '${{ matrix.chunk }}' }
+      - uses: actions/upload-artifact@v4
+        with: { name: 'job-v${{ matrix.variant }}-c${{ matrix.chunk }}', path: job.json }
+  record:
+    needs: solve
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { path: jobs }
+      - name: one record for the run
+        run: |
+          python - <<'EOF'
+          import glob, json, heapq, os, time
+          by_variant = {}; tops = {}
+          for f in sorted(glob.glob('jobs/*/job.json')):
+              d = json.load(open(f)); s = d['summary']; v = str(s['variant'])
+              t = by_variant.setdefault(v, {})
+              for k, val in s.items():
+                  if isinstance(val, (int, float)) and k not in ('variant', 'chunk'): t[k] = t.get(k, 0) + val
+              for shape, pair in s.get('by_shape', {}).items():
+                  p = t.setdefault('by_shape', {}).setdefault(shape, [0, 0]); p[0] += pair[0]; p[1] += pair[1]
+              for kind, items in d['tops'].items():
+                  h = tops.setdefault(v + ' | ' + kind, [])
+                  for it in map(tuple, items):
+                      if len(h) < 200: heapq.heappush(h, it)
+                      elif it > h[0]: heapq.heapreplace(h, it)
+          os.makedirs('bench/results/runners', exist_ok=True)
+          out = {'schema': 'faraday.runners.v1', 'run': os.environ['RUN'], 'written_utc': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
+                 'variants': {'1': 'half as much solar again', '2': 'a connection of half the fault level', '3': 'every cable three times as long', '4': 'every transformer one size down'},
+                 'jobs_recorded': len(glob.glob('jobs/*/job.json')), 'by_variant': by_variant,
+                 'columns': ['score', 'seed', 'case', 'p_kw', 'vmax_pu', 'vmin_pu', 'worst_tx_pct', 'flags'], 'tops': {k: sorted(v, reverse=True) for k, v in tops.items()}}
+          json.dump(out, open('bench/results/runners/run-%s.json' % os.environ['RUN'], 'w'), separators=(',', ':'))
+          print(json.dumps(by_variant)[:1500])
+          EOF
+        env: { RUN: '${{ github.run_id }}' }
+      - name: commit the record
+        run: |
+          git config user.name "faraday night shift"
+          git config user.email "actions@users.noreply.github.com"
+          git add bench/results/runners
+          git diff --cached --quiet || git commit -m "night shift on the runners: run ${{ github.run_id }}, networks solved twice in four different ways"
+          git pull --rebase
+          git push

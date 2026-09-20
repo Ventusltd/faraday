@@ -322,7 +322,8 @@ def registry():
     import site_cases                                   # families added later are appended, never inserted: a number, once given, is permanent
     import cable_cases
     import energy_cases
-    return R + site_cases.registry() + cable_cases.registry() + energy_cases.registry()
+    import traction_cases
+    return R + site_cases.registry() + cable_cases.registry() + energy_cases.registry() + traction_cases.registry()
 
 def run(n):
     family, name, (fn, args) = registry()[n - 1]

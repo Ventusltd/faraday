@@ -53,6 +53,21 @@ def log(msg):
         f.write(line + '\n')
 
 
+def write_status(done, note=''):
+    """STATUS.md beside the ledger: thirty lines a supervisor can read in one glance instead of the whole ledger."""
+    rows = [done[k] for k in sorted(done)]
+    tally = {}
+    for r in rows:
+        tally[r['result']] = tally.get(r['result'], 0) + 1
+    odd = [r for r in rows if r['result'] not in ('CONFIRMED',)][-12:]
+    lines = ['# STATUS  ' + time.strftime('%Y-%m-%d %H:%M:%S'), '', '%d of %d run. %s' % (len(rows), TOTAL, ', '.join('%s %d' % kv for kv in sorted(tally.items()))), note, '',
+             'Not confirmed (latest twelve):'] + ['- %s %s %s: %s' % (r['n'], r.get('family', ''), r['result'], str(r.get('observed', ''))[:140]) for r in odd]
+    tmp = os.path.join(LEDGER_DIR, 'STATUS.md.tmp')
+    with io.open(tmp, 'w', encoding='utf-8', newline='\n') as f:
+        f.write('\n'.join(lines) + '\n')
+    os.replace(tmp, os.path.join(LEDGER_DIR, 'STATUS.md'))
+
+
 def read_ledger(path=None):
     done = {}
     path = path or LEDGER
@@ -176,8 +191,8 @@ def main(argv):
             rec = fut.result(); append_ledger(rec); done[int(rec['n'])] = rec; since += 1
             log('%3d %-13s %-9s %s' % (rec['n'], rec.get('family', ''), rec['result'], str(rec.get('observed', ''))[:110]))
             if since >= BATCH:
-                since = 0; commit_and_push(dict(done), push)
-    commit_and_push(dict(done), push)
+                since = 0; pushed = commit_and_push(dict(done), push); write_status(dict(done), 'RUNNING. last batch %s.' % ('pushed' if pushed else 'NOT pushed'))
+    pushed = commit_and_push(dict(done), push); write_status(dict(done), 'FINISHED. last batch %s.' % ('pushed' if pushed else 'NOT pushed'))
     rows = list(done.values())
     log('END: %d run: %s' % (len(rows), {k: sum(r['result'] == k for r in rows) for k in sorted({r['result'] for r in rows})}))
     return 0 if len(done) == TOTAL else 1

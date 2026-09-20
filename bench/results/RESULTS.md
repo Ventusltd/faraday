@@ -1,6 +1,6 @@
 # The hundred: results so far
 
-2375 of 2375 run. Every line below is one test; rerun any of them with `python bench/one.py N`.
+2393 of 2393 run. Every line below is one test; rerun any of them with `python bench/one.py N`.
 
 | family | CONFIRMED | NO EFFECT | REFUTED |
 |---|---|---|---|
@@ -14,6 +14,7 @@
 | SITE SURVEY | 1971 | 0 | 29 |
 | CABLE CHECK | 217 | 0 | 0 |
 | SITE ENERGY | 31 | 0 | 0 |
+| DC TRACTION | 18 | 0 | 0 |
 
 | n | family | test | result | what was seen |
 |---|---|---|---|---|
@@ -2392,3 +2393,21 @@
 | 2373 | SITE ENERGY | 300 MWp, 300 MWh | CONFIRMED | makes 68% of its own electricity; still pulls up to 37 MW from the grid; throws away 79.9 GWh of solar |
 | 2374 | SITE ENERGY | 300 MWp, 600 MWh | CONFIRMED | makes 71% of its own electricity; still pulls up to 37 MW from the grid; throws away 70.0 GWh of solar |
 | 2375 | SITE ENERGY | 300 MWp, 1200 MWh | CONFIRMED | makes 71% of its own electricity; still pulls up to 37 MW from the grid; throws away 69.3 GWh of solar |
+| 2376 | DC TRACTION | the known answers | CONFIRMED | 50 to 100 GWh a year is 5 to 10% of ALL traction energy (1003 GWh): it is the prize if every unit came in on the direct current side. On 80 GWh of solar the sam |
+| 2377 | DC TRACTION | routes inv 0.97 rect 0.95 dc 0.97 | CONFIRMED | 91.2% arrives by the usual route, 97.0% by the direct route: 5.8% of the SOLAR is saved |
+| 2378 | DC TRACTION | routes inv 0.97 rect 0.95 dc 0.985 | CONFIRMED | 91.2% arrives by the usual route, 98.5% by the direct route: 7.3% of the SOLAR is saved |
+| 2379 | DC TRACTION | routes inv 0.97 rect 0.97 dc 0.97 | CONFIRMED | 93.1% arrives by the usual route, 97.0% by the direct route: 3.9% of the SOLAR is saved |
+| 2380 | DC TRACTION | routes inv 0.97 rect 0.97 dc 0.985 | CONFIRMED | 93.1% arrives by the usual route, 98.5% by the direct route: 5.4% of the SOLAR is saved |
+| 2381 | DC TRACTION | routes inv 0.98 rect 0.95 dc 0.97 | CONFIRMED | 92.2% arrives by the usual route, 97.0% by the direct route: 4.8% of the SOLAR is saved |
+| 2382 | DC TRACTION | routes inv 0.98 rect 0.95 dc 0.985 | CONFIRMED | 92.2% arrives by the usual route, 98.5% by the direct route: 6.3% of the SOLAR is saved |
+| 2383 | DC TRACTION | routes inv 0.98 rect 0.97 dc 0.97 | CONFIRMED | 94.1% arrives by the usual route, 97.0% by the direct route: 2.9% of the SOLAR is saved |
+| 2384 | DC TRACTION | routes inv 0.98 rect 0.97 dc 0.985 | CONFIRMED | 94.1% arrives by the usual route, 98.5% by the direct route: 4.4% of the SOLAR is saved |
+| 2385 | DC TRACTION | 80 GWh at 5% | CONFIRMED | saves 4.0 GWh a year; the solar is 8.0% of traction energy; an average traction substation carries about 382 kW |
+| 2386 | DC TRACTION | 80 GWh at 7.5% | CONFIRMED | saves 6.0 GWh a year; the solar is 8.0% of traction energy; an average traction substation carries about 382 kW |
+| 2387 | DC TRACTION | 80 GWh at 10% | CONFIRMED | saves 8.0 GWh a year; the solar is 8.0% of traction energy; an average traction substation carries about 382 kW |
+| 2388 | DC TRACTION | 160 GWh at 5% | CONFIRMED | saves 8.0 GWh a year; the solar is 15.9% of traction energy; an average traction substation carries about 382 kW |
+| 2389 | DC TRACTION | 160 GWh at 7.5% | CONFIRMED | saves 12.0 GWh a year; the solar is 15.9% of traction energy; an average traction substation carries about 382 kW |
+| 2390 | DC TRACTION | 160 GWh at 10% | CONFIRMED | saves 16.0 GWh a year; the solar is 15.9% of traction energy; an average traction substation carries about 382 kW |
+| 2391 | DC TRACTION | 400 GWh at 5% | CONFIRMED | saves 20.0 GWh a year; the solar is 39.9% of traction energy; an average traction substation carries about 382 kW |
+| 2392 | DC TRACTION | 400 GWh at 7.5% | CONFIRMED | saves 30.0 GWh a year; the solar is 39.9% of traction energy; an average traction substation carries about 382 kW |
+| 2393 | DC TRACTION | 400 GWh at 10% | CONFIRMED | saves 40.0 GWh a year; the solar is 39.9% of traction energy; an average traction substation carries about 382 kW |

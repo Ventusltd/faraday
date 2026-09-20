@@ -1,6 +1,6 @@
 # The hundred: results so far
 
-2127 of 2127 run. Every line below is one test; rerun any of them with `python bench/one.py N`.
+2344 of 2344 run. Every line below is one test; rerun any of them with `python bench/one.py N`.
 
 | family | CONFIRMED | NO EFFECT | REFUTED |
 |---|---|---|---|
@@ -12,6 +12,7 @@
 | SITE PULSE | 24 | 0 | 0 |
 | SITE THRESHOLDS | 2 | 1 | 0 |
 | SITE SURVEY | 1971 | 0 | 29 |
+| CABLE CHECK | 217 | 0 | 0 |
 
 | n | family | test | result | what was seen |
 |---|---|---|---|---|
@@ -2142,3 +2143,220 @@
 | 2125 | SITE SURVEY | generic site 1998 | CONFIRMED | connection point -2473 kW (plus is import), +759 kvar; volts 0.995 to 1.015; busiest transformer 164%; export 2473 kW is 1473 kW over the 1000 kW limit: the sol |
 | 2126 | SITE SURVEY | generic site 1999 | CONFIRMED | connection point -389 kW (plus is import), +154 kvar; volts 0.993 to 1.004; busiest transformer 57%; export 389 kW is 339 kW over the 50 kW limit: the solar mus |
 | 2127 | SITE SURVEY | generic site 2000 | CONFIRMED | connection point -345 kW (plus is import), +466 kvar; volts 0.989 to 1.007; busiest transformer 197%; export 345 kW is 345 kW over the 0 kW limit: the solar mus |
+| 2128 | CABLE CHECK | the known answer | CONFIRMED | 17.39 kA |
+| 2129 | CABLE CHECK | withstand al 95 0.2s 8kA | CONFIRMED | withstands 19.97 kA; asked for 8.0 kA: survives |
+| 2130 | CABLE CHECK | withstand al 95 0.2s 16kA | CONFIRMED | withstands 19.97 kA; asked for 16.0 kA: survives |
+| 2131 | CABLE CHECK | withstand al 95 0.2s 25kA | CONFIRMED | withstands 19.97 kA; asked for 25.0 kA: DOES NOT SURVIVE: a larger conductor or faster protection |
+| 2132 | CABLE CHECK | withstand al 95 1.0s 8kA | CONFIRMED | withstands 8.93 kA; asked for 8.0 kA: survives |
+| 2133 | CABLE CHECK | withstand al 95 1.0s 16kA | CONFIRMED | withstands 8.93 kA; asked for 16.0 kA: DOES NOT SURVIVE: a larger conductor or faster protection |
+| 2134 | CABLE CHECK | withstand al 95 1.0s 25kA | CONFIRMED | withstands 8.93 kA; asked for 25.0 kA: DOES NOT SURVIVE: a larger conductor or faster protection |
+| 2135 | CABLE CHECK | withstand al 95 3.0s 8kA | CONFIRMED | withstands 5.16 kA; asked for 8.0 kA: DOES NOT SURVIVE: a larger conductor or faster protection |
+| 2136 | CABLE CHECK | withstand al 95 3.0s 16kA | CONFIRMED | withstands 5.16 kA; asked for 16.0 kA: DOES NOT SURVIVE: a larger conductor or faster protection |
+| 2137 | CABLE CHECK | withstand al 95 3.0s 25kA | CONFIRMED | withstands 5.16 kA; asked for 25.0 kA: DOES NOT SURVIVE: a larger conductor or faster protection |
+| 2138 | CABLE CHECK | withstand al 185 0.2s 8kA | CONFIRMED | withstands 38.89 kA; asked for 8.0 kA: survives |
+| 2139 | CABLE CHECK | withstand al 185 0.2s 16kA | CONFIRMED | withstands 38.89 kA; asked for 16.0 kA: survives |
+| 2140 | CABLE CHECK | withstand al 185 0.2s 25kA | CONFIRMED | withstands 38.89 kA; asked for 25.0 kA: survives |
+| 2141 | CABLE CHECK | withstand al 185 1.0s 8kA | CONFIRMED | withstands 17.39 kA; asked for 8.0 kA: survives |
+| 2142 | CABLE CHECK | withstand al 185 1.0s 16kA | CONFIRMED | withstands 17.39 kA; asked for 16.0 kA: survives |
+| 2143 | CABLE CHECK | withstand al 185 1.0s 25kA | CONFIRMED | withstands 17.39 kA; asked for 25.0 kA: DOES NOT SURVIVE: a larger conductor or faster protection |
+| 2144 | CABLE CHECK | withstand al 185 3.0s 8kA | CONFIRMED | withstands 10.04 kA; asked for 8.0 kA: survives |
+| 2145 | CABLE CHECK | withstand al 185 3.0s 16kA | CONFIRMED | withstands 10.04 kA; asked for 16.0 kA: DOES NOT SURVIVE: a larger conductor or faster protection |
+| 2146 | CABLE CHECK | withstand al 185 3.0s 25kA | CONFIRMED | withstands 10.04 kA; asked for 25.0 kA: DOES NOT SURVIVE: a larger conductor or faster protection |
+| 2147 | CABLE CHECK | withstand al 300 0.2s 8kA | CONFIRMED | withstands 63.06 kA; asked for 8.0 kA: survives |
+| 2148 | CABLE CHECK | withstand al 300 0.2s 16kA | CONFIRMED | withstands 63.06 kA; asked for 16.0 kA: survives |
+| 2149 | CABLE CHECK | withstand al 300 0.2s 25kA | CONFIRMED | withstands 63.06 kA; asked for 25.0 kA: survives |
+| 2150 | CABLE CHECK | withstand al 300 1.0s 8kA | CONFIRMED | withstands 28.20 kA; asked for 8.0 kA: survives |
+| 2151 | CABLE CHECK | withstand al 300 1.0s 16kA | CONFIRMED | withstands 28.20 kA; asked for 16.0 kA: survives |
+| 2152 | CABLE CHECK | withstand al 300 1.0s 25kA | CONFIRMED | withstands 28.20 kA; asked for 25.0 kA: survives |
+| 2153 | CABLE CHECK | withstand al 300 3.0s 8kA | CONFIRMED | withstands 16.28 kA; asked for 8.0 kA: survives |
+| 2154 | CABLE CHECK | withstand al 300 3.0s 16kA | CONFIRMED | withstands 16.28 kA; asked for 16.0 kA: survives |
+| 2155 | CABLE CHECK | withstand al 300 3.0s 25kA | CONFIRMED | withstands 16.28 kA; asked for 25.0 kA: DOES NOT SURVIVE: a larger conductor or faster protection |
+| 2156 | CABLE CHECK | withstand al 630 0.2s 8kA | CONFIRMED | withstands 132.42 kA; asked for 8.0 kA: survives |
+| 2157 | CABLE CHECK | withstand al 630 0.2s 16kA | CONFIRMED | withstands 132.42 kA; asked for 16.0 kA: survives |
+| 2158 | CABLE CHECK | withstand al 630 0.2s 25kA | CONFIRMED | withstands 132.42 kA; asked for 25.0 kA: survives |
+| 2159 | CABLE CHECK | withstand al 630 1.0s 8kA | CONFIRMED | withstands 59.22 kA; asked for 8.0 kA: survives |
+| 2160 | CABLE CHECK | withstand al 630 1.0s 16kA | CONFIRMED | withstands 59.22 kA; asked for 16.0 kA: survives |
+| 2161 | CABLE CHECK | withstand al 630 1.0s 25kA | CONFIRMED | withstands 59.22 kA; asked for 25.0 kA: survives |
+| 2162 | CABLE CHECK | withstand al 630 3.0s 8kA | CONFIRMED | withstands 34.19 kA; asked for 8.0 kA: survives |
+| 2163 | CABLE CHECK | withstand al 630 3.0s 16kA | CONFIRMED | withstands 34.19 kA; asked for 16.0 kA: survives |
+| 2164 | CABLE CHECK | withstand al 630 3.0s 25kA | CONFIRMED | withstands 34.19 kA; asked for 25.0 kA: survives |
+| 2165 | CABLE CHECK | withstand cu 95 0.2s 8kA | CONFIRMED | withstands 30.38 kA; asked for 8.0 kA: survives |
+| 2166 | CABLE CHECK | withstand cu 95 0.2s 16kA | CONFIRMED | withstands 30.38 kA; asked for 16.0 kA: survives |
+| 2167 | CABLE CHECK | withstand cu 95 0.2s 25kA | CONFIRMED | withstands 30.38 kA; asked for 25.0 kA: survives |
+| 2168 | CABLE CHECK | withstand cu 95 1.0s 8kA | CONFIRMED | withstands 13.59 kA; asked for 8.0 kA: survives |
+| 2169 | CABLE CHECK | withstand cu 95 1.0s 16kA | CONFIRMED | withstands 13.59 kA; asked for 16.0 kA: DOES NOT SURVIVE: a larger conductor or faster protection |
+| 2170 | CABLE CHECK | withstand cu 95 1.0s 25kA | CONFIRMED | withstands 13.59 kA; asked for 25.0 kA: DOES NOT SURVIVE: a larger conductor or faster protection |
+| 2171 | CABLE CHECK | withstand cu 95 3.0s 8kA | CONFIRMED | withstands 7.84 kA; asked for 8.0 kA: DOES NOT SURVIVE: a larger conductor or faster protection |
+| 2172 | CABLE CHECK | withstand cu 95 3.0s 16kA | CONFIRMED | withstands 7.84 kA; asked for 16.0 kA: DOES NOT SURVIVE: a larger conductor or faster protection |
+| 2173 | CABLE CHECK | withstand cu 95 3.0s 25kA | CONFIRMED | withstands 7.84 kA; asked for 25.0 kA: DOES NOT SURVIVE: a larger conductor or faster protection |
+| 2174 | CABLE CHECK | withstand cu 185 0.2s 8kA | CONFIRMED | withstands 59.16 kA; asked for 8.0 kA: survives |
+| 2175 | CABLE CHECK | withstand cu 185 0.2s 16kA | CONFIRMED | withstands 59.16 kA; asked for 16.0 kA: survives |
+| 2176 | CABLE CHECK | withstand cu 185 0.2s 25kA | CONFIRMED | withstands 59.16 kA; asked for 25.0 kA: survives |
+| 2177 | CABLE CHECK | withstand cu 185 1.0s 8kA | CONFIRMED | withstands 26.45 kA; asked for 8.0 kA: survives |
+| 2178 | CABLE CHECK | withstand cu 185 1.0s 16kA | CONFIRMED | withstands 26.45 kA; asked for 16.0 kA: survives |
+| 2179 | CABLE CHECK | withstand cu 185 1.0s 25kA | CONFIRMED | withstands 26.45 kA; asked for 25.0 kA: survives |
+| 2180 | CABLE CHECK | withstand cu 185 3.0s 8kA | CONFIRMED | withstands 15.27 kA; asked for 8.0 kA: survives |
+| 2181 | CABLE CHECK | withstand cu 185 3.0s 16kA | CONFIRMED | withstands 15.27 kA; asked for 16.0 kA: DOES NOT SURVIVE: a larger conductor or faster protection |
+| 2182 | CABLE CHECK | withstand cu 185 3.0s 25kA | CONFIRMED | withstands 15.27 kA; asked for 25.0 kA: DOES NOT SURVIVE: a larger conductor or faster protection |
+| 2183 | CABLE CHECK | withstand cu 300 0.2s 8kA | CONFIRMED | withstands 95.93 kA; asked for 8.0 kA: survives |
+| 2184 | CABLE CHECK | withstand cu 300 0.2s 16kA | CONFIRMED | withstands 95.93 kA; asked for 16.0 kA: survives |
+| 2185 | CABLE CHECK | withstand cu 300 0.2s 25kA | CONFIRMED | withstands 95.93 kA; asked for 25.0 kA: survives |
+| 2186 | CABLE CHECK | withstand cu 300 1.0s 8kA | CONFIRMED | withstands 42.90 kA; asked for 8.0 kA: survives |
+| 2187 | CABLE CHECK | withstand cu 300 1.0s 16kA | CONFIRMED | withstands 42.90 kA; asked for 16.0 kA: survives |
+| 2188 | CABLE CHECK | withstand cu 300 1.0s 25kA | CONFIRMED | withstands 42.90 kA; asked for 25.0 kA: survives |
+| 2189 | CABLE CHECK | withstand cu 300 3.0s 8kA | CONFIRMED | withstands 24.77 kA; asked for 8.0 kA: survives |
+| 2190 | CABLE CHECK | withstand cu 300 3.0s 16kA | CONFIRMED | withstands 24.77 kA; asked for 16.0 kA: survives |
+| 2191 | CABLE CHECK | withstand cu 300 3.0s 25kA | CONFIRMED | withstands 24.77 kA; asked for 25.0 kA: DOES NOT SURVIVE: a larger conductor or faster protection |
+| 2192 | CABLE CHECK | withstand cu 630 0.2s 8kA | CONFIRMED | withstands 201.45 kA; asked for 8.0 kA: survives |
+| 2193 | CABLE CHECK | withstand cu 630 0.2s 16kA | CONFIRMED | withstands 201.45 kA; asked for 16.0 kA: survives |
+| 2194 | CABLE CHECK | withstand cu 630 0.2s 25kA | CONFIRMED | withstands 201.45 kA; asked for 25.0 kA: survives |
+| 2195 | CABLE CHECK | withstand cu 630 1.0s 8kA | CONFIRMED | withstands 90.09 kA; asked for 8.0 kA: survives |
+| 2196 | CABLE CHECK | withstand cu 630 1.0s 16kA | CONFIRMED | withstands 90.09 kA; asked for 16.0 kA: survives |
+| 2197 | CABLE CHECK | withstand cu 630 1.0s 25kA | CONFIRMED | withstands 90.09 kA; asked for 25.0 kA: survives |
+| 2198 | CABLE CHECK | withstand cu 630 3.0s 8kA | CONFIRMED | withstands 52.01 kA; asked for 8.0 kA: survives |
+| 2199 | CABLE CHECK | withstand cu 630 3.0s 16kA | CONFIRMED | withstands 52.01 kA; asked for 16.0 kA: survives |
+| 2200 | CABLE CHECK | withstand cu 630 3.0s 25kA | CONFIRMED | withstands 52.01 kA; asked for 25.0 kA: survives |
+| 2201 | CABLE CHECK | run al 95 150A 200m 11kV | CONFIRMED | drop 0.20%, loaded to 85% of its derated rating; within 15 per cent of its derated rating: commission a buried cable thermal study |
+| 2202 | CABLE CHECK | run al 95 150A 200m 33kV | CONFIRMED | drop 0.07%, loaded to 97% of its derated rating; within 15 per cent of its derated rating: commission a buried cable thermal study |
+| 2203 | CABLE CHECK | run al 95 150A 800m 11kV | CONFIRMED | drop 0.78%, loaded to 85% of its derated rating; within 15 per cent of its derated rating: commission a buried cable thermal study |
+| 2204 | CABLE CHECK | run al 95 150A 800m 33kV | CONFIRMED | drop 0.26%, loaded to 97% of its derated rating; within 15 per cent of its derated rating: commission a buried cable thermal study |
+| 2205 | CABLE CHECK | run al 95 150A 2500m 11kV | CONFIRMED | drop 2.45%, loaded to 85% of its derated rating; within 15 per cent of its derated rating: commission a buried cable thermal study; voltage drop 2.45% is over 1 |
+| 2206 | CABLE CHECK | run al 95 150A 2500m 33kV | CONFIRMED | drop 0.82%, loaded to 97% of its derated rating; within 15 per cent of its derated rating: commission a buried cable thermal study |
+| 2207 | CABLE CHECK | run al 95 300A 200m 11kV | CONFIRMED | drop 0.39%, loaded to 170% of its derated rating; over its derated rating |
+| 2208 | CABLE CHECK | run al 95 300A 200m 33kV | CONFIRMED | drop 0.13%, loaded to 195% of its derated rating; over its derated rating |
+| 2209 | CABLE CHECK | run al 95 300A 800m 11kV | CONFIRMED | drop 1.57%, loaded to 170% of its derated rating; over its derated rating; voltage drop 1.57% is over 1.5% |
+| 2210 | CABLE CHECK | run al 95 300A 800m 33kV | CONFIRMED | drop 0.52%, loaded to 195% of its derated rating; over its derated rating |
+| 2211 | CABLE CHECK | run al 95 300A 2500m 11kV | CONFIRMED | drop 4.90%, loaded to 170% of its derated rating; over its derated rating; voltage drop 4.90% is over 1.5% |
+| 2212 | CABLE CHECK | run al 95 300A 2500m 33kV | CONFIRMED | drop 1.63%, loaded to 195% of its derated rating; over its derated rating; voltage drop 1.63% is over 1.5% |
+| 2213 | CABLE CHECK | run al 95 450A 200m 11kV | CONFIRMED | drop 0.59%, loaded to 256% of its derated rating; over its derated rating |
+| 2214 | CABLE CHECK | run al 95 450A 200m 33kV | CONFIRMED | drop 0.20%, loaded to 292% of its derated rating; over its derated rating |
+| 2215 | CABLE CHECK | run al 95 450A 800m 11kV | CONFIRMED | drop 2.35%, loaded to 256% of its derated rating; over its derated rating; voltage drop 2.35% is over 1.5% |
+| 2216 | CABLE CHECK | run al 95 450A 800m 33kV | CONFIRMED | drop 0.78%, loaded to 292% of its derated rating; over its derated rating |
+| 2217 | CABLE CHECK | run al 95 450A 2500m 11kV | CONFIRMED | drop 7.35%, loaded to 256% of its derated rating; over its derated rating; voltage drop 7.35% is over 1.5% |
+| 2218 | CABLE CHECK | run al 95 450A 2500m 33kV | CONFIRMED | drop 2.45%, loaded to 292% of its derated rating; over its derated rating; voltage drop 2.45% is over 1.5% |
+| 2219 | CABLE CHECK | run al 185 150A 200m 11kV | CONFIRMED | drop 0.11%, loaded to 59% of its derated rating; inside both limits |
+| 2220 | CABLE CHECK | run al 185 150A 200m 33kV | CONFIRMED | drop 0.04%, loaded to 67% of its derated rating; inside both limits |
+| 2221 | CABLE CHECK | run al 185 150A 800m 11kV | CONFIRMED | drop 0.42%, loaded to 59% of its derated rating; inside both limits |
+| 2222 | CABLE CHECK | run al 185 150A 800m 33kV | CONFIRMED | drop 0.14%, loaded to 67% of its derated rating; inside both limits |
+| 2223 | CABLE CHECK | run al 185 150A 2500m 11kV | CONFIRMED | drop 1.33%, loaded to 59% of its derated rating; inside both limits |
+| 2224 | CABLE CHECK | run al 185 150A 2500m 33kV | CONFIRMED | drop 0.44%, loaded to 67% of its derated rating; inside both limits |
+| 2225 | CABLE CHECK | run al 185 300A 200m 11kV | CONFIRMED | drop 0.21%, loaded to 117% of its derated rating; over its derated rating |
+| 2226 | CABLE CHECK | run al 185 300A 200m 33kV | CONFIRMED | drop 0.07%, loaded to 134% of its derated rating; over its derated rating |
+| 2227 | CABLE CHECK | run al 185 300A 800m 11kV | CONFIRMED | drop 0.85%, loaded to 117% of its derated rating; over its derated rating |
+| 2228 | CABLE CHECK | run al 185 300A 800m 33kV | CONFIRMED | drop 0.28%, loaded to 134% of its derated rating; over its derated rating |
+| 2229 | CABLE CHECK | run al 185 300A 2500m 11kV | CONFIRMED | drop 2.65%, loaded to 117% of its derated rating; over its derated rating; voltage drop 2.65% is over 1.5% |
+| 2230 | CABLE CHECK | run al 185 300A 2500m 33kV | CONFIRMED | drop 0.88%, loaded to 134% of its derated rating; over its derated rating |
+| 2231 | CABLE CHECK | run al 185 450A 200m 11kV | CONFIRMED | drop 0.32%, loaded to 176% of its derated rating; over its derated rating |
+| 2232 | CABLE CHECK | run al 185 450A 200m 33kV | CONFIRMED | drop 0.11%, loaded to 201% of its derated rating; over its derated rating |
+| 2233 | CABLE CHECK | run al 185 450A 800m 11kV | CONFIRMED | drop 1.27%, loaded to 176% of its derated rating; over its derated rating |
+| 2234 | CABLE CHECK | run al 185 450A 800m 33kV | CONFIRMED | drop 0.42%, loaded to 201% of its derated rating; over its derated rating |
+| 2235 | CABLE CHECK | run al 185 450A 2500m 11kV | CONFIRMED | drop 3.98%, loaded to 176% of its derated rating; over its derated rating; voltage drop 3.98% is over 1.5% |
+| 2236 | CABLE CHECK | run al 185 450A 2500m 33kV | CONFIRMED | drop 1.33%, loaded to 201% of its derated rating; over its derated rating |
+| 2237 | CABLE CHECK | run al 300 150A 200m 11kV | CONFIRMED | drop 0.07%, loaded to 45% of its derated rating; inside both limits |
+| 2238 | CABLE CHECK | run al 300 150A 200m 33kV | CONFIRMED | drop 0.02%, loaded to 51% of its derated rating; inside both limits |
+| 2239 | CABLE CHECK | run al 300 150A 800m 11kV | CONFIRMED | drop 0.28%, loaded to 45% of its derated rating; inside both limits |
+| 2240 | CABLE CHECK | run al 300 150A 800m 33kV | CONFIRMED | drop 0.09%, loaded to 51% of its derated rating; inside both limits |
+| 2241 | CABLE CHECK | run al 300 150A 2500m 11kV | CONFIRMED | drop 0.87%, loaded to 45% of its derated rating; inside both limits |
+| 2242 | CABLE CHECK | run al 300 150A 2500m 33kV | CONFIRMED | drop 0.29%, loaded to 51% of its derated rating; inside both limits |
+| 2243 | CABLE CHECK | run al 300 300A 200m 11kV | CONFIRMED | drop 0.14%, loaded to 89% of its derated rating; within 15 per cent of its derated rating: commission a buried cable thermal study |
+| 2244 | CABLE CHECK | run al 300 300A 200m 33kV | CONFIRMED | drop 0.05%, loaded to 102% of its derated rating; over its derated rating |
+| 2245 | CABLE CHECK | run al 300 300A 800m 11kV | CONFIRMED | drop 0.55%, loaded to 89% of its derated rating; within 15 per cent of its derated rating: commission a buried cable thermal study |
+| 2246 | CABLE CHECK | run al 300 300A 800m 33kV | CONFIRMED | drop 0.18%, loaded to 102% of its derated rating; over its derated rating |
+| 2247 | CABLE CHECK | run al 300 300A 2500m 11kV | CONFIRMED | drop 1.73%, loaded to 89% of its derated rating; within 15 per cent of its derated rating: commission a buried cable thermal study; voltage drop 1.73% is over 1 |
+| 2248 | CABLE CHECK | run al 300 300A 2500m 33kV | CONFIRMED | drop 0.58%, loaded to 102% of its derated rating; over its derated rating |
+| 2249 | CABLE CHECK | run al 300 450A 200m 11kV | CONFIRMED | drop 0.21%, loaded to 134% of its derated rating; over its derated rating |
+| 2250 | CABLE CHECK | run al 300 450A 200m 33kV | CONFIRMED | drop 0.07%, loaded to 153% of its derated rating; over its derated rating |
+| 2251 | CABLE CHECK | run al 300 450A 800m 11kV | CONFIRMED | drop 0.83%, loaded to 134% of its derated rating; over its derated rating |
+| 2252 | CABLE CHECK | run al 300 450A 800m 33kV | CONFIRMED | drop 0.28%, loaded to 153% of its derated rating; over its derated rating |
+| 2253 | CABLE CHECK | run al 300 450A 2500m 11kV | CONFIRMED | drop 2.60%, loaded to 134% of its derated rating; over its derated rating; voltage drop 2.60% is over 1.5% |
+| 2254 | CABLE CHECK | run al 300 450A 2500m 33kV | CONFIRMED | drop 0.87%, loaded to 153% of its derated rating; over its derated rating |
+| 2255 | CABLE CHECK | run al 630 150A 200m 11kV | CONFIRMED | drop 0.04%, loaded to 30% of its derated rating; inside both limits |
+| 2256 | CABLE CHECK | run al 630 150A 200m 33kV | CONFIRMED | drop 0.01%, loaded to 35% of its derated rating; inside both limits |
+| 2257 | CABLE CHECK | run al 630 150A 800m 11kV | CONFIRMED | drop 0.16%, loaded to 30% of its derated rating; inside both limits |
+| 2258 | CABLE CHECK | run al 630 150A 800m 33kV | CONFIRMED | drop 0.05%, loaded to 35% of its derated rating; inside both limits |
+| 2259 | CABLE CHECK | run al 630 150A 2500m 11kV | CONFIRMED | drop 0.48%, loaded to 30% of its derated rating; inside both limits |
+| 2260 | CABLE CHECK | run al 630 150A 2500m 33kV | CONFIRMED | drop 0.16%, loaded to 35% of its derated rating; inside both limits |
+| 2261 | CABLE CHECK | run al 630 300A 200m 11kV | CONFIRMED | drop 0.08%, loaded to 61% of its derated rating; inside both limits |
+| 2262 | CABLE CHECK | run al 630 300A 200m 33kV | CONFIRMED | drop 0.03%, loaded to 70% of its derated rating; inside both limits |
+| 2263 | CABLE CHECK | run al 630 300A 800m 11kV | CONFIRMED | drop 0.31%, loaded to 61% of its derated rating; inside both limits |
+| 2264 | CABLE CHECK | run al 630 300A 800m 33kV | CONFIRMED | drop 0.10%, loaded to 70% of its derated rating; inside both limits |
+| 2265 | CABLE CHECK | run al 630 300A 2500m 11kV | CONFIRMED | drop 0.97%, loaded to 61% of its derated rating; inside both limits |
+| 2266 | CABLE CHECK | run al 630 300A 2500m 33kV | CONFIRMED | drop 0.32%, loaded to 70% of its derated rating; inside both limits |
+| 2267 | CABLE CHECK | run al 630 450A 200m 11kV | CONFIRMED | drop 0.12%, loaded to 91% of its derated rating; within 15 per cent of its derated rating: commission a buried cable thermal study |
+| 2268 | CABLE CHECK | run al 630 450A 200m 33kV | CONFIRMED | drop 0.04%, loaded to 105% of its derated rating; over its derated rating |
+| 2269 | CABLE CHECK | run al 630 450A 800m 11kV | CONFIRMED | drop 0.47%, loaded to 91% of its derated rating; within 15 per cent of its derated rating: commission a buried cable thermal study |
+| 2270 | CABLE CHECK | run al 630 450A 800m 33kV | CONFIRMED | drop 0.16%, loaded to 105% of its derated rating; over its derated rating |
+| 2271 | CABLE CHECK | run al 630 450A 2500m 11kV | CONFIRMED | drop 1.45%, loaded to 91% of its derated rating; within 15 per cent of its derated rating: commission a buried cable thermal study |
+| 2272 | CABLE CHECK | run al 630 450A 2500m 33kV | CONFIRMED | drop 0.48%, loaded to 105% of its derated rating; over its derated rating |
+| 2273 | CABLE CHECK | run cu 95 150A 200m 11kV | CONFIRMED | drop 0.12%, loaded to 66% of its derated rating; inside both limits |
+| 2274 | CABLE CHECK | run cu 95 150A 200m 33kV | CONFIRMED | drop 0.04%, loaded to 76% of its derated rating; inside both limits |
+| 2275 | CABLE CHECK | run cu 95 150A 800m 11kV | CONFIRMED | drop 0.49%, loaded to 66% of its derated rating; inside both limits |
+| 2276 | CABLE CHECK | run cu 95 150A 800m 33kV | CONFIRMED | drop 0.16%, loaded to 76% of its derated rating; inside both limits |
+| 2277 | CABLE CHECK | run cu 95 150A 2500m 11kV | CONFIRMED | drop 1.53%, loaded to 66% of its derated rating; voltage drop 1.53% is over 1.5% |
+| 2278 | CABLE CHECK | run cu 95 150A 2500m 33kV | CONFIRMED | drop 0.51%, loaded to 76% of its derated rating; inside both limits |
+| 2279 | CABLE CHECK | run cu 95 300A 200m 11kV | CONFIRMED | drop 0.24%, loaded to 133% of its derated rating; over its derated rating |
+| 2280 | CABLE CHECK | run cu 95 300A 200m 33kV | CONFIRMED | drop 0.08%, loaded to 152% of its derated rating; over its derated rating |
+| 2281 | CABLE CHECK | run cu 95 300A 800m 11kV | CONFIRMED | drop 0.98%, loaded to 133% of its derated rating; over its derated rating |
+| 2282 | CABLE CHECK | run cu 95 300A 800m 33kV | CONFIRMED | drop 0.33%, loaded to 152% of its derated rating; over its derated rating |
+| 2283 | CABLE CHECK | run cu 95 300A 2500m 11kV | CONFIRMED | drop 3.06%, loaded to 133% of its derated rating; over its derated rating; voltage drop 3.06% is over 1.5% |
+| 2284 | CABLE CHECK | run cu 95 300A 2500m 33kV | CONFIRMED | drop 1.02%, loaded to 152% of its derated rating; over its derated rating |
+| 2285 | CABLE CHECK | run cu 95 450A 200m 11kV | CONFIRMED | drop 0.37%, loaded to 199% of its derated rating; over its derated rating |
+| 2286 | CABLE CHECK | run cu 95 450A 200m 33kV | CONFIRMED | drop 0.12%, loaded to 228% of its derated rating; over its derated rating |
+| 2287 | CABLE CHECK | run cu 95 450A 800m 11kV | CONFIRMED | drop 1.47%, loaded to 199% of its derated rating; over its derated rating |
+| 2288 | CABLE CHECK | run cu 95 450A 800m 33kV | CONFIRMED | drop 0.49%, loaded to 228% of its derated rating; over its derated rating |
+| 2289 | CABLE CHECK | run cu 95 450A 2500m 11kV | CONFIRMED | drop 4.58%, loaded to 199% of its derated rating; over its derated rating; voltage drop 4.58% is over 1.5% |
+| 2290 | CABLE CHECK | run cu 95 450A 2500m 33kV | CONFIRMED | drop 1.53%, loaded to 228% of its derated rating; over its derated rating; voltage drop 1.53% is over 1.5% |
+| 2291 | CABLE CHECK | run cu 185 150A 200m 11kV | CONFIRMED | drop 0.07%, loaded to 46% of its derated rating; inside both limits |
+| 2292 | CABLE CHECK | run cu 185 150A 200m 33kV | CONFIRMED | drop 0.02%, loaded to 52% of its derated rating; inside both limits |
+| 2293 | CABLE CHECK | run cu 185 150A 800m 11kV | CONFIRMED | drop 0.27%, loaded to 46% of its derated rating; inside both limits |
+| 2294 | CABLE CHECK | run cu 185 150A 800m 33kV | CONFIRMED | drop 0.09%, loaded to 52% of its derated rating; inside both limits |
+| 2295 | CABLE CHECK | run cu 185 150A 2500m 11kV | CONFIRMED | drop 0.86%, loaded to 46% of its derated rating; inside both limits |
+| 2296 | CABLE CHECK | run cu 185 150A 2500m 33kV | CONFIRMED | drop 0.29%, loaded to 52% of its derated rating; inside both limits |
+| 2297 | CABLE CHECK | run cu 185 300A 200m 11kV | CONFIRMED | drop 0.14%, loaded to 91% of its derated rating; within 15 per cent of its derated rating: commission a buried cable thermal study |
+| 2298 | CABLE CHECK | run cu 185 300A 200m 33kV | CONFIRMED | drop 0.05%, loaded to 105% of its derated rating; over its derated rating |
+| 2299 | CABLE CHECK | run cu 185 300A 800m 11kV | CONFIRMED | drop 0.55%, loaded to 91% of its derated rating; within 15 per cent of its derated rating: commission a buried cable thermal study |
+| 2300 | CABLE CHECK | run cu 185 300A 800m 33kV | CONFIRMED | drop 0.18%, loaded to 105% of its derated rating; over its derated rating |
+| 2301 | CABLE CHECK | run cu 185 300A 2500m 11kV | CONFIRMED | drop 1.71%, loaded to 91% of its derated rating; within 15 per cent of its derated rating: commission a buried cable thermal study; voltage drop 1.71% is over 1 |
+| 2302 | CABLE CHECK | run cu 185 300A 2500m 33kV | CONFIRMED | drop 0.57%, loaded to 105% of its derated rating; over its derated rating |
+| 2303 | CABLE CHECK | run cu 185 450A 200m 11kV | CONFIRMED | drop 0.21%, loaded to 137% of its derated rating; over its derated rating |
+| 2304 | CABLE CHECK | run cu 185 450A 200m 33kV | CONFIRMED | drop 0.07%, loaded to 157% of its derated rating; over its derated rating |
+| 2305 | CABLE CHECK | run cu 185 450A 800m 11kV | CONFIRMED | drop 0.82%, loaded to 137% of its derated rating; over its derated rating |
+| 2306 | CABLE CHECK | run cu 185 450A 800m 33kV | CONFIRMED | drop 0.27%, loaded to 157% of its derated rating; over its derated rating |
+| 2307 | CABLE CHECK | run cu 185 450A 2500m 11kV | CONFIRMED | drop 2.57%, loaded to 137% of its derated rating; over its derated rating; voltage drop 2.57% is over 1.5% |
+| 2308 | CABLE CHECK | run cu 185 450A 2500m 33kV | CONFIRMED | drop 0.86%, loaded to 157% of its derated rating; over its derated rating |
+| 2309 | CABLE CHECK | run cu 300 150A 200m 11kV | CONFIRMED | drop 0.05%, loaded to 35% of its derated rating; inside both limits |
+| 2310 | CABLE CHECK | run cu 300 150A 200m 33kV | CONFIRMED | drop 0.02%, loaded to 40% of its derated rating; inside both limits |
+| 2311 | CABLE CHECK | run cu 300 150A 800m 11kV | CONFIRMED | drop 0.18%, loaded to 35% of its derated rating; inside both limits |
+| 2312 | CABLE CHECK | run cu 300 150A 800m 33kV | CONFIRMED | drop 0.06%, loaded to 40% of its derated rating; inside both limits |
+| 2313 | CABLE CHECK | run cu 300 150A 2500m 11kV | CONFIRMED | drop 0.58%, loaded to 35% of its derated rating; inside both limits |
+| 2314 | CABLE CHECK | run cu 300 150A 2500m 33kV | CONFIRMED | drop 0.19%, loaded to 40% of its derated rating; inside both limits |
+| 2315 | CABLE CHECK | run cu 300 300A 200m 11kV | CONFIRMED | drop 0.09%, loaded to 70% of its derated rating; inside both limits |
+| 2316 | CABLE CHECK | run cu 300 300A 200m 33kV | CONFIRMED | drop 0.03%, loaded to 80% of its derated rating; inside both limits |
+| 2317 | CABLE CHECK | run cu 300 300A 800m 11kV | CONFIRMED | drop 0.37%, loaded to 70% of its derated rating; inside both limits |
+| 2318 | CABLE CHECK | run cu 300 300A 800m 33kV | CONFIRMED | drop 0.12%, loaded to 80% of its derated rating; inside both limits |
+| 2319 | CABLE CHECK | run cu 300 300A 2500m 11kV | CONFIRMED | drop 1.15%, loaded to 70% of its derated rating; inside both limits |
+| 2320 | CABLE CHECK | run cu 300 300A 2500m 33kV | CONFIRMED | drop 0.38%, loaded to 80% of its derated rating; inside both limits |
+| 2321 | CABLE CHECK | run cu 300 450A 200m 11kV | CONFIRMED | drop 0.14%, loaded to 105% of its derated rating; over its derated rating |
+| 2322 | CABLE CHECK | run cu 300 450A 200m 33kV | CONFIRMED | drop 0.05%, loaded to 119% of its derated rating; over its derated rating |
+| 2323 | CABLE CHECK | run cu 300 450A 800m 11kV | CONFIRMED | drop 0.55%, loaded to 105% of its derated rating; over its derated rating |
+| 2324 | CABLE CHECK | run cu 300 450A 800m 33kV | CONFIRMED | drop 0.18%, loaded to 119% of its derated rating; over its derated rating |
+| 2325 | CABLE CHECK | run cu 300 450A 2500m 11kV | CONFIRMED | drop 1.73%, loaded to 105% of its derated rating; over its derated rating; voltage drop 1.73% is over 1.5% |
+| 2326 | CABLE CHECK | run cu 300 450A 2500m 33kV | CONFIRMED | drop 0.58%, loaded to 119% of its derated rating; over its derated rating |
+| 2327 | CABLE CHECK | run cu 630 150A 200m 11kV | CONFIRMED | drop 0.03%, loaded to 24% of its derated rating; inside both limits |
+| 2328 | CABLE CHECK | run cu 630 150A 200m 33kV | CONFIRMED | drop 0.01%, loaded to 27% of its derated rating; inside both limits |
+| 2329 | CABLE CHECK | run cu 630 150A 800m 11kV | CONFIRMED | drop 0.11%, loaded to 24% of its derated rating; inside both limits |
+| 2330 | CABLE CHECK | run cu 630 150A 800m 33kV | CONFIRMED | drop 0.04%, loaded to 27% of its derated rating; inside both limits |
+| 2331 | CABLE CHECK | run cu 630 150A 2500m 11kV | CONFIRMED | drop 0.35%, loaded to 24% of its derated rating; inside both limits |
+| 2332 | CABLE CHECK | run cu 630 150A 2500m 33kV | CONFIRMED | drop 0.12%, loaded to 27% of its derated rating; inside both limits |
+| 2333 | CABLE CHECK | run cu 630 300A 200m 11kV | CONFIRMED | drop 0.06%, loaded to 48% of its derated rating; inside both limits |
+| 2334 | CABLE CHECK | run cu 630 300A 200m 33kV | CONFIRMED | drop 0.02%, loaded to 54% of its derated rating; inside both limits |
+| 2335 | CABLE CHECK | run cu 630 300A 800m 11kV | CONFIRMED | drop 0.22%, loaded to 48% of its derated rating; inside both limits |
+| 2336 | CABLE CHECK | run cu 630 300A 800m 33kV | CONFIRMED | drop 0.07%, loaded to 54% of its derated rating; inside both limits |
+| 2337 | CABLE CHECK | run cu 630 300A 2500m 11kV | CONFIRMED | drop 0.70%, loaded to 48% of its derated rating; inside both limits |
+| 2338 | CABLE CHECK | run cu 630 300A 2500m 33kV | CONFIRMED | drop 0.23%, loaded to 54% of its derated rating; inside both limits |
+| 2339 | CABLE CHECK | run cu 630 450A 200m 11kV | CONFIRMED | drop 0.08%, loaded to 71% of its derated rating; inside both limits |
+| 2340 | CABLE CHECK | run cu 630 450A 200m 33kV | CONFIRMED | drop 0.03%, loaded to 82% of its derated rating; inside both limits |
+| 2341 | CABLE CHECK | run cu 630 450A 800m 11kV | CONFIRMED | drop 0.34%, loaded to 71% of its derated rating; inside both limits |
+| 2342 | CABLE CHECK | run cu 630 450A 800m 33kV | CONFIRMED | drop 0.11%, loaded to 82% of its derated rating; inside both limits |
+| 2343 | CABLE CHECK | run cu 630 450A 2500m 11kV | CONFIRMED | drop 1.05%, loaded to 71% of its derated rating; inside both limits |
+| 2344 | CABLE CHECK | run cu 630 450A 2500m 33kV | CONFIRMED | drop 0.35%, loaded to 82% of its derated rating; inside both limits |

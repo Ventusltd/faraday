@@ -1,6 +1,6 @@
 # The hundred: results so far
 
-1100 of 2127 run. Every line below is one test; rerun any of them with `python bench/one.py N`.
+1350 of 2127 run. Every line below is one test; rerun any of them with `python bench/one.py N`.
 
 | family | CONFIRMED | NO EFFECT | REFUTED |
 |---|---|---|---|
@@ -11,7 +11,7 @@
 | FEEDER PULSE | 60 | 0 | 0 |
 | SITE PULSE | 24 | 0 | 0 |
 | SITE THRESHOLDS | 2 | 1 | 0 |
-| SITE SURVEY | 960 | 0 | 13 |
+| SITE SURVEY | 1207 | 0 | 16 |
 
 | n | family | test | result | what was seen |
 |---|---|---|---|---|
@@ -1115,3 +1115,253 @@
 | 1098 | SITE SURVEY | generic site 971 | CONFIRMED | connection point -210 kW (plus is import), +300 kvar; volts 0.989 to 1.004; busiest transformer 126%; export 210 kW is 210 kW over the 0 kW limit: the solar mus |
 | 1099 | SITE SURVEY | generic site 972 | CONFIRMED | connection point -2305 kW (plus is import), +2661 kvar; volts 0.958 to 1.000; busiest transformer 811%; export 2305 kW is 2255 kW over the 50 kW limit: the sola |
 | 1100 | SITE SURVEY | generic site 973 | CONFIRMED | connection point -1686 kW (plus is import), +393 kvar; volts 0.992 to 1.009; busiest transformer 105%; export 1686 kW is 1686 kW over the 0 kW limit: the solar  |
+| 1101 | SITE SURVEY | generic site 974 | CONFIRMED | connection point -22 kW (plus is import), +520 kvar; volts 0.989 to 1.000; busiest transformer 82%; inside every limit |
+| 1102 | SITE SURVEY | generic site 975 | CONFIRMED | connection point -1814 kW (plus is import), +936 kvar; volts 0.992 to 1.012; busiest transformer 492%; export 1814 kW is 1614 kW over the 200 kW limit: the sola |
+| 1103 | SITE SURVEY | generic site 976 | CONFIRMED | connection point -1966 kW (plus is import), +1141 kvar; volts 0.986 to 1.004; busiest transformer 170%; export 1966 kW is 1466 kW over the 500 kW limit: the sol |
+| 1104 | SITE SURVEY | generic site 977 | CONFIRMED | connection point -5386 kW (plus is import), +1919 kvar; volts 0.989 to 1.017; busiest transformer 335%; export 5386 kW is 4386 kW over the 1000 kW limit: the so |
+| 1105 | SITE SURVEY | generic site 978 | CONFIRMED | connection point -2699 kW (plus is import), +817 kvar; volts 0.996 to 1.019; busiest transformer 217%; export 2699 kW is 1699 kW over the 1000 kW limit: the sol |
+| 1106 | SITE SURVEY | generic site 979 | CONFIRMED | connection point -3758 kW (plus is import), +1174 kvar; volts 0.988 to 1.012; busiest transformer 283%; export 3758 kW is 3258 kW over the 500 kW limit: the sol |
+| 1107 | SITE SURVEY | generic site 980 | CONFIRMED | connection point -826 kW (plus is import), +508 kvar; volts 0.989 to 1.006; busiest transformer 145%; export 826 kW is 776 kW over the 50 kW limit: the solar mu |
+| 1108 | SITE SURVEY | generic site 981 | CONFIRMED | connection point -675 kW (plus is import), +240 kvar; volts 0.993 to 1.006; busiest transformer 93%; export 675 kW is 475 kW over the 200 kW limit: the solar mu |
+| 1109 | SITE SURVEY | generic site 982 | CONFIRMED | connection point -1416 kW (plus is import), +1179 kvar; volts 0.986 to 1.008; busiest transformer 503%; export 1416 kW is 916 kW over the 500 kW limit: the sola |
+| 1110 | SITE SURVEY | generic site 983 | CONFIRMED | connection point -4976 kW (plus is import), +1866 kvar; volts 0.990 to 1.017; busiest transformer 321%; export 4976 kW is 4476 kW over the 500 kW limit: the sol |
+| 1111 | SITE SURVEY | generic site 984 | CONFIRMED | connection point -3599 kW (plus is import), +2200 kvar; volts 0.982 to 1.008; busiest transformer 527%; export 3599 kW is 2599 kW over the 1000 kW limit: the so |
+| 1112 | SITE SURVEY | generic site 985 | CONFIRMED | connection point -807 kW (plus is import), +464 kvar; volts 0.992 to 1.014; busiest transformer 266%; export 807 kW is 607 kW over the 200 kW limit: the solar m |
+| 1113 | SITE SURVEY | generic site 986 | CONFIRMED | connection point -1195 kW (plus is import), +390 kvar; volts 0.993 to 1.015; busiest transformer 299%; export 1195 kW is 695 kW over the 500 kW limit: the solar |
+| 1114 | SITE SURVEY | generic site 987 | CONFIRMED | connection point +135 kW (plus is import), +469 kvar; volts 0.988 to 1.001; busiest transformer 82%; inside every limit |
+| 1115 | SITE SURVEY | generic site 988 | CONFIRMED | connection point -1771 kW (plus is import), +1334 kvar; volts 0.985 to 1.005; busiest transformer 567%; export 1771 kW is 771 kW over the 1000 kW limit: the sol |
+| 1116 | SITE SURVEY | generic site 989 | CONFIRMED | connection point -2215 kW (plus is import), +1273 kvar; volts 0.989 to 1.017; busiest transformer 351%; export 2215 kW is 2015 kW over the 200 kW limit: the sol |
+| 1117 | SITE SURVEY | generic site 990 | CONFIRMED | connection point -3678 kW (plus is import), +1712 kvar; volts 0.984 to 1.008; busiest transformer 271%; export 3678 kW is 3178 kW over the 500 kW limit: the sol |
+| 1118 | SITE SURVEY | generic site 991 | CONFIRMED | connection point -321 kW (plus is import), +381 kvar; volts 0.990 to 1.000; busiest transformer 49%; inside every limit |
+| 1119 | SITE SURVEY | generic site 992 | CONFIRMED | connection point -1257 kW (plus is import), +428 kvar; volts 0.991 to 1.011; busiest transformer 172%; export 1257 kW is 757 kW over the 500 kW limit: the solar |
+| 1120 | SITE SURVEY | generic site 993 | CONFIRMED | connection point -196 kW (plus is import), +135 kvar; volts 0.996 to 1.000; busiest transformer 13%; inside every limit |
+| 1121 | SITE SURVEY | generic site 994 | CONFIRMED | connection point -2205 kW (plus is import), +543 kvar; volts 0.995 to 1.012; busiest transformer 130%; export 2205 kW is 1705 kW over the 500 kW limit: the sola |
+| 1122 | SITE SURVEY | generic site 995 | CONFIRMED | connection point -2642 kW (plus is import), +665 kvar; volts 0.995 to 1.012; busiest transformer 156%; export 2642 kW is 2592 kW over the 50 kW limit: the solar |
+| 1123 | SITE SURVEY | generic site 996 | CONFIRMED | connection point -1898 kW (plus is import), +821 kvar; volts 0.991 to 1.009; busiest transformer 141%; export 1898 kW is 1848 kW over the 50 kW limit: the solar |
+| 1124 | SITE SURVEY | generic site 997 | CONFIRMED | connection point -2682 kW (plus is import), +894 kvar; volts 0.987 to 1.010; busiest transformer 221%; export 2682 kW is 1682 kW over the 1000 kW limit: the sol |
+| 1125 | SITE SURVEY | generic site 998 | CONFIRMED | connection point -2635 kW (plus is import), +876 kvar; volts 0.993 to 1.019; busiest transformer 220%; export 2635 kW is 2635 kW over the 0 kW limit: the solar  |
+| 1126 | SITE SURVEY | generic site 999 | CONFIRMED | connection point -437 kW (plus is import), +630 kvar; volts 0.988 to 1.000; busiest transformer 66%; export 437 kW is 387 kW over the 50 kW limit: the solar mus |
+| 1127 | SITE SURVEY | generic site 1000 | CONFIRMED | connection point -4353 kW (plus is import), +2699 kvar; volts 0.983 to 1.000; busiest transformer 608%; export 4353 kW is 4303 kW over the 50 kW limit: the sola |
+| 1128 | SITE SURVEY | generic site 1001 | CONFIRMED | connection point -88 kW (plus is import), +1120 kvar; volts 0.983 to 1.011; busiest transformer 346%; a transformer is at 346% of its rating |
+| 1129 | SITE SURVEY | generic site 1002 | REFUTED | connection point -3727 kW (plus is import), +3622 kvar; volts 0.975 to 1.000; busiest transformer 1153%; export 3727 kW is 3527 kW over the 200 kW limit: the so |
+| 1130 | SITE SURVEY | generic site 1003 | CONFIRMED | connection point -971 kW (plus is import), +652 kvar; volts 0.992 to 1.009; busiest transformer 181%; export 971 kW is 921 kW over the 50 kW limit: the solar mu |
+| 1131 | SITE SURVEY | generic site 1004 | CONFIRMED | connection point -1379 kW (plus is import), +1087 kvar; volts 0.986 to 1.007; busiest transformer 475%; export 1379 kW is 1379 kW over the 0 kW limit: the solar |
+| 1132 | SITE SURVEY | generic site 1005 | CONFIRMED | connection point -2761 kW (plus is import), +1247 kvar; volts 0.985 to 1.008; busiest transformer 205%; export 2761 kW is 2761 kW over the 0 kW limit: the solar |
+| 1133 | SITE SURVEY | generic site 1006 | CONFIRMED | connection point +85 kW (plus is import), +342 kvar; volts 0.991 to 1.000; busiest transformer 53%; inside every limit |
+| 1134 | SITE SURVEY | generic site 1007 | CONFIRMED | connection point -1007 kW (plus is import), +922 kvar; volts 0.987 to 1.011; busiest transformer 403%; export 1007 kW is 957 kW over the 50 kW limit: the solar  |
+| 1135 | SITE SURVEY | generic site 1008 | CONFIRMED | connection point -1202 kW (plus is import), +666 kvar; volts 0.990 to 1.008; busiest transformer 130%; export 1202 kW is 1152 kW over the 50 kW limit: the solar |
+| 1136 | SITE SURVEY | generic site 1009 | CONFIRMED | connection point -271 kW (plus is import), +282 kvar; volts 0.992 to 1.003; busiest transformer 83%; export 271 kW is 271 kW over the 0 kW limit: the solar must |
+| 1137 | SITE SURVEY | generic site 1010 | CONFIRMED | connection point -2001 kW (plus is import), +1942 kvar; volts 0.983 to 1.000; busiest transformer 692%; export 2001 kW is 1951 kW over the 50 kW limit: the sola |
+| 1138 | SITE SURVEY | generic site 1011 | CONFIRMED | connection point -6 kW (plus is import), +377 kvar; volts 0.989 to 1.000; busiest transformer 27%; inside every limit |
+| 1139 | SITE SURVEY | generic site 1012 | CONFIRMED | connection point -1917 kW (plus is import), +638 kvar; volts 0.992 to 1.013; busiest transformer 300%; export 1917 kW is 917 kW over the 1000 kW limit: the sola |
+| 1140 | SITE SURVEY | generic site 1013 | CONFIRMED | connection point -2608 kW (plus is import), +1872 kvar; volts 0.986 to 1.000; busiest transformer 730%; export 2608 kW is 2558 kW over the 50 kW limit: the sola |
+| 1141 | SITE SURVEY | generic site 1014 | CONFIRMED | connection point -558 kW (plus is import), +680 kvar; volts 0.988 to 1.001; busiest transformer 94%; export 558 kW is 358 kW over the 200 kW limit: the solar mu |
+| 1142 | SITE SURVEY | generic site 1015 | CONFIRMED | connection point -1665 kW (plus is import), +538 kvar; volts 0.992 to 1.012; busiest transformer 211%; export 1665 kW is 1465 kW over the 200 kW limit: the sola |
+| 1143 | SITE SURVEY | generic site 1016 | CONFIRMED | connection point -457 kW (plus is import), +632 kvar; volts 0.988 to 1.003; busiest transformer 134%; a transformer is at 134% of its rating |
+| 1144 | SITE SURVEY | generic site 1017 | CONFIRMED | connection point -2101 kW (plus is import), +1637 kvar; volts 0.987 to 1.000; busiest transformer 650%; export 2101 kW is 1601 kW over the 500 kW limit: the sol |
+| 1145 | SITE SURVEY | generic site 1018 | CONFIRMED | connection point -2190 kW (plus is import), +811 kvar; volts 0.991 to 1.012; busiest transformer 187%; export 2190 kW is 2140 kW over the 50 kW limit: the solar |
+| 1146 | SITE SURVEY | generic site 1019 | CONFIRMED | connection point -524 kW (plus is import), +205 kvar; volts 0.996 to 1.001; busiest transformer 41%; export 524 kW is 324 kW over the 200 kW limit: the solar mu |
+| 1147 | SITE SURVEY | generic site 1020 | CONFIRMED | connection point -618 kW (plus is import), +119 kvar; volts 0.995 to 1.006; busiest transformer 88%; inside every limit |
+| 1148 | SITE SURVEY | generic site 1021 | CONFIRMED | connection point -1765 kW (plus is import), +803 kvar; volts 0.988 to 1.010; busiest transformer 172%; export 1765 kW is 1565 kW over the 200 kW limit: the sola |
+| 1149 | SITE SURVEY | generic site 1022 | CONFIRMED | connection point -151 kW (plus is import), +381 kvar; volts 0.989 to 1.000; busiest transformer 41%; inside every limit |
+| 1150 | SITE SURVEY | generic site 1023 | CONFIRMED | connection point -101 kW (plus is import), +520 kvar; volts 0.990 to 1.000; busiest transformer 57%; export 101 kW is 51 kW over the 50 kW limit: the solar must |
+| 1151 | SITE SURVEY | generic site 1024 | CONFIRMED | connection point -316 kW (plus is import), +722 kvar; volts 0.987 to 1.002; busiest transformer 75%; export 316 kW is 116 kW over the 200 kW limit: the solar mu |
+| 1152 | SITE SURVEY | generic site 1025 | CONFIRMED | connection point -687 kW (plus is import), +275 kvar; volts 0.993 to 1.014; busiest transformer 202%; export 687 kW is 687 kW over the 0 kW limit: the solar mus |
+| 1153 | SITE SURVEY | generic site 1026 | CONFIRMED | connection point -32 kW (plus is import), +163 kvar; volts 0.994 to 1.000; busiest transformer 29%; inside every limit |
+| 1154 | SITE SURVEY | generic site 1027 | CONFIRMED | connection point -537 kW (plus is import), +199 kvar; volts 0.995 to 1.007; busiest transformer 146%; a transformer is at 146% of its rating |
+| 1155 | SITE SURVEY | generic site 1028 | CONFIRMED | connection point -2998 kW (plus is import), +741 kvar; volts 0.990 to 1.012; busiest transformer 180%; export 2998 kW is 2998 kW over the 0 kW limit: the solar  |
+| 1156 | SITE SURVEY | generic site 1029 | CONFIRMED | connection point +488 kW (plus is import), +735 kvar; volts 0.985 to 1.000; busiest transformer 41%; inside every limit |
+| 1157 | SITE SURVEY | generic site 1030 | CONFIRMED | connection point -803 kW (plus is import), +284 kvar; volts 0.992 to 1.002; busiest transformer 63%; export 803 kW is 303 kW over the 500 kW limit: the solar mu |
+| 1158 | SITE SURVEY | generic site 1031 | CONFIRMED | connection point -3449 kW (plus is import), +1431 kvar; volts 0.992 to 1.019; busiest transformer 245%; export 3449 kW is 3399 kW over the 50 kW limit: the sola |
+| 1159 | SITE SURVEY | generic site 1032 | CONFIRMED | connection point -1820 kW (plus is import), +529 kvar; volts 0.990 to 1.005; busiest transformer 117%; export 1820 kW is 1620 kW over the 200 kW limit: the sola |
+| 1160 | SITE SURVEY | generic site 1033 | CONFIRMED | connection point -1212 kW (plus is import), +685 kvar; volts 0.991 to 1.005; busiest transformer 105%; export 1212 kW is 1012 kW over the 200 kW limit: the sola |
+| 1161 | SITE SURVEY | generic site 1034 | CONFIRMED | connection point -2894 kW (plus is import), +889 kvar; volts 0.992 to 1.009; busiest transformer 182%; export 2894 kW is 2844 kW over the 50 kW limit: the solar |
+| 1162 | SITE SURVEY | generic site 1035 | CONFIRMED | connection point -4727 kW (plus is import), +1645 kvar; volts 0.992 to 1.020; busiest transformer 299%; export 4727 kW is 4527 kW over the 200 kW limit: the sol |
+| 1163 | SITE SURVEY | generic site 1036 | CONFIRMED | connection point -769 kW (plus is import), +519 kvar; volts 0.991 to 1.007; busiest transformer 145%; export 769 kW is 769 kW over the 0 kW limit: the solar mus |
+| 1164 | SITE SURVEY | generic site 1037 | CONFIRMED | connection point -613 kW (plus is import), +259 kvar; volts 0.992 to 1.013; busiest transformer 186%; a transformer is at 186% of its rating |
+| 1165 | SITE SURVEY | generic site 1038 | CONFIRMED | connection point -157 kW (plus is import), +102 kvar; volts 0.996 to 1.002; busiest transformer 59%; inside every limit |
+| 1166 | SITE SURVEY | generic site 1039 | CONFIRMED | connection point -2169 kW (plus is import), +1004 kvar; volts 0.988 to 1.014; busiest transformer 378%; export 2169 kW is 2119 kW over the 50 kW limit: the sola |
+| 1167 | SITE SURVEY | generic site 1040 | CONFIRMED | connection point -447 kW (plus is import), +385 kvar; volts 0.989 to 1.005; busiest transformer 122%; a transformer is at 122% of its rating |
+| 1168 | SITE SURVEY | generic site 1041 | CONFIRMED | connection point -3231 kW (plus is import), +3753 kvar; volts 0.898 to 1.000; busiest transformer 981%; export 3231 kW is 3231 kW over the 0 kW limit: the solar |
+| 1169 | SITE SURVEY | generic site 1042 | CONFIRMED | connection point +87 kW (plus is import), +193 kvar; volts 0.992 to 1.000; busiest transformer 25%; inside every limit |
+| 1170 | SITE SURVEY | generic site 1043 | CONFIRMED | connection point +164 kW (plus is import), +432 kvar; volts 0.988 to 1.000; busiest transformer 56%; inside every limit |
+| 1171 | SITE SURVEY | generic site 1044 | CONFIRMED | connection point -3743 kW (plus is import), +2337 kvar; volts 0.984 to 1.000; busiest transformer 642%; export 3743 kW is 2743 kW over the 1000 kW limit: the so |
+| 1172 | SITE SURVEY | generic site 1045 | CONFIRMED | connection point -4217 kW (plus is import), +1463 kvar; volts 0.993 to 1.017; busiest transformer 271%; export 4217 kW is 4217 kW over the 0 kW limit: the solar |
+| 1173 | SITE SURVEY | generic site 1046 | CONFIRMED | connection point -629 kW (plus is import), +694 kvar; volts 0.988 to 1.008; busiest transformer 197%; export 629 kW is 129 kW over the 500 kW limit: the solar m |
+| 1174 | SITE SURVEY | generic site 1047 | CONFIRMED | connection point -797 kW (plus is import), +180 kvar; volts 0.994 to 1.003; busiest transformer 59%; export 797 kW is 797 kW over the 0 kW limit: the solar must |
+| 1175 | SITE SURVEY | generic site 1048 | CONFIRMED | connection point -1033 kW (plus is import), +272 kvar; volts 0.996 to 1.012; busiest transformer 132%; export 1033 kW is 983 kW over the 50 kW limit: the solar  |
+| 1176 | SITE SURVEY | generic site 1049 | CONFIRMED | connection point -2505 kW (plus is import), +979 kvar; volts 0.994 to 1.012; busiest transformer 174%; export 2505 kW is 2505 kW over the 0 kW limit: the solar  |
+| 1177 | SITE SURVEY | generic site 1050 | CONFIRMED | connection point -1018 kW (plus is import), +625 kvar; volts 0.991 to 1.014; busiest transformer 331%; export 1018 kW is 518 kW over the 500 kW limit: the solar |
+| 1178 | SITE SURVEY | generic site 1051 | CONFIRMED | connection point -400 kW (plus is import), +102 kvar; volts 0.996 to 1.007; busiest transformer 100%; a transformer is at 100% of its rating |
+| 1179 | SITE SURVEY | generic site 1052 | CONFIRMED | connection point -526 kW (plus is import), +211 kvar; volts 0.996 to 1.007; busiest transformer 98%; inside every limit |
+| 1180 | SITE SURVEY | generic site 1053 | CONFIRMED | connection point -1723 kW (plus is import), +1021 kvar; volts 0.989 to 1.010; busiest transformer 187%; export 1723 kW is 723 kW over the 1000 kW limit: the sol |
+| 1181 | SITE SURVEY | generic site 1054 | CONFIRMED | connection point -2733 kW (plus is import), +639 kvar; volts 0.995 to 1.009; busiest transformer 157%; export 2733 kW is 1733 kW over the 1000 kW limit: the sol |
+| 1182 | SITE SURVEY | generic site 1055 | CONFIRMED | connection point -402 kW (plus is import), +105 kvar; volts 0.995 to 1.003; busiest transformer 59%; inside every limit |
+| 1183 | SITE SURVEY | generic site 1056 | CONFIRMED | connection point +12 kW (plus is import), +141 kvar; volts 0.990 to 1.000; busiest transformer 24%; inside every limit |
+| 1184 | SITE SURVEY | generic site 1057 | REFUTED | connection point -3191 kW (plus is import), +9071 kvar; volts 0.780 to 1.000; busiest transformer 1594%; export 3191 kW is 2191 kW over the 1000 kW limit: the s |
+| 1185 | SITE SURVEY | generic site 1058 | CONFIRMED | connection point -1173 kW (plus is import), +786 kvar; volts 0.989 to 1.015; busiest transformer 395%; export 1173 kW is 1123 kW over the 50 kW limit: the solar |
+| 1186 | SITE SURVEY | generic site 1059 | CONFIRMED | connection point -308 kW (plus is import), +94 kvar; volts 0.995 to 1.003; busiest transformer 77%; export 308 kW is 308 kW over the 0 kW limit: the solar must  |
+| 1187 | SITE SURVEY | generic site 1060 | CONFIRMED | connection point -384 kW (plus is import), +175 kvar; volts 0.996 to 1.000; busiest transformer 27%; inside every limit |
+| 1188 | SITE SURVEY | generic site 1061 | CONFIRMED | connection point -3103 kW (plus is import), +1825 kvar; volts 0.987 to 1.004; busiest transformer 542%; export 3103 kW is 2603 kW over the 500 kW limit: the sol |
+| 1189 | SITE SURVEY | generic site 1062 | CONFIRMED | connection point -227 kW (plus is import), +105 kvar; volts 0.995 to 1.002; busiest transformer 68%; export 227 kW is 227 kW over the 0 kW limit: the solar must |
+| 1190 | SITE SURVEY | generic site 1063 | CONFIRMED | connection point -1018 kW (plus is import), +507 kvar; volts 0.989 to 1.002; busiest transformer 78%; export 1018 kW is 18 kW over the 1000 kW limit: the solar  |
+| 1191 | SITE SURVEY | generic site 1064 | CONFIRMED | connection point -1021 kW (plus is import), +305 kvar; volts 0.992 to 1.005; busiest transformer 69%; export 1021 kW is 1021 kW over the 0 kW limit: the solar m |
+| 1192 | SITE SURVEY | generic site 1065 | CONFIRMED | connection point -4619 kW (plus is import), +1822 kvar; volts 0.984 to 1.012; busiest transformer 375%; export 4619 kW is 4419 kW over the 200 kW limit: the sol |
+| 1193 | SITE SURVEY | generic site 1066 | CONFIRMED | connection point -5014 kW (plus is import), +1879 kvar; volts 0.984 to 1.012; busiest transformer 322%; export 5014 kW is 4964 kW over the 50 kW limit: the sola |
+| 1194 | SITE SURVEY | generic site 1067 | CONFIRMED | connection point -758 kW (plus is import), +266 kvar; volts 0.991 to 1.002; busiest transformer 50%; export 758 kW is 258 kW over the 500 kW limit: the solar mu |
+| 1195 | SITE SURVEY | generic site 1068 | CONFIRMED | connection point -1993 kW (plus is import), +847 kvar; volts 0.992 to 1.017; busiest transformer 281%; export 1993 kW is 1993 kW over the 0 kW limit: the solar  |
+| 1196 | SITE SURVEY | generic site 1069 | CONFIRMED | connection point -2564 kW (plus is import), +773 kvar; volts 0.991 to 1.010; busiest transformer 198%; export 2564 kW is 2514 kW over the 50 kW limit: the solar |
+| 1197 | SITE SURVEY | generic site 1070 | CONFIRMED | connection point -2254 kW (plus is import), +1308 kvar; volts 0.987 to 1.004; busiest transformer 607%; export 2254 kW is 2204 kW over the 50 kW limit: the sola |
+| 1198 | SITE SURVEY | generic site 1071 | CONFIRMED | connection point -318 kW (plus is import), +211 kvar; volts 0.992 to 1.000; busiest transformer 27%; inside every limit |
+| 1199 | SITE SURVEY | generic site 1072 | CONFIRMED | connection point -5740 kW (plus is import), +2997 kvar; volts 0.983 to 1.014; busiest transformer 494%; export 5740 kW is 5690 kW over the 50 kW limit: the sola |
+| 1200 | SITE SURVEY | generic site 1073 | CONFIRMED | connection point -1003 kW (plus is import), +326 kvar; volts 0.993 to 1.015; busiest transformer 257%; export 1003 kW is 953 kW over the 50 kW limit: the solar  |
+| 1201 | SITE SURVEY | generic site 1074 | CONFIRMED | connection point -218 kW (plus is import), +613 kvar; volts 0.987 to 1.000; busiest transformer 60%; inside every limit |
+| 1202 | SITE SURVEY | generic site 1075 | CONFIRMED | connection point -1774 kW (plus is import), +467 kvar; volts 0.989 to 1.007; busiest transformer 112%; export 1774 kW is 1574 kW over the 200 kW limit: the sola |
+| 1203 | SITE SURVEY | generic site 1076 | CONFIRMED | connection point +250 kW (plus is import), +587 kvar; volts 0.987 to 1.003; busiest transformer 100%; inside every limit |
+| 1204 | SITE SURVEY | generic site 1077 | CONFIRMED | connection point -2207 kW (plus is import), +1076 kvar; volts 0.992 to 1.017; busiest transformer 326%; export 2207 kW is 2207 kW over the 0 kW limit: the solar |
+| 1205 | SITE SURVEY | generic site 1078 | CONFIRMED | connection point -101 kW (plus is import), +92 kvar; volts 0.994 to 1.001; busiest transformer 45%; inside every limit |
+| 1206 | SITE SURVEY | generic site 1079 | CONFIRMED | connection point -3954 kW (plus is import), +1572 kvar; volts 0.984 to 1.015; busiest transformer 332%; export 3954 kW is 2954 kW over the 1000 kW limit: the so |
+| 1207 | SITE SURVEY | generic site 1080 | CONFIRMED | connection point -3223 kW (plus is import), +1642 kvar; volts 0.984 to 1.009; busiest transformer 444%; export 3223 kW is 2223 kW over the 1000 kW limit: the so |
+| 1208 | SITE SURVEY | generic site 1081 | CONFIRMED | connection point -2065 kW (plus is import), +777 kvar; volts 0.989 to 1.011; busiest transformer 150%; export 2065 kW is 2015 kW over the 50 kW limit: the solar |
+| 1209 | SITE SURVEY | generic site 1082 | CONFIRMED | connection point -1689 kW (plus is import), +417 kvar; volts 0.991 to 1.005; busiest transformer 101%; export 1689 kW is 1639 kW over the 50 kW limit: the solar |
+| 1210 | SITE SURVEY | generic site 1083 | CONFIRMED | connection point -1171 kW (plus is import), +259 kvar; volts 0.998 to 1.011; busiest transformer 137%; export 1171 kW is 171 kW over the 1000 kW limit: the sola |
+| 1211 | SITE SURVEY | generic site 1084 | CONFIRMED | connection point -2137 kW (plus is import), +1131 kvar; volts 0.985 to 1.010; busiest transformer 218%; export 2137 kW is 2087 kW over the 50 kW limit: the sola |
+| 1212 | SITE SURVEY | generic site 1085 | CONFIRMED | connection point -4067 kW (plus is import), +2965 kvar; volts 0.975 to 1.000; busiest transformer 718%; export 4067 kW is 4067 kW over the 0 kW limit: the solar |
+| 1213 | SITE SURVEY | generic site 1086 | CONFIRMED | connection point -2214 kW (plus is import), +1427 kvar; volts 0.984 to 1.010; busiest transformer 249%; export 2214 kW is 2214 kW over the 0 kW limit: the solar |
+| 1214 | SITE SURVEY | generic site 1087 | CONFIRMED | connection point -495 kW (plus is import), +235 kvar; volts 0.991 to 1.009; busiest transformer 158%; export 495 kW is 445 kW over the 50 kW limit: the solar mu |
+| 1215 | SITE SURVEY | generic site 1088 | CONFIRMED | connection point -2056 kW (plus is import), +783 kvar; volts 0.993 to 1.015; busiest transformer 278%; export 2056 kW is 1056 kW over the 1000 kW limit: the sol |
+| 1216 | SITE SURVEY | generic site 1089 | CONFIRMED | connection point -119 kW (plus is import), +312 kvar; volts 0.990 to 1.000; busiest transformer 31%; inside every limit |
+| 1217 | SITE SURVEY | generic site 1090 | CONFIRMED | connection point -294 kW (plus is import), +432 kvar; volts 0.990 to 1.005; busiest transformer 119%; a transformer is at 119% of its rating |
+| 1218 | SITE SURVEY | generic site 1091 | CONFIRMED | connection point +111 kW (plus is import), +244 kvar; volts 0.991 to 1.000; busiest transformer 56%; inside every limit |
+| 1219 | SITE SURVEY | generic site 1092 | CONFIRMED | connection point -2552 kW (plus is import), +1498 kvar; volts 0.984 to 1.012; busiest transformer 395%; export 2552 kW is 2352 kW over the 200 kW limit: the sol |
+| 1220 | SITE SURVEY | generic site 1093 | CONFIRMED | connection point -2523 kW (plus is import), +1263 kvar; volts 0.992 to 1.014; busiest transformer 438%; export 2523 kW is 2323 kW over the 200 kW limit: the sol |
+| 1221 | SITE SURVEY | generic site 1094 | CONFIRMED | connection point -3051 kW (plus is import), +1055 kvar; volts 0.988 to 1.010; busiest transformer 206%; export 3051 kW is 3051 kW over the 0 kW limit: the solar |
+| 1222 | SITE SURVEY | generic site 1095 | CONFIRMED | connection point -473 kW (plus is import), +434 kvar; volts 0.991 to 1.004; busiest transformer 131%; export 473 kW is 423 kW over the 50 kW limit: the solar mu |
+| 1223 | SITE SURVEY | generic site 1096 | CONFIRMED | connection point -4985 kW (plus is import), +2432 kvar; volts 0.986 to 1.014; busiest transformer 431%; export 4985 kW is 4785 kW over the 200 kW limit: the sol |
+| 1224 | SITE SURVEY | generic site 1097 | REFUTED | connection point -3844 kW (plus is import), +6669 kvar; volts 0.840 to 1.000; busiest transformer 1392%; export 3844 kW is 3844 kW over the 0 kW limit: the sola |
+| 1225 | SITE SURVEY | generic site 1098 | CONFIRMED | connection point -2699 kW (plus is import), +963 kvar; volts 0.988 to 1.014; busiest transformer 339%; export 2699 kW is 2699 kW over the 0 kW limit: the solar  |
+| 1226 | SITE SURVEY | generic site 1099 | CONFIRMED | connection point -1755 kW (plus is import), +844 kvar; volts 0.992 to 1.014; busiest transformer 468%; export 1755 kW is 1705 kW over the 50 kW limit: the solar |
+| 1227 | SITE SURVEY | generic site 1100 | CONFIRMED | connection point +33 kW (plus is import), +113 kvar; volts 0.994 to 1.000; busiest transformer 11%; inside every limit |
+| 1228 | SITE SURVEY | generic site 1101 | CONFIRMED | connection point -425 kW (plus is import), +438 kvar; volts 0.991 to 1.000; busiest transformer 46%; inside every limit |
+| 1229 | SITE SURVEY | generic site 1102 | CONFIRMED | connection point -4691 kW (plus is import), +1870 kvar; volts 0.983 to 1.008; busiest transformer 314%; export 4691 kW is 3691 kW over the 1000 kW limit: the so |
+| 1230 | SITE SURVEY | generic site 1103 | CONFIRMED | connection point -1452 kW (plus is import), +567 kvar; volts 0.993 to 1.007; busiest transformer 105%; export 1452 kW is 1402 kW over the 50 kW limit: the solar |
+| 1231 | SITE SURVEY | generic site 1104 | CONFIRMED | connection point -701 kW (plus is import), +561 kvar; volts 0.988 to 1.008; busiest transformer 180%; export 701 kW is 501 kW over the 200 kW limit: the solar m |
+| 1232 | SITE SURVEY | generic site 1105 | CONFIRMED | connection point -1127 kW (plus is import), +1187 kvar; volts 0.984 to 1.010; busiest transformer 478%; export 1127 kW is 627 kW over the 500 kW limit: the sola |
+| 1233 | SITE SURVEY | generic site 1106 | CONFIRMED | connection point -2587 kW (plus is import), +697 kvar; volts 0.995 to 1.012; busiest transformer 161%; export 2587 kW is 2537 kW over the 50 kW limit: the solar |
+| 1234 | SITE SURVEY | generic site 1107 | CONFIRMED | connection point -515 kW (plus is import), +687 kvar; volts 0.988 to 1.012; busiest transformer 288%; export 515 kW is 15 kW over the 500 kW limit: the solar mu |
+| 1235 | SITE SURVEY | generic site 1108 | CONFIRMED | connection point -416 kW (plus is import), +480 kvar; volts 0.989 to 1.003; busiest transformer 110%; export 416 kW is 366 kW over the 50 kW limit: the solar mu |
+| 1236 | SITE SURVEY | generic site 1109 | CONFIRMED | connection point -1677 kW (plus is import), +922 kvar; volts 0.988 to 1.012; busiest transformer 475%; export 1677 kW is 1177 kW over the 500 kW limit: the sola |
+| 1237 | SITE SURVEY | generic site 1110 | CONFIRMED | connection point -1395 kW (plus is import), +582 kvar; volts 0.993 to 1.010; busiest transformer 132%; export 1395 kW is 895 kW over the 500 kW limit: the solar |
+| 1238 | SITE SURVEY | generic site 1111 | CONFIRMED | connection point -1212 kW (plus is import), +303 kvar; volts 0.994 to 1.012; busiest transformer 183%; export 1212 kW is 1162 kW over the 50 kW limit: the solar |
+| 1239 | SITE SURVEY | generic site 1112 | CONFIRMED | connection point +133 kW (plus is import), +274 kvar; volts 0.993 to 1.000; busiest transformer 27%; inside every limit |
+| 1240 | SITE SURVEY | generic site 1113 | CONFIRMED | connection point -399 kW (plus is import), +104 kvar; volts 0.993 to 1.008; busiest transformer 101%; a transformer is at 101% of its rating |
+| 1241 | SITE SURVEY | generic site 1114 | CONFIRMED | connection point +307 kW (plus is import), +746 kvar; volts 0.984 to 1.000; busiest transformer 54%; inside every limit |
+| 1242 | SITE SURVEY | generic site 1115 | CONFIRMED | connection point -125 kW (plus is import), +376 kvar; volts 0.990 to 1.006; busiest transformer 141%; a transformer is at 141% of its rating |
+| 1243 | SITE SURVEY | generic site 1116 | CONFIRMED | connection point -3588 kW (plus is import), +1911 kvar; volts 0.985 to 1.007; busiest transformer 276%; export 3588 kW is 3588 kW over the 0 kW limit: the solar |
+| 1244 | SITE SURVEY | generic site 1117 | CONFIRMED | connection point -4368 kW (plus is import), +1679 kvar; volts 0.991 to 1.018; busiest transformer 350%; export 4368 kW is 3368 kW over the 1000 kW limit: the so |
+| 1245 | SITE SURVEY | generic site 1118 | CONFIRMED | connection point -383 kW (plus is import), +465 kvar; volts 0.991 to 1.005; busiest transformer 133%; export 383 kW is 183 kW over the 200 kW limit: the solar m |
+| 1246 | SITE SURVEY | generic site 1119 | CONFIRMED | connection point -1331 kW (plus is import), +268 kvar; volts 0.996 to 1.003; busiest transformer 72%; export 1331 kW is 1281 kW over the 50 kW limit: the solar  |
+| 1247 | SITE SURVEY | generic site 1120 | CONFIRMED | connection point -281 kW (plus is import), +517 kvar; volts 0.988 to 1.000; busiest transformer 52%; inside every limit |
+| 1248 | SITE SURVEY | generic site 1121 | CONFIRMED | connection point -1532 kW (plus is import), +796 kvar; volts 0.992 to 1.015; busiest transformer 436%; export 1532 kW is 1332 kW over the 200 kW limit: the sola |
+| 1249 | SITE SURVEY | generic site 1122 | CONFIRMED | connection point -500 kW (plus is import), +603 kvar; volts 0.989 to 1.005; busiest transformer 134%; export 500 kW is 450 kW over the 50 kW limit: the solar mu |
+| 1250 | SITE SURVEY | generic site 1123 | CONFIRMED | connection point -1582 kW (plus is import), +308 kvar; volts 0.995 to 1.010; busiest transformer 94%; export 1582 kW is 582 kW over the 1000 kW limit: the solar |
+| 1251 | SITE SURVEY | generic site 1124 | CONFIRMED | connection point -147 kW (plus is import), +166 kvar; volts 0.993 to 1.000; busiest transformer 20%; inside every limit |
+| 1252 | SITE SURVEY | generic site 1125 | CONFIRMED | connection point -2359 kW (plus is import), +760 kvar; volts 0.989 to 1.015; busiest transformer 293%; export 2359 kW is 2159 kW over the 200 kW limit: the sola |
+| 1253 | SITE SURVEY | generic site 1126 | CONFIRMED | connection point -2781 kW (plus is import), +664 kvar; volts 0.994 to 1.009; busiest transformer 159%; export 2781 kW is 2731 kW over the 50 kW limit: the solar |
+| 1254 | SITE SURVEY | generic site 1127 | CONFIRMED | connection point -878 kW (plus is import), +752 kvar; volts 0.987 to 1.003; busiest transformer 117%; a transformer is at 117% of its rating |
+| 1255 | SITE SURVEY | generic site 1128 | CONFIRMED | connection point -469 kW (plus is import), +255 kvar; volts 0.994 to 1.001; busiest transformer 39%; inside every limit |
+| 1256 | SITE SURVEY | generic site 1129 | CONFIRMED | connection point -406 kW (plus is import), +832 kvar; volts 0.986 to 1.010; busiest transformer 210%; a transformer is at 210% of its rating |
+| 1257 | SITE SURVEY | generic site 1130 | CONFIRMED | connection point -3138 kW (plus is import), +1645 kvar; volts 0.984 to 1.006; busiest transformer 522%; export 3138 kW is 3088 kW over the 50 kW limit: the sola |
+| 1258 | SITE SURVEY | generic site 1131 | CONFIRMED | connection point -186 kW (plus is import), +112 kvar; volts 0.996 to 1.005; busiest transformer 70%; inside every limit |
+| 1259 | SITE SURVEY | generic site 1132 | CONFIRMED | connection point -4101 kW (plus is import), +1226 kvar; volts 0.986 to 1.012; busiest transformer 254%; export 4101 kW is 3901 kW over the 200 kW limit: the sol |
+| 1260 | SITE SURVEY | generic site 1133 | CONFIRMED | connection point -2183 kW (plus is import), +2100 kvar; volts 0.980 to 1.000; busiest transformer 729%; export 2183 kW is 1683 kW over the 500 kW limit: the sol |
+| 1261 | SITE SURVEY | generic site 1134 | CONFIRMED | connection point -472 kW (plus is import), +427 kvar; volts 0.990 to 1.000; busiest transformer 46%; export 472 kW is 272 kW over the 200 kW limit: the solar mu |
+| 1262 | SITE SURVEY | generic site 1135 | CONFIRMED | connection point -4171 kW (plus is import), +1472 kvar; volts 0.993 to 1.022; busiest transformer 272%; export 4171 kW is 3971 kW over the 200 kW limit: the sol |
+| 1263 | SITE SURVEY | generic site 1136 | CONFIRMED | connection point -237 kW (plus is import), +107 kvar; volts 0.995 to 1.004; busiest transformer 74%; inside every limit |
+| 1264 | SITE SURVEY | generic site 1137 | CONFIRMED | connection point -3125 kW (plus is import), +3139 kvar; volts 0.930 to 1.000; busiest transformer 921%; export 3125 kW is 3125 kW over the 0 kW limit: the solar |
+| 1265 | SITE SURVEY | generic site 1138 | CONFIRMED | connection point -2321 kW (plus is import), +1685 kvar; volts 0.986 to 1.000; busiest transformer 673%; export 2321 kW is 2321 kW over the 0 kW limit: the solar |
+| 1266 | SITE SURVEY | generic site 1139 | CONFIRMED | connection point -1303 kW (plus is import), +226 kvar; volts 0.998 to 1.008; busiest transformer 74%; export 1303 kW is 303 kW over the 1000 kW limit: the solar |
+| 1267 | SITE SURVEY | generic site 1140 | CONFIRMED | connection point -1337 kW (plus is import), +593 kvar; volts 0.991 to 1.014; busiest transformer 242%; export 1337 kW is 1287 kW over the 50 kW limit: the solar |
+| 1268 | SITE SURVEY | generic site 1141 | CONFIRMED | connection point -1855 kW (plus is import), +882 kvar; volts 0.992 to 1.020; busiest transformer 338%; export 1855 kW is 1355 kW over the 500 kW limit: the sola |
+| 1269 | SITE SURVEY | generic site 1142 | CONFIRMED | connection point -1785 kW (plus is import), +334 kvar; volts 0.999 to 1.010; busiest transformer 96%; export 1785 kW is 1785 kW over the 0 kW limit: the solar m |
+| 1270 | SITE SURVEY | generic site 1143 | CONFIRMED | connection point -4509 kW (plus is import), +1842 kvar; volts 0.988 to 1.011; busiest transformer 366%; export 4509 kW is 4009 kW over the 500 kW limit: the sol |
+| 1271 | SITE SURVEY | generic site 1144 | CONFIRMED | connection point -3349 kW (plus is import), +1350 kvar; volts 0.991 to 1.020; busiest transformer 287%; export 3349 kW is 3149 kW over the 200 kW limit: the sol |
+| 1272 | SITE SURVEY | generic site 1145 | CONFIRMED | connection point -1255 kW (plus is import), +331 kvar; volts 0.992 to 1.005; busiest transformer 78%; export 1255 kW is 255 kW over the 1000 kW limit: the solar |
+| 1273 | SITE SURVEY | generic site 1146 | CONFIRMED | connection point -3390 kW (plus is import), +2055 kvar; volts 0.980 to 1.005; busiest transformer 499%; export 3390 kW is 3340 kW over the 50 kW limit: the sola |
+| 1274 | SITE SURVEY | generic site 1147 | CONFIRMED | connection point -82 kW (plus is import), +391 kvar; volts 0.988 to 1.000; busiest transformer 34%; export 82 kW is 32 kW over the 50 kW limit: the solar must b |
+| 1275 | SITE SURVEY | generic site 1148 | CONFIRMED | connection point -2556 kW (plus is import), +764 kvar; volts 0.995 to 1.013; busiest transformer 166%; export 2556 kW is 1556 kW over the 1000 kW limit: the sol |
+| 1276 | SITE SURVEY | generic site 1149 | CONFIRMED | connection point -695 kW (plus is import), +693 kvar; volts 0.987 to 1.008; busiest transformer 203%; export 695 kW is 645 kW over the 50 kW limit: the solar mu |
+| 1277 | SITE SURVEY | generic site 1150 | CONFIRMED | connection point -999 kW (plus is import), +587 kvar; volts 0.988 to 1.007; busiest transformer 208%; export 999 kW is 799 kW over the 200 kW limit: the solar m |
+| 1278 | SITE SURVEY | generic site 1151 | CONFIRMED | connection point +79 kW (plus is import), +384 kvar; volts 0.990 to 1.000; busiest transformer 20%; inside every limit |
+| 1279 | SITE SURVEY | generic site 1152 | CONFIRMED | connection point -4022 kW (plus is import), +1927 kvar; volts 0.986 to 1.017; busiest transformer 362%; export 4022 kW is 3822 kW over the 200 kW limit: the sol |
+| 1280 | SITE SURVEY | generic site 1153 | CONFIRMED | connection point -257 kW (plus is import), +233 kvar; volts 0.991 to 1.002; busiest transformer 71%; export 257 kW is 257 kW over the 0 kW limit: the solar must |
+| 1281 | SITE SURVEY | generic site 1154 | CONFIRMED | connection point -1131 kW (plus is import), +573 kvar; volts 0.991 to 1.004; busiest transformer 90%; export 1131 kW is 631 kW over the 500 kW limit: the solar  |
+| 1282 | SITE SURVEY | generic site 1155 | CONFIRMED | connection point -3012 kW (plus is import), +760 kvar; volts 0.994 to 1.013; busiest transformer 176%; export 3012 kW is 2962 kW over the 50 kW limit: the solar |
+| 1283 | SITE SURVEY | generic site 1156 | CONFIRMED | connection point -91 kW (plus is import), +585 kvar; volts 0.988 to 1.000; busiest transformer 66%; inside every limit |
+| 1284 | SITE SURVEY | generic site 1157 | CONFIRMED | connection point -185 kW (plus is import), +581 kvar; volts 0.988 to 1.000; busiest transformer 63%; inside every limit |
+| 1285 | SITE SURVEY | generic site 1158 | CONFIRMED | connection point -2742 kW (plus is import), +3200 kvar; volts 0.937 to 1.000; busiest transformer 908%; export 2742 kW is 2692 kW over the 50 kW limit: the sola |
+| 1286 | SITE SURVEY | generic site 1159 | CONFIRMED | connection point -2058 kW (plus is import), +482 kvar; volts 0.991 to 1.009; busiest transformer 150%; export 2058 kW is 1058 kW over the 1000 kW limit: the sol |
+| 1287 | SITE SURVEY | generic site 1160 | CONFIRMED | connection point -3138 kW (plus is import), +1893 kvar; volts 0.987 to 1.011; busiest transformer 559%; export 3138 kW is 3138 kW over the 0 kW limit: the solar |
+| 1288 | SITE SURVEY | generic site 1161 | CONFIRMED | connection point -2187 kW (plus is import), +860 kvar; volts 0.992 to 1.016; busiest transformer 294%; export 2187 kW is 1687 kW over the 500 kW limit: the sola |
+| 1289 | SITE SURVEY | generic site 1162 | CONFIRMED | connection point -371 kW (plus is import), +586 kvar; volts 0.988 to 1.002; busiest transformer 119%; a transformer is at 119% of its rating |
+| 1290 | SITE SURVEY | generic site 1163 | CONFIRMED | connection point -482 kW (plus is import), +119 kvar; volts 0.995 to 1.005; busiest transformer 61%; export 482 kW is 482 kW over the 0 kW limit: the solar must |
+| 1291 | SITE SURVEY | generic site 1164 | CONFIRMED | connection point -680 kW (plus is import), +246 kvar; volts 0.991 to 1.007; busiest transformer 100%; export 680 kW is 680 kW over the 0 kW limit: the solar mus |
+| 1292 | SITE SURVEY | generic site 1165 | CONFIRMED | connection point -771 kW (plus is import), +1196 kvar; volts 0.985 to 1.008; busiest transformer 297%; export 771 kW is 571 kW over the 200 kW limit: the solar  |
+| 1293 | SITE SURVEY | generic site 1166 | CONFIRMED | connection point +1 kW (plus is import), +534 kvar; volts 0.987 to 1.000; busiest transformer 42%; inside every limit |
+| 1294 | SITE SURVEY | generic site 1167 | CONFIRMED | connection point -2637 kW (plus is import), +1762 kvar; volts 0.984 to 1.006; busiest transformer 424%; export 2637 kW is 2637 kW over the 0 kW limit: the solar |
+| 1295 | SITE SURVEY | generic site 1168 | CONFIRMED | connection point -388 kW (plus is import), +869 kvar; volts 0.985 to 1.001; busiest transformer 88%; export 388 kW is 188 kW over the 200 kW limit: the solar mu |
+| 1296 | SITE SURVEY | generic site 1169 | CONFIRMED | connection point -3147 kW (plus is import), +4039 kvar; volts 0.880 to 1.000; busiest transformer 994%; export 3147 kW is 3097 kW over the 50 kW limit: the sola |
+| 1297 | SITE SURVEY | generic site 1170 | CONFIRMED | connection point -489 kW (plus is import), +191 kvar; volts 0.997 to 1.001; busiest transformer 37%; export 489 kW is 289 kW over the 200 kW limit: the solar mu |
+| 1298 | SITE SURVEY | generic site 1171 | CONFIRMED | connection point +317 kW (plus is import), +613 kvar; volts 0.985 to 1.000; busiest transformer 43%; inside every limit |
+| 1299 | SITE SURVEY | generic site 1172 | CONFIRMED | connection point +100 kW (plus is import), +752 kvar; volts 0.984 to 1.002; busiest transformer 141%; a transformer is at 141% of its rating |
+| 1300 | SITE SURVEY | generic site 1173 | CONFIRMED | connection point -210 kW (plus is import), +332 kvar; volts 0.991 to 1.002; busiest transformer 85%; inside every limit |
+| 1301 | SITE SURVEY | generic site 1174 | CONFIRMED | connection point -148 kW (plus is import), +200 kvar; volts 0.994 to 1.000; busiest transformer 23%; inside every limit |
+| 1302 | SITE SURVEY | generic site 1175 | CONFIRMED | connection point -2880 kW (plus is import), +856 kvar; volts 0.994 to 1.018; busiest transformer 230%; export 2880 kW is 2680 kW over the 200 kW limit: the sola |
+| 1303 | SITE SURVEY | generic site 1176 | CONFIRMED | connection point -594 kW (plus is import), +1088 kvar; volts 0.985 to 1.010; busiest transformer 392%; a transformer is at 392% of its rating |
+| 1304 | SITE SURVEY | generic site 1177 | CONFIRMED | connection point -718 kW (plus is import), +359 kvar; volts 0.992 to 1.008; busiest transformer 143%; export 718 kW is 218 kW over the 500 kW limit: the solar m |
+| 1305 | SITE SURVEY | generic site 1178 | CONFIRMED | connection point -3711 kW (plus is import), +1548 kvar; volts 0.991 to 1.014; busiest transformer 312%; export 3711 kW is 3511 kW over the 200 kW limit: the sol |
+| 1306 | SITE SURVEY | generic site 1179 | CONFIRMED | connection point -1129 kW (plus is import), +654 kvar; volts 0.989 to 1.009; busiest transformer 232%; export 1129 kW is 629 kW over the 500 kW limit: the solar |
+| 1307 | SITE SURVEY | generic site 1180 | CONFIRMED | connection point -4263 kW (plus is import), +1392 kvar; volts 0.993 to 1.011; busiest transformer 264%; export 4263 kW is 4213 kW over the 50 kW limit: the sola |
+| 1308 | SITE SURVEY | generic site 1181 | CONFIRMED | connection point -806 kW (plus is import), +439 kvar; volts 0.991 to 1.013; busiest transformer 260%; export 806 kW is 756 kW over the 50 kW limit: the solar mu |
+| 1309 | SITE SURVEY | generic site 1182 | CONFIRMED | connection point +13 kW (plus is import), +758 kvar; volts 0.986 to 1.007; busiest transformer 233%; a transformer is at 233% of its rating |
+| 1310 | SITE SURVEY | generic site 1183 | CONFIRMED | connection point -1172 kW (plus is import), +677 kvar; volts 0.990 to 1.010; busiest transformer 240%; export 1172 kW is 1122 kW over the 50 kW limit: the solar |
+| 1311 | SITE SURVEY | generic site 1184 | CONFIRMED | connection point -366 kW (plus is import), +705 kvar; volts 0.987 to 1.003; busiest transformer 94%; export 366 kW is 366 kW over the 0 kW limit: the solar must |
+| 1312 | SITE SURVEY | generic site 1185 | CONFIRMED | connection point -1120 kW (plus is import), +361 kvar; volts 0.993 to 1.010; busiest transformer 182%; export 1120 kW is 620 kW over the 500 kW limit: the solar |
+| 1313 | SITE SURVEY | generic site 1186 | CONFIRMED | connection point -539 kW (plus is import), +369 kvar; volts 0.990 to 1.004; busiest transformer 101%; export 539 kW is 339 kW over the 200 kW limit: the solar m |
+| 1314 | SITE SURVEY | generic site 1187 | CONFIRMED | connection point -1801 kW (plus is import), +841 kvar; volts 0.991 to 1.010; busiest transformer 143%; export 1801 kW is 1601 kW over the 200 kW limit: the sola |
+| 1315 | SITE SURVEY | generic site 1188 | CONFIRMED | connection point -3745 kW (plus is import), +2844 kvar; volts 0.980 to 1.000; busiest transformer 695%; export 3745 kW is 3545 kW over the 200 kW limit: the sol |
+| 1316 | SITE SURVEY | generic site 1189 | CONFIRMED | connection point -3752 kW (plus is import), +1271 kvar; volts 0.994 to 1.022; busiest transformer 247%; export 3752 kW is 3552 kW over the 200 kW limit: the sol |
+| 1317 | SITE SURVEY | generic site 1190 | CONFIRMED | connection point -2438 kW (plus is import), +912 kvar; volts 0.990 to 1.009; busiest transformer 166%; export 2438 kW is 2388 kW over the 50 kW limit: the solar |
+| 1318 | SITE SURVEY | generic site 1191 | CONFIRMED | connection point +33 kW (plus is import), +386 kvar; volts 0.989 to 1.000; busiest transformer 56%; inside every limit |
+| 1319 | SITE SURVEY | generic site 1192 | CONFIRMED | connection point -2450 kW (plus is import), +1080 kvar; volts 0.991 to 1.013; busiest transformer 223%; export 2450 kW is 2400 kW over the 50 kW limit: the sola |
+| 1320 | SITE SURVEY | generic site 1193 | CONFIRMED | connection point -2695 kW (plus is import), +719 kvar; volts 0.991 to 1.010; busiest transformer 166%; export 2695 kW is 2645 kW over the 50 kW limit: the solar |
+| 1321 | SITE SURVEY | generic site 1194 | CONFIRMED | connection point -1475 kW (plus is import), +960 kvar; volts 0.986 to 1.014; busiest transformer 319%; export 1475 kW is 475 kW over the 1000 kW limit: the sola |
+| 1322 | SITE SURVEY | generic site 1195 | CONFIRMED | connection point -2474 kW (plus is import), +1151 kvar; volts 0.990 to 1.015; busiest transformer 415%; export 2474 kW is 1474 kW over the 1000 kW limit: the so |
+| 1323 | SITE SURVEY | generic site 1196 | CONFIRMED | connection point -2400 kW (plus is import), +779 kvar; volts 0.990 to 1.014; busiest transformer 298%; export 2400 kW is 2200 kW over the 200 kW limit: the sola |
+| 1324 | SITE SURVEY | generic site 1197 | CONFIRMED | connection point -427 kW (plus is import), +586 kvar; volts 0.990 to 1.009; busiest transformer 244%; a transformer is at 244% of its rating |
+| 1325 | SITE SURVEY | generic site 1198 | CONFIRMED | connection point -82 kW (plus is import), +581 kvar; volts 0.990 to 1.000; busiest transformer 43%; inside every limit |
+| 1326 | SITE SURVEY | generic site 1199 | CONFIRMED | connection point -445 kW (plus is import), +530 kvar; volts 0.990 to 1.002; busiest transformer 61%; inside every limit |
+| 1327 | SITE SURVEY | generic site 1200 | CONFIRMED | connection point -2732 kW (plus is import), +2253 kvar; volts 0.972 to 1.000; busiest transformer 793%; export 2732 kW is 2682 kW over the 50 kW limit: the sola |
+| 1328 | SITE SURVEY | generic site 1201 | CONFIRMED | connection point -158 kW (plus is import), +234 kvar; volts 0.990 to 1.004; busiest transformer 102%; a transformer is at 102% of its rating |
+| 1329 | SITE SURVEY | generic site 1202 | CONFIRMED | connection point -174 kW (plus is import), +337 kvar; volts 0.989 to 1.002; busiest transformer 69%; inside every limit |
+| 1330 | SITE SURVEY | generic site 1203 | CONFIRMED | connection point -1531 kW (plus is import), +1228 kvar; volts 0.989 to 1.013; busiest transformer 358%; export 1531 kW is 1331 kW over the 200 kW limit: the sol |
+| 1331 | SITE SURVEY | generic site 1204 | CONFIRMED | connection point -1876 kW (plus is import), +772 kvar; volts 0.988 to 1.013; busiest transformer 267%; export 1876 kW is 1876 kW over the 0 kW limit: the solar  |
+| 1332 | SITE SURVEY | generic site 1205 | CONFIRMED | connection point -1964 kW (plus is import), +1229 kvar; volts 0.986 to 1.004; busiest transformer 175%; export 1964 kW is 1964 kW over the 0 kW limit: the solar |
+| 1333 | SITE SURVEY | generic site 1206 | CONFIRMED | connection point +97 kW (plus is import), +332 kvar; volts 0.988 to 1.000; busiest transformer 47%; inside every limit |
+| 1334 | SITE SURVEY | generic site 1207 | CONFIRMED | connection point -3214 kW (plus is import), +1732 kvar; volts 0.986 to 1.009; busiest transformer 545%; export 3214 kW is 2214 kW over the 1000 kW limit: the so |
+| 1335 | SITE SURVEY | generic site 1208 | CONFIRMED | connection point -857 kW (plus is import), +171 kvar; volts 0.994 to 1.004; busiest transformer 60%; export 857 kW is 807 kW over the 50 kW limit: the solar mus |
+| 1336 | SITE SURVEY | generic site 1209 | CONFIRMED | connection point -2998 kW (plus is import), +2483 kvar; volts 0.976 to 1.000; busiest transformer 613%; export 2998 kW is 1998 kW over the 1000 kW limit: the so |
+| 1337 | SITE SURVEY | generic site 1210 | CONFIRMED | connection point -981 kW (plus is import), +373 kvar; volts 0.993 to 1.013; busiest transformer 266%; export 981 kW is 781 kW over the 200 kW limit: the solar m |
+| 1338 | SITE SURVEY | generic site 1211 | CONFIRMED | connection point -1365 kW (plus is import), +629 kvar; volts 0.990 to 1.016; busiest transformer 380%; export 1365 kW is 1315 kW over the 50 kW limit: the solar |
+| 1339 | SITE SURVEY | generic site 1212 | CONFIRMED | connection point -2686 kW (plus is import), +1955 kvar; volts 0.983 to 1.007; busiest transformer 448%; export 2686 kW is 2186 kW over the 500 kW limit: the sol |
+| 1340 | SITE SURVEY | generic site 1213 | CONFIRMED | connection point -799 kW (plus is import), +830 kvar; volts 0.990 to 1.010; busiest transformer 197%; export 799 kW is 299 kW over the 500 kW limit: the solar m |
+| 1341 | SITE SURVEY | generic site 1214 | CONFIRMED | connection point -1413 kW (plus is import), +387 kvar; volts 0.994 to 1.007; busiest transformer 109%; export 1413 kW is 913 kW over the 500 kW limit: the solar |
+| 1342 | SITE SURVEY | generic site 1215 | CONFIRMED | connection point -1275 kW (plus is import), +584 kvar; volts 0.991 to 1.004; busiest transformer 98%; export 1275 kW is 1075 kW over the 200 kW limit: the solar |
+| 1343 | SITE SURVEY | generic site 1216 | CONFIRMED | connection point -2425 kW (plus is import), +2068 kvar; volts 0.979 to 1.000; busiest transformer 740%; export 2425 kW is 1425 kW over the 1000 kW limit: the so |
+| 1344 | SITE SURVEY | generic site 1217 | CONFIRMED | connection point +229 kW (plus is import), +341 kvar; volts 0.988 to 1.000; busiest transformer 24%; inside every limit |
+| 1345 | SITE SURVEY | generic site 1218 | CONFIRMED | connection point -1361 kW (plus is import), +674 kvar; volts 0.993 to 1.016; busiest transformer 266%; export 1361 kW is 861 kW over the 500 kW limit: the solar |
+| 1346 | SITE SURVEY | generic site 1219 | CONFIRMED | connection point -3448 kW (plus is import), +1530 kvar; volts 0.986 to 1.008; busiest transformer 246%; export 3448 kW is 3448 kW over the 0 kW limit: the solar |
+| 1347 | SITE SURVEY | generic site 1220 | CONFIRMED | connection point -1945 kW (plus is import), +867 kvar; volts 0.989 to 1.012; busiest transformer 276%; export 1945 kW is 945 kW over the 1000 kW limit: the sola |
+| 1348 | SITE SURVEY | generic site 1221 | CONFIRMED | connection point -1504 kW (plus is import), +296 kvar; volts 0.995 to 1.006; busiest transformer 101%; export 1504 kW is 1304 kW over the 200 kW limit: the sola |
+| 1349 | SITE SURVEY | generic site 1222 | CONFIRMED | connection point -731 kW (plus is import), +846 kvar; volts 0.986 to 1.012; busiest transformer 355%; export 731 kW is 531 kW over the 200 kW limit: the solar m |
+| 1350 | SITE SURVEY | generic site 1223 | CONFIRMED | connection point -537 kW (plus is import), +797 kvar; volts 0.988 to 1.010; busiest transformer 313%; export 537 kW is 537 kW over the 0 kW limit: the solar mus |

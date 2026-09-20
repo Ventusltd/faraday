@@ -16,7 +16,7 @@ jobs:
     timeout-minutes: 300
     strategy:
       fail-fast: false
-      max-parallel: 20
+      max-parallel: 12          # never all 20 of the account's slots: Pages deploys are jobs too and queued for hours behind this on 20 Sept
       matrix:
         variant: [1, 2, 3, 4]
         chunk: [0, 1, 2, 3, 4]

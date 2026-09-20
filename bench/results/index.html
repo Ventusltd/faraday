@@ -11,7 +11,7 @@ html,body{margin:0;background:#000;color:#dfe9f5;font:15px/1.5 Consolas,Menlo,mo
 #bar select{flex:1 1 260px;min-width:0}#bar input{flex:3 1 420px;min-width:0;color:#22e0ff}#bar button{color:#22e0ff;letter-spacing:.08em}
 #foot{padding:8px 12px;color:#667;font-size:12px}
 </style></head><body>
-<div id="wrap"><canvas id="c"></canvas><div id="card"><span id="x">x</span><h2 id="h"></h2><div id="b"></div></div></div>
+<div id="wrap"><div id="load" style="padding:18px 14px;color:#8aa">Opening: fetching the saved simulations (about 2.5 MB). On a slow connection this takes a few seconds.</div><canvas id="c"></canvas><div id="card"><span id="x">x</span><h2 id="h"></h2><div id="b"></div></div></div>
 <div id="bar"><select id="ex"><option value="">- choose an example sentence -</option></select>
 <input id="cmd" spellcheck="false" placeholder='type a command:  fire cable-withstand {"metal":"al","size_mm2":185,"seconds":1,"fault_ka":16}  -  help'>
 <button id="go">FIRE</button><button id="all">WHOLE VIEW</button></div>
@@ -43,7 +43,7 @@ $('x').onclick=()=>{$('card').style.display='none';sel=-1};$('go').onclick=fire;
 $('all').onclick=()=>{fam=null;sel=-1;t0=performance.now();$('card').style.display='none'};
 $('ex').onchange=e=>{if(e.target.value){$('cmd').value=e.target.value;fire();e.target.selectedIndex=0}};
 addEventListener('resize',fit);
-Promise.all([fetch('records.json').then(r=>r.json()),fetch('commands.json').then(r=>r.json())]).then(([rec,cfg])=>{R=rec.records;$('tally').textContent=rec.tally;
+Promise.all([fetch('records.json').then(r=>r.json()),fetch('commands.json').then(r=>r.json())]).then(([rec,cfg])=>{R=rec.records;$('tally').textContent=rec.tally;$('load').remove();
  let g=null,og=null;for(const k of cfg.commands){if(k.family!==g){g=k.family;og=document.createElement('optgroup');og.label=g;$('ex').appendChild(og)}const o=document.createElement('option');o.value=k.command;o.textContent=k.sentence;og.appendChild(o)}
  fit();t0=performance.now();requestAnimationFrame(draw);const q=new URLSearchParams(location.search).get('fire');if(q){$('cmd').value='fire '+q;fire()}})
  .catch(e=>{document.body.insertAdjacentHTML('afterbegin','<p style="padding:16px">The records could not be loaded: '+esc(e.message)+'</p>')});

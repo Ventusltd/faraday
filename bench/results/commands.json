@@ -1,7 +1,7 @@
 {
  "schema": "bench.commands.v1",
  "what_it_is": "The list in \"choose an example sentence\". One entry = the sentence a person reads and the command it stands for. The page fetches this file; nothing about the list is written into the page.",
- "generated_utc": "2026-09-20T01:40:50Z",
+ "generated_utc": "2026-09-20T01:46:00Z",
  "commands": [
   {
    "family": "CABLE CHECK",

@@ -1,0 +1,69 @@
+{
+  "js_source_parity": {
+    "samples": 29,
+    "max_error_km": 1.1368683772161603e-13,
+    "source": "https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/v9-geodesy.js",
+    "sha256": "5c75fce9e20dd1652ec0d3870714599fea6d6c1290fa6bfc0f1f4f35015615c9"
+  },
+  "reverse_graph_audit": {
+    "site_voltage_queries": 1645,
+    "paths_within_12_edges": 974
+  },
+  "published_rating_experiment": {
+    "site_code": "WBUR",
+    "below": {
+      "schema": "globalgrid.published-rating-comparison.v1",
+      "mw": 100,
+      "power_factor": 0.95,
+      "season": "winter",
+      "edges": [
+        {
+          "edge_id": "transformer:1262",
+          "source_row": "transformers[1262]",
+          "rating_field": "rating_mva",
+          "published_rating_mva": 274.0,
+          "entered_apparent_mva": 105.26315789473685,
+          "ratio_to_nameplate": 0.38417210910487903,
+          "exceeds_nameplate": false
+        }
+      ],
+      "available_headroom_mw": null,
+      "basis": "Entered apparent demand compared separately with published edge ratings. Existing flows, power sharing, contingencies and connection headroom are not solved."
+    },
+    "above": {
+      "schema": "globalgrid.published-rating-comparison.v1",
+      "mw": 300,
+      "power_factor": 0.95,
+      "season": "winter",
+      "edges": [
+        {
+          "edge_id": "transformer:1262",
+          "source_row": "transformers[1262]",
+          "rating_field": "rating_mva",
+          "published_rating_mva": 274.0,
+          "entered_apparent_mva": 315.7894736842105,
+          "ratio_to_nameplate": 1.152516327314637,
+          "exceeds_nameplate": true
+        }
+      ],
+      "available_headroom_mw": null,
+      "basis": "Entered apparent demand compared separately with published edge ratings. Existing flows, power sharing, contingencies and connection headroom are not solved."
+    }
+  },
+  "status": "passed",
+  "tests": 9,
+  "failures": 0,
+  "errors": 0,
+  "elapsed_seconds": 0.16610219998983666,
+  "data_sha256": "cf977c3cff6f6929e3b5edb530be5012b966311bdc449c79318019bf52fa9592",
+  "counts": {
+    "sites": 886,
+    "located_sites": 489,
+    "unlocated_sites": 397,
+    "nodes": 2679,
+    "circuits": 1392,
+    "transformers": 1472,
+    "unknown_voltage_nodes": 726
+  },
+  "implementation_sha256": "75afd2b55bb98eb4c32afe9412b42cb5349f0ba6aac11699cace26833b041351"
+}

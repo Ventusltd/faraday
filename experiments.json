@@ -387,6 +387,32 @@
      "working notes of 19 Sept 2026, about 22:50 London: 'remembers only when a latch passes, and that day nothing stored per dot must be dropped'"
     ]
    ]
+  },
+  {
+   "n": 20,
+   "date": "2026-09-22",
+   "title": "The published path answers; spare capacity remains unknown",
+   "question": "Can I start from a place, find nearby mapped substations, follow only published voltage-consistent connections, and test entered demand against a real published rating without turning that rating into spare capacity?",
+   "apparatus": "The offline grid finder in apparatus/grid_finder.py; source-hashed public data from Ventusltd/data-grid-gb at commit 5181de3423e4fe50c77c568b9f3066c61a1d9e41. The graph contains 886 candidate sites, 489 mapped locations, 2679 nodes, 1392 existing circuits and 1472 transformers. Geometry originates with OpenStreetMap contributors; network records are NESO ETYS 2025.",
+   "did": "I queried latitude 53.3, longitude -0.8 at 132 kV. I compared every declared site-and-voltage starting condition with an independent reverse traversal from all validated 400 kV nodes. I checked 29 distance fixtures produced by the existing GridAtlas geodesy. I then entered 100 MW and 300 MW, each at power factor 0.95, against the published West Burton transformer found by the query. I also planted an illegal circuit voltage change, an unknown-voltage edge and a missing internal site connection.",
+   "observed": "All 9 tests passed. The independent graph audit agreed on 1645 site-and-voltage queries; 974 found a published path within 12 edges. The nearest mapped 132 kV candidate was West Burton, 6.62001574277686 km away. The one-edge path WBUR11 to WBUR41 uses published transformer row 1262, rated 274 MVA. The entered demands correspond to 105.26315789473685 MVA and 315.7894736842105 MVA: the first is below that nameplate and the second exceeds it. Available headroom remains null in both results. All three planted unsupported connections were refused. The maximum distance discrepancy over 29 source fixtures was 1.1368683772161603e-13 km.",
+   "shows": "The apparatus computes geographic ordering, published connectivity and entered-demand comparisons on real source records. Nearness is not connectivity, a site name is not an internal bus tie, and a published nameplate is not available connection capacity. I do not infer existing loading, power sharing, queue position or an offer. Missing coordinates remain missing and unknown node voltages are not decoded from names.",
+   "law": "Published-edge and declared-input invariants, tested here; no new physical law claimed",
+   "result": "CONFIRMED",
+   "keys": [
+    [
+     "the apparatus",
+     "<a href=\"apparatus/grid-finder-README.md\">Instructions and source attribution</a>; <a href=\"apparatus/grid_finder.py\">Python engine</a>"
+    ],
+    [
+     "the repeatable experiment",
+     "python apparatus/test_grid_finder.py; <a href=\"apparatus/grid-finder-test-results.json\">measured results</a>"
+    ],
+    [
+     "the public source revision",
+     "Ventusltd/data-grid-gb, 5181de3423e4fe50c77c568b9f3066c61a1d9e41; source file hashes travel in apparatus/grid-finder-data.json"
+    ]
+   ]
   }
  ]
 }

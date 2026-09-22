@@ -51,7 +51,7 @@
   <li>Record NO EFFECT and REFUTED as readily as CONFIRMED. Faraday's null results are half the value of his notebooks.</li>
   <li>Name the law it tests, or say that it tests none yet.</li>
 </ol></div>
-<p class="audit">19 experiments &middot; 10 CONFIRMED, 1 NO EFFECT, 8 REFUTED. Numbers run continuously and are never reused. The build refuses an entry missing its question, apparatus, observation or result.</p>
+<p class="audit">20 experiments &middot; 11 CONFIRMED, 1 NO EFFECT, 8 REFUTED. Numbers run continuously and are never reused. The build refuses an entry missing its question, apparatus, observation or result.</p>
 <main>
 <details class="x"><summary><span class="num">1</span> &middot; <span class="ttl">The instrument printed COMPLETE over an empty frame</span></summary>
   <div class="body">
@@ -418,6 +418,27 @@
     <table class="keys">
       <tr><td class="k">the apparatus and the command</td><td>Ventusltd/faraday, apparatus/cells.mjs and apparatus/cells.test.mjs; run: node apparatus/cells.test.mjs; the numbers are in apparatus/cells.result.json</td></tr>
       <tr><td class="k">the earlier view, now corrected</td><td>working notes of 19 Sept 2026, about 22:50 London: 'remembers only when a latch passes, and that day nothing stored per dot must be dropped'</td></tr>
+    </table>
+  </div>
+</details>
+<details class="x"><summary><span class="num">20</span> &middot; <span class="ttl">The published path answers; spare capacity remains unknown</span></summary>
+  <div class="body">
+    <p class="meta">2026-09-22 &middot; tests <b>Published-edge and declared-input invariants, tested here; no new physical law claimed</b> &middot; <span class="res res-CONFIRMED">CONFIRMED</span></p>
+    <span class="lab">The question</span>
+    <p class="q">Can I start from a place, find nearby mapped substations, follow only published voltage-consistent connections, and test entered demand against a real published rating without turning that rating into spare capacity?</p>
+    <span class="lab">Apparatus</span>
+    <p class="t">The offline grid finder in apparatus/grid_finder.py; source-hashed public data from Ventusltd/data-grid-gb at commit 5181de3423e4fe50c77c568b9f3066c61a1d9e41. The graph contains 886 candidate sites, 489 mapped locations, 2679 nodes, 1392 existing circuits and 1472 transformers. Geometry originates with OpenStreetMap contributors; network records are NESO ETYS 2025.</p>
+    <span class="lab">What was done</span>
+    <p class="t">I queried latitude 53.3, longitude -0.8 at 132 kV. I compared every declared site-and-voltage starting condition with an independent reverse traversal from all validated 400 kV nodes. I checked 29 distance fixtures produced by the existing GridAtlas geodesy. I then entered 100 MW and 300 MW, each at power factor 0.95, against the published West Burton transformer found by the query. I also planted an illegal circuit voltage change, an unknown-voltage edge and a missing internal site connection.</p>
+    <span class="lab">What was observed</span>
+    <div class="obs">All 9 tests passed. The independent graph audit agreed on 1645 site-and-voltage queries; 974 found a published path within 12 edges. The nearest mapped 132 kV candidate was West Burton, 6.62001574277686 km away. The one-edge path WBUR11 to WBUR41 uses published transformer row 1262, rated 274 MVA. The entered demands correspond to 105.26315789473685 MVA and 315.7894736842105 MVA: the first is below that nameplate and the second exceeds it. Available headroom remains null in both results. All three planted unsupported connections were refused. The maximum distance discrepancy over 29 source fixtures was 1.1368683772161603e-13 km.</div>
+    <span class="lab">What it shows</span>
+    <p class="t">The apparatus computes geographic ordering, published connectivity and entered-demand comparisons on real source records. Nearness is not connectivity, a site name is not an internal bus tie, and a published nameplate is not available connection capacity. I do not infer existing loading, power sharing, queue position or an offer. Missing coordinates remain missing and unknown node voltages are not decoded from names.</p>
+    <span class="lab">Keys</span>
+    <table class="keys">
+      <tr><td class="k">the apparatus</td><td><a href="apparatus/grid-finder-README.md">Instructions and source attribution</a>; <a href="apparatus/grid_finder.py">Python engine</a></td></tr>
+      <tr><td class="k">the repeatable experiment</td><td>python apparatus/test_grid_finder.py; <a href="apparatus/grid-finder-test-results.json">measured results</a></td></tr>
+      <tr><td class="k">the public source revision</td><td>Ventusltd/data-grid-gb, 5181de3423e4fe50c77c568b9f3066c61a1d9e41; source file hashes travel in apparatus/grid-finder-data.json</td></tr>
     </table>
   </div>
 </details>

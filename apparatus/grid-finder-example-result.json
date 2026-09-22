@@ -1,0 +1,190 @@
+{
+  "schema": "globalgrid.grid-finder-result.v1",
+  "limitation": "Candidate screening over a dated published graph, not a connection offer, available capacity, power-flow result or engineering approval.",
+  "query": {
+    "latitude": 53.3,
+    "longitude": -0.8,
+    "mw": 100,
+    "voltage_kv": 132,
+    "target_kv": 400,
+    "max_hops": 12,
+    "radius_km": null
+  },
+  "counts": {
+    "sites": 886,
+    "located_sites": 489,
+    "unlocated_sites": 397,
+    "nodes": 2679,
+    "circuits": 1392,
+    "transformers": 1472,
+    "unknown_voltage_nodes": 726
+  },
+  "matching_located_sites": 353,
+  "ordering": "geographic_distance_then_site_code",
+  "pareto_basis": "distance_km and validated published hop count; fewer of each; unknown paths ungraded; tiers computed across all matching located sites",
+  "distance_basis": "Spherical separation on Atlas radius 6378.137 km, not cable route length",
+  "topology_basis": "Existing published circuits and transformers only; no invented same-site bus ties; unknown voltage edges excluded; fewest edges, not impedance or available capacity",
+  "source_publication": {
+    "publisher": "NESO",
+    "publication": "Electricity Ten Year Statement 2025",
+    "appendices": [
+      "B - system technical data",
+      "D - fault levels (peak and minimum)"
+    ],
+    "note": "parameters as published; no power flow is solved here"
+  },
+  "geometry_attribution": "OpenStreetMap contributors, via the GridAtlas release",
+  "sources": [
+    {
+      "repository": "Ventusltd/data-grid-gb",
+      "path": "derived/connection-points.v3.json",
+      "sha256": "8db7171d94763399d85c819e522dcb83ef1ecedc93fbeff032fb45ca02f81f35",
+      "bytes": 2934509
+    },
+    {
+      "repository": "Ventusltd/data-grid-gb",
+      "path": "derived/gb-transmission-network.v1.json",
+      "sha256": "b26b324c3b6637ddb00f7f80941e036a0d453c06b525d3fd733736bffe7377e4",
+      "bytes": 10069966
+    }
+  ],
+  "candidates": [
+    {
+      "site_code": "WBUR",
+      "name": "WEST BURTON",
+      "location": {
+        "lat": 53.359219,
+        "lon": -0.809114,
+        "mapped_name": "West Burton Substation",
+        "matched_by": "exact_name_highest_voltage"
+      },
+      "transmission_owner": "NGET",
+      "voltages_kv": [
+        400,
+        132
+      ],
+      "distance_km": 6.62001574277686,
+      "topology": {
+        "status": "PUBLISHED_PATH_FOUND",
+        "hops": 1,
+        "path": [
+          {
+            "from_node": "WBUR11",
+            "to_node": "WBUR41",
+            "edge_id": "transformer:1262",
+            "kind": "transformer",
+            "from_kv": 132,
+            "to_kv": 400,
+            "published_ratings_mva": {
+              "rating_mva": 274.0
+            },
+            "source_row": "transformers[1262]"
+          }
+        ],
+        "target_node": "WBUR41",
+        "target_site": "WBUR",
+        "target_voltage_kv": 400,
+        "explored_nodes": 4,
+        "refused_edge_count": 0
+      },
+      "capacity": {
+        "status": "UNKNOWN",
+        "entered_headroom_mw": null,
+        "margin_mw": null,
+        "within_entered_headroom": null
+      },
+      "pareto_tier": 1
+    },
+    {
+      "site_code": "STYC",
+      "name": "STAYTHORPE C",
+      "location": {
+        "lat": 53.076924,
+        "lon": -0.865492,
+        "mapped_name": "Staythorpe C Substation",
+        "matched_by": "exact_name_highest_voltage"
+      },
+      "transmission_owner": "NGET",
+      "voltages_kv": [
+        132
+      ],
+      "distance_km": 25.214002082746013,
+      "topology": {
+        "status": "PUBLISHED_PATH_FOUND",
+        "hops": 1,
+        "path": [
+          {
+            "from_node": "STYC11",
+            "to_node": "STAY41",
+            "edge_id": "transformer:1163",
+            "kind": "transformer",
+            "from_kv": 132,
+            "to_kv": 400,
+            "published_ratings_mva": {
+              "rating_mva": 266.0
+            },
+            "source_row": "transformers[1163]"
+          }
+        ],
+        "target_node": "STAY41",
+        "target_site": "STAY",
+        "target_voltage_kv": 400,
+        "explored_nodes": 3,
+        "refused_edge_count": 0
+      },
+      "capacity": {
+        "status": "UNKNOWN",
+        "entered_headroom_mw": null,
+        "margin_mw": null,
+        "within_entered_headroom": null
+      },
+      "pareto_tier": 2
+    },
+    {
+      "site_code": "KEAD",
+      "name": "KEADBY",
+      "location": {
+        "lat": 53.598046,
+        "lon": -0.755933,
+        "mapped_name": "Keadby Substation",
+        "matched_by": "exact_name_highest_voltage"
+      },
+      "transmission_owner": "NGET",
+      "voltages_kv": [
+        400,
+        132
+      ],
+      "distance_km": 33.30669725899488,
+      "topology": {
+        "status": "PUBLISHED_PATH_FOUND",
+        "hops": 1,
+        "path": [
+          {
+            "from_node": "KEAD11",
+            "to_node": "KEAD41",
+            "edge_id": "transformer:890",
+            "kind": "transformer",
+            "from_kv": 132,
+            "to_kv": 400,
+            "published_ratings_mva": {
+              "rating_mva": 256.0
+            },
+            "source_row": "transformers[890]"
+          }
+        ],
+        "target_node": "KEAD41",
+        "target_site": "KEAD",
+        "target_voltage_kv": 400,
+        "explored_nodes": 3,
+        "refused_edge_count": 0
+      },
+      "capacity": {
+        "status": "UNKNOWN",
+        "entered_headroom_mw": null,
+        "margin_mw": null,
+        "within_entered_headroom": null
+      },
+      "pareto_tier": 3
+    }
+  ]
+}
